@@ -17,7 +17,7 @@
                         <li>Omnivox</li>
                         <li>Album</li>
                         <li>FAQ</li>
-                        <li>Meilleur site de vaches</li>
+                        <li>Connection</li>
                     </ul>
                 </div>
             </div>
