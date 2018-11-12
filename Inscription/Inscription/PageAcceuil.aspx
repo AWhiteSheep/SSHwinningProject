@@ -18,6 +18,7 @@
                         <li>Album</li>
                         <li>FAQ</li>
                         <li>Meilleur site de vaches</li>
+                        <li>Activite</li>
                     </ul>
                 </div>
             </div>
