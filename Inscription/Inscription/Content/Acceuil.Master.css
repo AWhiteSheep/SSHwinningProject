@@ -1,0 +1,9 @@
+﻿.acceuilBanner {
+    background-image: url('../Images/milky-way-1030765_1920.jpg');
+    height: 350px;
+    background-position-y:70%;
+}
+.container-box{
+    background-color:grey;
+    padding:20px;
+}

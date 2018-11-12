@@ -1,0 +1,135 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Acceuil.master.cs" Inherits="Inscription.Acceuil" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%--    <meta http-equiv="Content-Type" content="width=device-width, initial-scale=1.0;text/html; charset=utf-8"/>--%>
+    <%-- Section Link --%>
+    <%-- css pour cette master --%>
+    <link rel="stylesheet" href="Content/Inscription.Master.css" />
+
+    <link rel="stylesheet" href="Content/bootstrap.css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <%-- For special fonts --%>
+    <link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
+
+    <%-- font pour les icons --%>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    
+    
+
+    <%-- Scripts for bootstrap --%>
+    <script src="Scripts/jquery-3.0.0.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+</head>
+<body>
+        <%-- Top section the socials --%>
+        <div class="top-indicator">
+            <%-- Lien instagram pour SSH --%>
+            <a target="_blank" href="https://www.instagram.com/semaine.sciences.humaines/">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <%-- Lien facebook pour SSH --%>
+            <a target="_blank" href="https://www.facebook.com/SHOutaouais/">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <%-- Sera modifié lorsque l'usager va se connecter --%>
+            <asp:Label CssClass="lbLogin" ID="lbLogin" runat="server" Text="Username"></asp:Label>
+        </div>
+
+        <%-- image banner, representing human science --%>
+        <div class="banner-image">
+            <img src="Images/earth.jpg" />
+            <img src="Images/LesterBPerson.jpg" />
+            <img src="Images/science.jpg" />
+            <img src="Images/rubik.jpg" />
+            <img src="Images/LisePayette.jpg" />
+            <img src="Images/team.jpg" />
+            <img src="Images/statue-3289791_640.jpg" />
+            <img src="Images/bustos.jpg" />
+            <img src="Images/canvas-1009232_640.jpg" />
+            <img src="Images/guy-2617866_640.jpg" />
+            <img src="Images/pyramids-2371501_1280.jpg" />
+            <img src="Images/bonding.jpg" />
+            <img src="Images/hands-600497_640.jpg" />
+            <img src="Images/earth.jpg" />
+            <img src="Images/LesterBPerson.jpg" />
+            <img src="Images/science.jpg" />
+            <img src="Images/rubik.jpg" />
+            <img src="Images/LisePayette.jpg" />
+            <img src="Images/team.jpg" />
+            <img src="Images/statue-3289791_640.jpg" />
+            <img src="Images/bustos.jpg" />
+            <img src="Images/canvas-1009232_640.jpg" />
+            <img src="Images/guy-2617866_640.jpg" />
+            <img src="Images/pyramids-2371501_1280.jpg" />
+            <img src="Images/bonding.jpg" />
+            <img src="Images/hands-600497_640.jpg" />
+        </div>
+        <%-- Nav bar temporary ??? --%>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-my-dark">
+          <a class="navbar-brand" href="#"><span style="color:rgb(101,147,245)">S</span><span style="color:rgb(255,116,23)">S</span><span style="color:rgb(244,17,95)">H</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Événements</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Calendrier</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Discussion</a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Activités Spéciales</a>
+              </li>
+            </ul>
+              <%-- Section de recherche --%>
+            <form class="form-inline mt-2 mt-md-0" style="margin:.5rem">
+                <input class="form-control mr-sm-2" type="text"
+                    placeholder="Rechercher" aria-label="Search" />
+                <button class="btn btn-success my-2 my-sm-0" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+          </div>
+        </nav>
+        <%-- End of nav bar --%>
+    <asp:ContentPlaceHolder ID="contentBody" runat="server">
+        <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
+    </asp:ContentPlaceHolder>
+    <footer>
+        <div class="container footer">
+            <div class="row justify-content-end">
+                <div class="col-md-3" style="">
+                    <span style="color:rgb(101,147,245)">S</span><span style="color:rgb(255,116,23)">S</span><span style="color:rgb(244,17,95)">H</span>
+                </div>
+                <div class="col-md-3" style="">
+                    Cegep Outaouais<br />
+                    Mon école<br />
+                    333 Boulevard cité<br />
+                    819-222-8888<br />
+                </div>
+                <div class="col-md-3" style="">
+                    <a href="#">Événements</a><br />
+                    <a href="https://cegepoutaouais.omnivox.ca/intr/Module/Identification/Login/Login.aspx?ReturnUrl=%2fintr">Étudiant</a><br />
+                    <a href="#">Calendrier</a><br />
+                    <a href="#">Discussion</a><br />
+                    <a href="#">Activités Spéciales</a>
+                </div>
+                <div class="col-md-3" style="">
+                    ©Tous droits réservés
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
