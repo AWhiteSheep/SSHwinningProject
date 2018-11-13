@@ -26,6 +26,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <asp:ContentPlaceHolder ID="SQLconnection" runat="server"></asp:ContentPlaceHolder>
         <%-- Top section the socials --%>
         <div class="top-indicator">
             <%-- Lien instagram pour SSH --%>

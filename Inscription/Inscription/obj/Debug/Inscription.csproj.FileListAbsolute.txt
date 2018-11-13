@@ -26,3 +26,13 @@ E:\Cégep\2018-2019\Programmation\Projet\Inscription\Inscription\obj\Debug\Inscr
 E:\Cégep\2018-2019\Programmation\Projet\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
 E:\Cégep\2018-2019\Programmation\Projet\Inscription\Inscription\obj\Debug\Inscription.dll
 E:\Cégep\2018-2019\Programmation\Projet\Inscription\Inscription\obj\Debug\Inscription.pdb
+C:\Users\Yan Ha\Desktop\GitHub\SSHwinningProject\Inscription\Inscription\bin\Inscription.dll.config
+C:\Users\Yan Ha\Desktop\GitHub\SSHwinningProject\Inscription\Inscription\bin\Inscription.dll
+C:\Users\Yan Ha\Desktop\GitHub\SSHwinningProject\Inscription\Inscription\bin\Inscription.pdb
+C:\Users\Yan Ha\Desktop\GitHub\SSHwinningProject\Inscription\Inscription\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Yan Ha\Desktop\GitHub\SSHwinningProject\Inscription\Inscription\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Yan Ha\Desktop\GitHub\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csprojAssemblyReference.cache
+C:\Users\Yan Ha\Desktop\GitHub\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CoreCompileInputs.cache
+C:\Users\Yan Ha\Desktop\GitHub\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
+C:\Users\Yan Ha\Desktop\GitHub\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
+C:\Users\Yan Ha\Desktop\GitHub\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb
