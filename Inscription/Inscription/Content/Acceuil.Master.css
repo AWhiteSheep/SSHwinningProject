@@ -1,9 +1,52 @@
 ﻿.acceuilBanner {
+    /*Controle la grandeur que le container prendra et set l'image de background qui pourra être remplacé*/
     background-image: url('../Images/milky-way-1030765_1920.jpg');
     height: 350px;
     background-position-y:70%;
 }
+
+.acceuilTitle {
+    /*Pour la création du shadow box autour du titre SEMAINE SCIENCES HUMAINES*/
+    position: absolute;
+    position: absolute;
+    left: 18%;
+    top: 282px;
+    font-size: 38px;
+    padding: 30px;
+    background-color: rgba(128, 128, 128, 0.8);
+}
 .container-box{
-    background-color:grey;
+    /*Utile pour la création d'un shadow*/
+    border-top:aqua solid 5px;
     padding:20px;
+
+    /*afin d'avoir une espace avec le container de banner*/
+    margin-top:10px;
+}
+.container-box ul{
+    list-style-type:none;
+    padding:0;
+}
+.container-box ul li{
+
+    padding:5px;
+}
+
+    .container-box ul li a {
+        color: black;
+        text-decoration: none;
+        padding: 5px;
+        padding-left: 20px;
+    }
+
+.container-box ul li a:hover{
+    border-left:deepskyblue solid 5px;    
+    cursor:pointer;
+}
+.Main-acceuil{
+    margin-top:30px;
+    margin-bottom:40px;
+}
+.Main-acceuil .h1{
+    font-family: 'Adamina' !important;
 }
