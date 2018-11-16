@@ -9,28 +9,18 @@
     height: 30px;
 }
 
-    .top-indicator .lbLogin {
-        color:black;
-    }
+.top-indicator .lbLogin {color:black;}
+.top-indicator i {margin-right: 10px;color: black;}
+.top-indicator i:hover{color: navy;}
 
-    .top-indicator i {
-        margin-right: 10px;
-        color: black;
-    }
-
-    .top-indicator i:hover{
-        color: navy;
-    }
 .banner-image {    
     width: 120%;
     height: 100px;
     overflow: hidden;
 }
-    .banner-image img {
-        
-        float: left;
-        height: 100px;
-    }
+
+.banner-image img {float: left;height: 100px;}
+
 .Main {
     margin: auto;
     max-width: 1180px;
@@ -41,157 +31,120 @@
     clear: both;
 }
 
-    .Main .top-right {
-        padding-left:35px;
-        float: left;
-    }
+.Main .top-right {padding-left:35px;float: left;}
 
-    .Main .top-left .h2 {
-        font-size: 3vw !important;
-    }
+.Main .top-left .h2 {font-size: 3vw !important;}
 
-    .Main .event-media{
-        float:right;
-        width:100%;
-        margin-right:0;
-        max-height:500px;
-        overflow:hidden;
-    }
+.Main .event-media{
+    float:right;
+    width:100%;
+    margin-right:0;
+    max-height:500px;
+    overflow:hidden;
+}
 
-    .Main .event-media img{
-        width:100%;
-        transform: translateY(-10%)
-    }
+.Main .event-media img{width:100%;transform: translateY(-10%)}
 
-        .Main .event-media .Banner-title {
-            position: absolute;
-            bottom: 100px;
-            font-size: 1.75rem !important;
-            /* pour le box */
-            background-color: #8888;
-            color: white;
-            padding: 10px 13px;
-        }
+.Main .event-media .Banner-title {
+    position: absolute;
+    bottom: 100px;
+    font-size: 1.75rem !important;
+    /* pour le box */
+    background-color: #8888;
+    color: white;
+    padding: 10px 13px;
+}
 
-    .Main .top-right .box-btn-inscription {
-        text-align:center;
-    }
-    .Main .top-right .btnSincrire {
-        text-align:center;
-        width: 208px;
-        height:42px;
-        font-size:17px;
-        vertical-align:middle;
-        padding:0 !important;
-        border-radius:200px;
-    }
+.Main .top-right .box-btn-inscription {text-align:center;}
+.Main .top-right .btnSincrire {
+    text-align:center;
+    width: 208px;
+    height:42px;
+    font-size:17px;
+    vertical-align:middle;
+    padding:0 !important;
+    border-radius:200px;
+}
 
-    .Main .bot-left {
-        height: 50vw;
-        max-height: 400px;
-        min-height: 360px;
-        min-width: 180px;
-        float: left;
-        width: 30%;
-    }
+.Main .bot-left {
+    height: 50vw;
+    max-height: 400px;
+    min-height: 360px;
+    min-width: 180px;
+    float: left;
+    width: 30%;
+}
 
-    .Main .bot-right {
-        height: 50vw;
-        max-height: 400px;
-        min-width: 420px;
-        min-height: 360px;
-        float: left;
-        width: 70%;
-    }
+.Main .bot-right {
+    height: 50vw;
+    max-height: 400px;
+    min-width: 420px;
+    min-height: 360px;
+    float: left;
+    width: 70%;
+}
     
-    .Main .Main-Share{
-        padding-top:30px;
-    }
+.Main .Main-Share{padding-top:30px;}
 
-    .Main .Share-box{
-        border-right: 3px solid rgb(128, 128, 128);
-        height:180px;
-        margin-top:30px;
+.Main .Share-box{
+    border-right: 3px solid rgb(128, 128, 128);
+    height:180px;
+    margin-top:30px;
 
-        /*Text*/
-        text-align:center;
-    }
+    /*Text*/
+    text-align:center;
+}
     
-    .Main .Share-box i{
-        padding-top:10px;
-        font-size:60px;
-    }
+.Main .Share-box i{padding-top:10px;font-size:60px;}
 
-    .Main .description-box{
-        padding-top:30px;
-        padding-right:4em;
-        padding-left:4em;
-    }
+.Main .description-box{
+    padding-top:30px;
+    padding-right:4em;
+    padding-left:4em;
+}
 /* footer 
 //////////
 /////
 ///
 */
-    footer {
-        clear: both;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        padding: 35px 0 60px;
-        height: auto !important;
-        width: 100%;
-        background-color: #222021 !important;
-        font-size: 17px;
-        color: white;
-    }
-
-.container.footer {
-    padding-left: 50px;
+footer {
+    clear: both;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 35px 0 60px;
+    height: auto !important;
+    width: 100%;
+    background-color: #222021 !important;
+    font-size: 17px;
+    color: white;
 }
 
-footer a:hover {
-    text-decoration: none;
-}
+.container.footer {padding-left: 50px;}
 
-footer a {
-    color: aquamarine;
-}
+footer a:hover {text-decoration: none;}
 
-footer img {
-    width: 30px;
-    height: 30px;
-}
+footer a {color: aquamarine;}
+
+footer img {width: 30px;height: 30px;}
 
 
 /* BootStrap modifyer*/
-nav .btn{
-    padding: .35rem 0.75rem;
-}
+nav .btn{padding: .35rem 0.75rem;}
 .nav-link {
     font-family: 'Adamina' !important;
     color: black !important;
     border-bottom: 6px solid white;
 }
-.nav-link:hover {
-    border-bottom:6px solid #00B5DF;
-}
+.nav-link:hover {border-bottom:6px solid #00B5DF;}
 
-.collapse.navbar-collapse{
-    margin-top:6px;
-}
+.collapse.navbar-collapse{margin-top:6px;}
 
-nav input {
-    border-radius: 500px !important;
-}
+nav input {border-radius: 500px !important;}
 
-nav button {
-    border-radius: 1000px !important;
-}
-.navbar-brand {
-    font-family: 'Adamina' !important;
-}
-.bg-my-dark{
-    background-color:white !important;
-    border-bottom:grey solid 3px;
-}
+nav button {border-radius: 1000px !important;}
+
+.navbar-brand {font-family: 'Adamina' !important;}
+
+.bg-my-dark{background-color:white !important;border-bottom:grey solid 3px;}
 .navbar-dark .navbar-text {
     border-radius: 500px;
     padding: 8px 34px;
@@ -199,9 +152,4 @@ nav button {
     color: black !important;
     font-family: 'Adamina' !important;
 }
-.navbar-brand {
-    font-size:1.8rem !important;
-}
-.navbar-toggler{
-    color
-}
+.navbar-brand {font-size:1.8rem !important;}
