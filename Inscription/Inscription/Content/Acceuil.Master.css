@@ -23,7 +23,7 @@
 }
 .container-box {
     /*Utile pour la création d'un shadow*/
-    border-top: #dc3545 solid 5px;
+    border-top: #ffc107 solid 5px;
     padding: 20px;
     /*afin d'avoir une espace avec le container de banner*/
     margin-top: 10px;

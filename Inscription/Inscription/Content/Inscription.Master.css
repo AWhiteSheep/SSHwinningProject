@@ -19,7 +19,12 @@
     overflow: hidden;
 }
 
-.banner-image img {float: left;height: 100px;width:100px;}
+.banner-image img {
+    float: left;
+    height: 100px;
+    width: 100px;
+    filter: grayscale(100%);
+}
 
 .Main {
     margin: auto;
