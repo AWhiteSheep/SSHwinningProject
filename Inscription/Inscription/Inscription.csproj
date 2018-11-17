@@ -73,6 +73,8 @@
       <DependentUpon>SSHdataBase.mdf</DependentUpon>
     </Content>
     <Content Include="Content\Acceuil.Master.css" />
+    <Content Include="Content\Activites.css" />
+    <Content Include="Film\29438271_153448085310129_2980283944900829754_n.mp4" />
     <Content Include="Images\bonding.jpg" />
     <Content Include="Images\bustos.jpg" />
     <Content Include="Images\canvas-1009232_640.jpg" />
@@ -80,12 +82,17 @@
     <Content Include="Images\guy-2617866_640.jpg" />
     <Content Include="Images\hands-600497_640.jpg" />
     <Content Include="Images\Histoire.jpg" />
+    <Content Include="Images\instaSSH.jpg" />
     <Content Include="Images\LesterBPerson.jpg" />
     <Content Include="Images\LisePayette.jpg" />
     <Content Include="Images\milky-way-1030765_1920.jpg" />
     <Content Include="Images\pyramids-2371501_1280.jpg" />
     <Content Include="Images\rubik.jpg" />
     <Content Include="Images\science.jpg" />
+    <Content Include="Images\SSH1.jpg" />
+    <Content Include="Images\SSH2.jpg" />
+    <Content Include="Images\SSH3.jpg" />
+    <Content Include="Images\SSH4.jpg" />
     <Content Include="Images\statue-3289791_640.jpg" />
     <Content Include="Images\team.jpg" />
     <Content Include="Inscription.Master" />
@@ -93,6 +100,7 @@
     <Content Include="PageAcceuil.aspx">
       <BrowseToURL>~/PageAcceuil.aspx</BrowseToURL>
     </Content>
+    <Content Include="Activités.aspx" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
@@ -187,6 +195,13 @@
     </Compile>
     <Compile Include="PageAcceuil.aspx.designer.cs">
       <DependentUpon>PageAcceuil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Activités.aspx.cs">
+      <DependentUpon>Activités.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Activités.aspx.designer.cs">
+      <DependentUpon>Activités.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

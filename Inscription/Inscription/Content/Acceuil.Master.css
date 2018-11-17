@@ -21,12 +21,12 @@
     background-color: rgba(128, 128, 128, 0.8);
     text-align:center;
 }
-.container-box{
+.container-box {
     /*Utile pour la création d'un shadow*/
-    border-top:aqua solid 5px;
-    padding:20px;
+    border-top: #dc3545 solid 5px;
+    padding: 20px;
     /*afin d'avoir une espace avec le container de banner*/
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 /*Petite modification pour la liste ul pour faire le menu latéral*/

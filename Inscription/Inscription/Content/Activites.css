@@ -1,0 +1,18 @@
+﻿.activity-card{
+    height:230px;
+    width:45%;
+    border: 5px solid red;
+}
+.activity-card img{
+    height:180px;
+    
+}
+.search-activity input{
+    margin-left:25%;
+    text-align:center;
+    width:45% !important;
+    border-radius: 500px !important;
+}
+.search-activity {
+    text-align:center;
+}

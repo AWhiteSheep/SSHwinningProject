@@ -19,7 +19,7 @@
     overflow: hidden;
 }
 
-.banner-image img {float: left;height: 100px;}
+.banner-image img {float: left;height: 100px;width:100px;}
 
 .Main {
     margin: auto;
