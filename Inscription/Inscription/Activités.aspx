@@ -7,14 +7,9 @@
 <%-- Page Web pour les activités --%>
     <div class="container search-activity">
         <div class="display-1" style="text-align:center;">Activité</div>
-        <form class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text"
-                    placeholder="Rechercher" aria-label="Search" />
-                <button class="btn btn-success my-2 my-sm-0" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-        search with tags
+        <span class="text-search">Recherche par semaine</span>
+
+        <span class="text-search">Recherche par tags</span>
         <hr />
     </div>
     <div class="row justify-content-md-center">
