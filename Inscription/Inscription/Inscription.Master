@@ -92,7 +92,7 @@
                 <a class="nav-link" href="#">Discussion</a>
               </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Activités Spéciales</a>
+                <a class="nav-link" href="Activités.aspx">Activités</a>
               </li>
             </ul>
               <%-- Section de recherche --%>

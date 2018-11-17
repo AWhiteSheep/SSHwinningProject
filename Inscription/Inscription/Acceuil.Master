@@ -77,7 +77,7 @@
         </div>
         <%-- Nav bar temporary ??? --%>
         <nav class="navbar navbar-expand-lg navbar-light bg-my-dark">
-          <a class="navbar-brand" href="#"><span style="color:rgb(101,147,245)">S</span><span style="color:rgb(4, 123, 93)">S</span><span style="color:rgb(2,2,2)">H</span></a>
+          <a class="navbar-brand" href="PageAcceuil.aspx"><span style="color:rgb(101,147,245)">S</span><span style="color:rgb(4, 123, 93)">S</span><span style="color:rgb(2,2,2)">H</span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -93,7 +93,7 @@
                 <a class="nav-link" href="#">Discussion</a>
               </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Activités Spéciales</a>
+                <a class="nav-link" href="Activités.aspx">Activités</a>
               </li>
             </ul>
               <%-- Section de recherche --%>

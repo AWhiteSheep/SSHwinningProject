@@ -127,7 +127,9 @@ footer {
 
 footer a:hover {text-decoration: none;}
 
-footer a {color: aquamarine;}
+footer a {
+    color: rgb(4, 123, 93);
+}
 
 footer img {width: 30px;height: 30px;}
 

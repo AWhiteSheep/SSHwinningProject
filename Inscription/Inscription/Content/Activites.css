@@ -1,11 +1,11 @@
 ﻿.activity-card{
     height:230px;
     width:45%;
-    border: 5px solid red;
 }
 .activity-card img{
-    height:180px;
-    
+    width:250px;
+    float:left;
+    margin-right:10px;
 }
 .search-activity input{
     margin-left:25%;
@@ -13,9 +13,37 @@
     width:45% !important;
     border-radius: 500px !important;
 }
+.search-activity button{
+    margin:4px;
+}
+.search-activity button:active {
+}
+.search-activity button:focus {
+    box-shadow: none !important;
+}
+
+.search-activity .jour-active {
+    background-color: rgb(4, 123, 93);
+}
+
+.search-activity .tag-active{
+    background-color:darkorange;
+}
+.search-activity .choix-tag{
+    border-radius:500px;
+}
+.search-activity .effacer-tag {
+    border-radius: 500px;
+    height:39px;
+    font-size:25px;
+    padding:0 !important;
+    background-color: ghostwhite;
+}
 .search-activity {
     text-align:center;
 }
+
+
 .text-search{
     text-align:right;
 }
