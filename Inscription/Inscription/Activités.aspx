@@ -29,6 +29,7 @@
                 <img src="Images/Histoire.jpg" />
                 <div class="h4">L'éducation gratuite!</div>
                 <p>Vous êtes convoqués à venir nous joindre à une superbe preésentation magistral pour une éducation accessible à tous!</p>
+                <a href="TestPage.aspx" class="btn activity-btn-voir">Voir</a><button class="btn activity-btn-inscription">Inscription</button>
             </div>            
         </div>
     </div>
