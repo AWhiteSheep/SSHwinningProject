@@ -1,13 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Acceuil.Master" AutoEventWireup="true" CodeBehind="Activités.aspx.cs" Inherits="Inscription.WebForm3" %>
+
+<%-- Le content place holder pour le head afin d'ajouter le css dédié pour la page --%>
 <asp:Content ID="ActHead" ContentPlaceHolderID="head" runat="server">
     <title>Activités</title>
+
+    <%-- Ajout du css pour la page Activité --%>
     <link rel="stylesheet" href="Content/Activites.css" />
 </asp:Content>
+
+<%-- le content place holder pour le body qui ajoute de l'information dans la page autre que la master --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" runat="server">
 <%-- Page Web pour les activités --%>
     <div class="container search-activity">
         <div class="display-1" style="text-align:center;">Activités</div>
         <hr />
+        <%-- Le boutton est clické celui-ci enlêve  --%>
         <button class="btn choix-jour" id="J1">Journée 1</button>
         <button class="btn choix-jour" id="J2">Journée 2</button>
         <button class="btn choix-jour" id="J3">Journée 3</button>
@@ -33,6 +40,8 @@
             </div>            
         </div>
     </div>
+
+    <%-- Script mis a fin de page afin de load soit plus efficace --%>
     <script>
         <%-- Jquery afin de toggle la class de boutton activé, afin de savoir à l'usager laquelles des journées il  a choisi --%>
         $(document).ready(function () {
