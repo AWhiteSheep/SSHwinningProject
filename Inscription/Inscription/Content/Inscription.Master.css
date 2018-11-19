@@ -132,7 +132,10 @@ footer a {
 }
 
 footer img {width: 30px;height: 30px;}
-
+nav {
+    position: sticky;
+    top: 0px;
+}
 
 /* BootStrap modifyer*/
 nav .btn{padding: .35rem 0.75rem;}
@@ -147,7 +150,10 @@ nav .btn{padding: .35rem 0.75rem;}
 
 nav input {border-radius: 500px !important;}
 
-nav button {border-radius: 1000px !important;}
+nav button {
+    border-radius: 1000px !important;
+    background-color: rgb(4, 123, 93) !important;
+}
 
 .navbar-brand {font-family: 'Adamina' !important;}
 

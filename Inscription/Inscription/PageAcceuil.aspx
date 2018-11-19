@@ -21,7 +21,6 @@
                         <li><a href="https://cegepoutaouais.omnivox.ca">Omnivox</a></li>
                         <li><a>Album</a></li>
                         <li><a>FAQ</a></li>
-                        <li><a>Activite</a></li>
                         <li><a>Login</a></li>                        
                     </ul>
                 </div>

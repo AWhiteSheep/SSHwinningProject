@@ -13,8 +13,22 @@
     width:45% !important;
     border-radius: 500px !important;
 }
-.search-activity button{
-    margin:4px;
+.image-box .btn{
+    border-radius:500px;
+}
+    .activity-btn-inscription {
+        margin-left:135px;
+        background-color: rgb(4, 123, 93);
+    }
+    .activity-btn-voir {
+        color:black;
+        background-color: rgb(101,147,245);
+        text-decoration:none;
+        margin-left:10px;
+    }
+
+.search-activity button {
+    margin: 4px;
 }
 .search-activity button:active {
 }
