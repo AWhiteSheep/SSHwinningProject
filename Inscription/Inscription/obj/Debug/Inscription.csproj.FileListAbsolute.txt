@@ -56,3 +56,13 @@ C:\Users\info1\Desktop\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscr
 C:\Users\info1\Desktop\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
 C:\Users\info1\Desktop\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
 C:\Users\info1\Desktop\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\Inscription.dll.config
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\Inscription.dll
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\Inscription.pdb
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csprojAssemblyReference.cache
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CoreCompileInputs.cache
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb

@@ -10,7 +10,7 @@
         <%-- Emplacement du titre  --%>
         <div class="acceuilTitle">SEMAINE DES SCIENCES HUMAINES</div>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-4 sticky-top">
                 <div class="container-box">

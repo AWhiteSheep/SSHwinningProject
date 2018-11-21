@@ -28,6 +28,9 @@
     <script src="Scripts/bootstrap.js"></script>
 </head>
 <body>
+        <%-- Pour la connection sql nous avons besoin de mettre la ligne de connection dans le content holder dans la page crée de l'atelier --%>
+        <asp:ContentPlaceHolder ID="SQLconnection" runat="server"></asp:ContentPlaceHolder>
+
         <%-- Top section the socials --%>
         <div class="top-indicator">
             <%-- Lien instagram pour SSH --%>
@@ -59,8 +62,7 @@
             <img src="Images/canvas-1009232_640.jpg" />
             <img src="Images/guy-2617866_640.jpg" />            
             <img src="Images/pyramids-2371501_1280.jpg" />
-            <img src="Images/bonding.jpg" />
-            
+            <img src="Images/bonding.jpg" />            
             <%-- REp --%>            
             <img src="Images/LesterBPerson.jpg" />
             <img src="Images/science.jpg" />
@@ -84,17 +86,18 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Événements</a>
+                <a class="nav-link" href="#">Album</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">À propos</a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="Activités.aspx">Ateliers</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Calendrier</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Discussion</a>
-              </li>
-                <li class="nav-item">
-                <a class="nav-link" href="Activités.aspx">Activités</a>
-              </li>
+
             </ul>
               <%-- Section de recherche --%>
             <form class="form-inline mt-2 mt-md-0" style="margin:.5rem">
@@ -107,9 +110,15 @@
           </div>
         </nav>
         <%-- End of nav bar --%>
+
+    <%-- ----------------------------------------------------------------------------------------- --%>
+            <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
+    <%-- ----------------------------------------------------------------------------------------- --%>
     <asp:ContentPlaceHolder ID="contentBody" runat="server">
-        <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
     </asp:ContentPlaceHolder>
+    <%-- ----------------------------------------------------------------------------------------- --%>
+            <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
+    <%-- ----------------------------------------------------------------------------------------- --%>
     <footer>
         <div class="container footer">
             <div class="row justify-content-end">

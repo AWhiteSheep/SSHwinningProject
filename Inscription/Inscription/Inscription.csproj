@@ -74,6 +74,7 @@
     </Content>
     <Content Include="Content\Acceuil.Master.css" />
     <Content Include="Content\Activites.css" />
+    <Content Include="Content\Calendrier.css" />
     <Content Include="Film\29438271_153448085310129_2980283944900829754_n.mp4" />
     <Content Include="Images\bonding.jpg" />
     <Content Include="Images\bustos.jpg" />
@@ -101,6 +102,8 @@
       <BrowseToURL>~/PageAcceuil.aspx</BrowseToURL>
     </Content>
     <Content Include="Activités.aspx" />
+    <Content Include="Ateliers.aspx" />
+    <Content Include="Calendrier.aspx" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
@@ -202,6 +205,20 @@
     </Compile>
     <Compile Include="Activités.aspx.designer.cs">
       <DependentUpon>Activités.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ateliers.aspx.cs">
+      <DependentUpon>Ateliers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ateliers.aspx.designer.cs">
+      <DependentUpon>Ateliers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Calendrier.aspx.cs">
+      <DependentUpon>Calendrier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calendrier.aspx.designer.cs">
+      <DependentUpon>Calendrier.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

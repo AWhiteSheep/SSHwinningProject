@@ -9,11 +9,16 @@
     height: 30px;
 }
 
+.top-indicator a:hover{
+    text-decoration:none;
+}
+
 .top-indicator .lbLogin {color:black;}
 .top-indicator i {margin-right: 10px;color: black;}
 .top-indicator i:hover{color: navy;}
+.top-indicator .lbLogin:hover{color:navy; cursor:pointer;}
 
-.banner-image {    
+.banner-image {
     width: 120%;
     height: 100px;
     overflow: hidden;
@@ -133,8 +138,9 @@ footer a {
 
 footer img {width: 30px;height: 30px;}
 nav {
-    position: sticky;
-    top: 0px;
+    position: sticky !important;
+    top: 0;
+    z-index:101;
 }
 
 /* BootStrap modifyer*/

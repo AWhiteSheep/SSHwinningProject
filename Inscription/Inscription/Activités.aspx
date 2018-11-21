@@ -12,7 +12,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" runat="server">
 <%-- Page Web pour les activités --%>
     <div class="container search-activity">
-        <div class="display-1" style="text-align:center;">Activités</div>
+        <div class="display-1" style="text-align:center;">Ateliers</div>
         <hr />
         <%-- Le boutton est clické celui-ci enlêve  --%>
         <button class="btn choix-jour" id="J1">Journée 1</button>
@@ -36,7 +36,7 @@
                 <img src="Images/Histoire.jpg" />
                 <div class="h4">L'éducation gratuite!</div>
                 <p>Vous êtes convoqués à venir nous joindre à une superbe preésentation magistral pour une éducation accessible à tous!</p>
-                <button class="btn activity-btn-inscription">Inscription</button><a href="TestPage.aspx" class="btn activity-btn-voir">Plus...</a>
+                <span style="float:right;"><button class="btn activity-btn-inscription">Inscription</button><a href="Ateliers.aspx" class="btn activity-btn-voir">Plus...</a></span>
             </div>            
         </div>
     </div>
