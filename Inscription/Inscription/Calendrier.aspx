@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Acceuil.Master" AutoEventWireup="true" CodeBehind="Calendrier.aspx.cs" Inherits="Inscription.WebForm5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Content/Calendrier.css" rel="stylesheet" />
+    <title>Calendrier</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="SQLconnection" runat="server">
 </asp:Content>
@@ -259,4 +260,15 @@
         </div>
         <%-- Fin du calendrier--%>
     </div>
+    <script>
+        $(document).ready(function () {
+                var numChild = $('.calendar_events').children().length;
+                    for (var i = 0; i < numChild; i++) {
+                        if (i % 2 == 0) {
+                            $('.calendar_events').children(".event_item")[i].className += " event_item2";
+                        }
+                    }
+                
+        });
+    </script>
 </asp:Content>
