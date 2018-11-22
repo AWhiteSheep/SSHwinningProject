@@ -1,5 +1,10 @@
 ﻿
 
+.zoom{
+    zoom:70%;
+}
+
+
 .event_item2 {
     background-color: #4b6cb75e;
 }
@@ -51,6 +56,7 @@ body {
 
 .calendar_plan {
     margin: 20px 0 40px;
+    cursor:pointer;
 }
 
 .cl_plan {
@@ -83,7 +89,12 @@ body {
     cursor: pointer;
     margin: 0 0 0 65px;
     color: #c2c2c2;
-    padding: 11px 13px;
+    padding: 7px 13px;
+}
+
+.cl_derouler {
+    font-size: 10px;
+    text-align: right;
 }
 
 .calendar_events {

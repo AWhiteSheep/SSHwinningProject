@@ -15,7 +15,7 @@ namespace Inscription
         {
             ////Source du code pour la connection https://www.c-sharpcorner.com/UploadFile/ea3ed6/showing-some-data-in-Asp-Net-from-sql-server-database-using/
             //le ID de l'activité une variable est global à la solution qui déterminera se qui sera affiché sur la page --TODO
-            string ActID = "TEST";
+            string ActID = "1";
 
             //string pour la connection à la base de données
             string connStr = ConfigurationManager.ConnectionStrings["ConnectionStringToDonneesActivite"].ConnectionString;

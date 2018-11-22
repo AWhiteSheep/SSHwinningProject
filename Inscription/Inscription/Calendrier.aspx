@@ -21,10 +21,11 @@
                   <div class="cl_plan">
                     <div class="cl_title">Journée 1</div>
                     <div class="cl_copy">20 Avril 2019</div>
-                    <div class="cl_add">
+<%--                    <div class="cl_add">
                        <%-- class de font awesome --%>
-                      <i class="fas fa-plus"></i>
-                    </div>
+<%--                      <i class="fas fa-plus"></i>
+                    </div>--%>
+                    <div class="cl_derouler">Dérouler</div>
                   </div>
                 </div>
                 <div class="calendar_events">
@@ -74,10 +75,7 @@
                   <div class="cl_plan">
                     <div class="cl_title">Journée 1</div>
                     <div class="cl_copy">20 Avril 2019</div>
-                    <div class="cl_add">
-                       <%-- class de font awesome --%>
-                      <i class="fas fa-plus"></i>
-                    </div>
+                     <div class="cl_derouler">Dérouler</div>
                   </div>
                 </div>
                 <div class="calendar_events">
@@ -124,10 +122,7 @@
                   <div class="cl_plan">
                     <div class="cl_title">Journée 1</div>
                     <div class="cl_copy">20 Avril 2019</div>
-                    <div class="cl_add">
-                       <%-- class de font awesome --%>
-                      <i class="fas fa-plus"></i>
-                    </div>
+                      <div class="cl_derouler">Dérouler</div>
                   </div>
                 </div>
                 <div class="calendar_events">
@@ -174,10 +169,7 @@
                   <div class="cl_plan">
                     <div class="cl_title">Journée 1</div>
                     <div class="cl_copy">20 Avril 2019</div>
-                    <div class="cl_add">
-                       <%-- class de font awesome --%>
-                      <i class="fas fa-plus"></i>
-                    </div>
+                      <div class="cl_derouler">Dérouler</div>
                   </div>
                 </div>
                 <div class="calendar_events">
@@ -224,10 +216,7 @@
                   <div class="cl_plan">
                     <div class="cl_title">Journée 1</div>
                     <div class="cl_copy">20 Avril 2019</div>
-                    <div class="cl_add">
-                       <%-- class de font awesome --%>
-                      <i class="fas fa-plus"></i>
-                    </div>
+                      <div class="cl_derouler">Dérouler</div>
                   </div>
                 </div>
                 <div class="calendar_events">
@@ -263,15 +252,52 @@
         </div>
         <%-- Fin du calendrier--%>
     </div>
+
+    <hr />
+
+
+    <%-- boutton pour tout dérouler --%>
+    <div class="Magnifying" style="position:fixed;bottom:20px;right:30px;">
+        <div class="cl_add" style="background-color:#051937;color:white;">
+            <i class="fas fa-search-plus" style="vertical-align:middle;"></i>
+        </div>
+    </div>
     <script>
         $(document).ready(function () {
-                var numChild = $('.calendar_events').children().length;
-                    for (var i = 0; i < numChild; i++) {
-                        if (i % 2 == 0) {
-                            $('.calendar_events').children(".event_item")[i].className += " event_item2";
-                        }
+            $('.calendar_plan').click(function () {
+                $(this).next('.calendar_events').toggleClass('collapse')
+            });
+            //lorsque le window size change l'événement se fait faire
+            $(window).resize(function () {
+                //si le window est à la limite donné de collapse les calendars events pour que ce soit bien pour le mobil
+                if ($(window).width() <= 1500) {
+                    $('.calendar_events').addClass('collapse');
+                } else {
+                    $('.calendar_events').removeClass('collapse');
+                }
+
+            }).resize();//Afin de vérifier au ready de la page
+
+            $('.Magnifying').click(function () {
+                if ($(this).hasClass('activeMagnify')) {
+                    $('.calendar_events').addClass('collapse');
+                    $(this).removeClass('activeMagnify');
+                }
+                else {
+                    $('.calendar_events').removeClass('collapse');
+                    $(this).addClass('activeMagnify');
+                }
+            });                                         
+            //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+            var numChild = $('.calendar_events').children().length;
+                for (var i = 0; i < numChild; i++) {
+                    if (i % 2 == 0) {
+                        $('.calendar_events').children(".event_item")[i].className += " event_item2";
                     }
-                
+            }
+
         });
+    
+
     </script>
 </asp:Content>
