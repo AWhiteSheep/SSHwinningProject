@@ -47,8 +47,30 @@
         $(document).ready(function () {
             //Événement click des boutons avec la class de choix-jour
             $(".choix-jour").click(function () {
+                //enlève la class jour-active de tous les éléments avec la classe choix jour en excluant celui qui activé l'évenement
                 $(".choix-jour").not(this).removeClass("jour-active"); //Enlève de tous les autres boutons la classe jour-active 
+                //Pour celui qui à activé l'événement il toggle la class jour-active, de cette façon nous pouvons l'enlever s'il la class lui appartient
                 $(this).toggleClass("jour-active");
+
+                //Événement click pour envoyé une demande par ajax, pour rechercher selon le jour
+                if ($(this).hasClass("jour-active")) {
+                    var journee = (this).innerHTML;
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            //Quoi faire lorsque la réponse du serveur est prête.
+                            //todo script qui change, avec l'aide de innerHtml, le contenu de l'endroit placé dans le html
+                            document.getElementById("txtHint").innerHTML = this.responseText;
+                        }
+                    };
+
+                    //Ouvre la connection en metant une sting qui dictera quoi chercher
+                    xmlhttp.open("GET", "Je Ne sais quoi.asp?q=" + journee, true);
+
+                    //Envoie la demande 
+                    xmlhttp.send();
+                }
+
             });
 
             //Événement click des boutons avec la class de choix-tag
@@ -60,7 +82,6 @@
             $(".effacer-tag").click(function () {
                 $(".choix-tag").removeClass("tag-active");
             });
-
         });
     </script>
 </asp:Content>
