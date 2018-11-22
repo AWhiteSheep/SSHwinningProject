@@ -56,7 +56,7 @@
                 <div class="row">
                     <div class="col-md-2 Share-box">
                         <span class="Main-Share">PARTAGER</span><br />
-                        <i class="fab fa-facebook"></i><br />
+                        <i class="fab fa-facebook"></i><br/>
                         <i class="fab fa-instagram"></i>
                     </div>
                     <div class="col-md-10 description-box">

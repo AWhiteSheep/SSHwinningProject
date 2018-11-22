@@ -99,7 +99,7 @@
     <Content Include="Images\SSH4.jpg" />
     <Content Include="Images\statue-3289791_640.jpg" />
     <Content Include="Images\team.jpg" />
-    <Content Include="Inscription.Master" />
+    <Content Include="Backup\Inscription.Master" />
     <Content Include="Acceuil.Master" />
     <Content Include="PageAcceuil.aspx">
       <BrowseToURL>~/PageAcceuil.aspx</BrowseToURL>
@@ -147,7 +147,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="TestPage.aspx" />
+    <Content Include="Backup\TestPage.aspx" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -180,19 +180,19 @@
     <Compile Include="Acceuil.Master.designer.cs">
       <DependentUpon>Acceuil.Master</DependentUpon>
     </Compile>
-    <Compile Include="Inscription.Master.cs">
+    <Compile Include="Backup\Inscription.Master.cs">
       <DependentUpon>Inscription.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inscription.Master.designer.cs">
+    <Compile Include="Backup\Inscription.Master.designer.cs">
       <DependentUpon>Inscription.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestPage.aspx.cs">
+    <Compile Include="Backup\TestPage.aspx.cs">
       <DependentUpon>TestPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TestPage.aspx.designer.cs">
+    <Compile Include="Backup\TestPage.aspx.designer.cs">
       <DependentUpon>TestPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="PageAcceuil.aspx.cs">

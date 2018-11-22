@@ -29,12 +29,15 @@
                 </div>
                 <div class="calendar_events">
                   <p class="ce_title">Événement pour la journée</p>
+                   <%-- ---------------------------------------------- --%>
                   <div class="event_item">
                     <%-- Selon le border radius on round les côtés pour que ca ressemble a un disque --%>
                     <div class="ei_Dot dot_active"></div>
                     <div class="ei_Title">10:30 am</div>
                     <div class="ei_Copy">La science neurologique</div>
                   </div>
+                   <%-- ---------------------------------------------- --%>
+
                   <div class="event_item">
                     <div class="ei_Dot"></div>
                     <div class="ei_Title">12:00 pm</div>
