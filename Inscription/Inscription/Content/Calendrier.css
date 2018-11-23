@@ -1,7 +1,13 @@
 ﻿
 
-.zoom{
-    zoom:70%;
+.slider_suivant{
+    position:fixed;
+    top:auto;
+    right:0;
+}
+
+.zoom {
+    zoom: 70%;
 }
 
 
@@ -87,7 +93,6 @@ body {
     border-radius: 50%;
     background-color: #fff;
     cursor: pointer;
-    margin: 0 0 0 65px;
     color: #c2c2c2;
     padding: 7px 13px;
 }

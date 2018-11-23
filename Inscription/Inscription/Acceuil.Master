@@ -27,7 +27,7 @@
     <script src="Scripts/jquery-3.0.0.js"></script>
     <script src="Scripts/bootstrap.js"></script>
 </head>
-<body>
+<body style="overflow-x: hidden;">
         <%-- Pour la connection sql nous avons besoin de mettre la ligne de connection dans le content holder dans la page crée de l'atelier --%>
         <asp:ContentPlaceHolder ID="SQLconnection" runat="server"></asp:ContentPlaceHolder>
 
