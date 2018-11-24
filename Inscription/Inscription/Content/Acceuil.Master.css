@@ -23,8 +23,8 @@
 }
 .container-box {
     /*Utile pour la création d'un shadow*/
-    border-top: #ffc107 solid 5px;
-    padding: 20px;
+    border-top: black solid 5px;
+    padding: 1px;
     /*afin d'avoir une espace avec le container de banner*/
     margin-top: 10px;
 }
@@ -49,4 +49,8 @@
 .sticky{
     position:sticky;
     top:0;
+}
+
+footer {
+   
 }

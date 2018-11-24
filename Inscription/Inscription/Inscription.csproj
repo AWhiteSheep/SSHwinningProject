@@ -83,6 +83,21 @@
     <Content Include="Images\bonding.jpg" />
     <Content Include="Images\bustos.jpg" />
     <Content Include="Images\canvas-1009232_640.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %2810%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %2811%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %2812%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %2813%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %2814%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %282%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %283%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %284%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %285%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %286%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %287%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %288%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1 %289%29.jpg" />
+    <Content Include="Images\Default\insta_gallery_1.jpg" />
+    <Content Include="Images\Default\insta_gallery_2.jpg" />
     <Content Include="Images\earth.jpg" />
     <Content Include="Images\guy-2617866_640.jpg" />
     <Content Include="Images\hands-600497_640.jpg" />
@@ -90,6 +105,7 @@
     <Content Include="Images\instaSSH.jpg" />
     <Content Include="Images\LesterBPerson.jpg" />
     <Content Include="Images\LisePayette.jpg" />
+    <Content Include="Images\logo.PNG" />
     <Content Include="Images\milky-way-1030765_1920.jpg" />
     <Content Include="Images\pyramids-2371501_1280.jpg" />
     <Content Include="Images\rubik.jpg" />
@@ -109,7 +125,10 @@
     <Content Include="Ateliers.aspx" />
     <Content Include="Calendrier.aspx" />
     <Content Include="Album.aspx" />
+    <Content Include="Content\Album.scss" />
+    <Content Include="Contactez.aspx" />
     <None Include="packages.config" />
+    <Content Include="Scripts\formValidation.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <None Include="Web.Debug.config">
@@ -231,6 +250,13 @@
     </Compile>
     <Compile Include="Album.aspx.designer.cs">
       <DependentUpon>Album.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contactez.aspx.cs">
+      <DependentUpon>Contactez.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contactez.aspx.designer.cs">
+      <DependentUpon>Contactez.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -123,9 +123,13 @@ footer {
     padding: 35px 0 60px;
     height: auto !important;
     width: 100%;
-    background-color: #222021 !important;
+    background-color: rgba(248,249,250,1) !important;
     font-size: 17px;
-    color: white;
+    color: black;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-image: url('../Images/logo.PNG');
+    background-size: 100px;
 }
 
 .container.footer {padding-left: 50px;}
@@ -148,7 +152,7 @@ nav .btn{padding: .35rem 0.75rem;}
 .nav-link {
     font-family: 'Adamina' !important;
     color: black !important;
-    border-bottom: 6px solid white;
+    border-bottom: 6px solid rgba(255,255,255,0);
 }
 .nav-link:hover {border-bottom:6px solid #00B5DF;}
 
@@ -158,12 +162,15 @@ nav input {border-radius: 500px !important;}
 
 nav button {
     border-radius: 1000px !important;
-    background-color: rgb(4, 123, 93) !important;
+    background-color: black !important;
 }
 
 .navbar-brand {font-family: 'Adamina' !important;}
 
-.bg-my-dark{background-color:white !important;border-bottom:grey solid 3px;}
+.bg-my-dark {
+    background-color: rgba(255,255,255,.72) !important;
+    border-bottom: grey solid 3px;
+}
 .navbar-dark .navbar-text {
     border-radius: 500px;
     padding: 8px 34px;
@@ -172,3 +179,7 @@ nav button {
     font-family: 'Adamina' !important;
 }
 .navbar-brand {font-size:1.8rem !important;}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}

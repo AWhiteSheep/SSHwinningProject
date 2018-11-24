@@ -10,9 +10,9 @@
         <%-- Emplacement du titre  --%>
         <div class="acceuilTitle">SEMAINE DES SCIENCES HUMAINES</div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4 sticky-top">
+            <div class="col-md-3" style="padding-left:10px;">
                 <div class="container-box">
                     <%-- Liens utiles qui mènera à des sites intéressant pour les élèves --%>
                     <div class="h3">LIENS UTILES</div>

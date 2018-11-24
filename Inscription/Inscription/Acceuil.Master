@@ -86,16 +86,16 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Album</a>
+                <a class="nav-link" href="Album.aspx">Album</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">À propos</a>
-              </li>
-                <li class="nav-item">
+               <li class="nav-item">
                 <a class="nav-link" href="Activités.aspx">Ateliers</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="Calendrier.aspx">Calendrier</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Contactez.aspx">Contactez-Nous</a>
               </li>
 
             </ul>
@@ -103,7 +103,7 @@
             <form class="form-inline mt-2 mt-md-0" style="margin:.5rem">
                 <input class="form-control mr-sm-2" type="text"
                     placeholder="Rechercher" aria-label="Search" />
-                <button class="btn btn-success my-2 my-sm-0" type="submit">
+                <button class="btn btn-success my-2 my-sm-0" type="submit" style="border-color:black">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
