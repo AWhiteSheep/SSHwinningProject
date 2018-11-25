@@ -22,9 +22,9 @@
                                 <%-- Calendrier de Gabrielle-Roy --%>
                     <%-- ------------------------------------------------------------------ --%>
                     <div class="h1" style="margin-left:10%;">Gabrielle-Roy</div>
-                    <div class="row justify-content-center" style="padding-right: 50px;">
+                    <div class="row justify-content-center" style="flex-wrap:unset;">
         <%-- Calendrier 1 --%>
-        <div class="col-md-2 calendar-fix">
+        <div class="calendar-fix">
             <%-- un box shadow sert à faire un distinciation avec les autres cadre --%>
             <div class="calendar light">
                 <%--<div class="calendar_header">
@@ -78,7 +78,7 @@
         </div>
         <%-- Fin du calendrier--%>
         <%-- Calendrier 1 --%>
-        <div class="col-md-2 calendar-fix">
+        <div class="calendar-fix">
             <%-- un box shadow sert à faire un distinciation avec les autres cadre --%>
             <div class="calendar light">
                 <%--<div class="calendar_header">
@@ -125,7 +125,7 @@
         </div>
         <%-- Fin du calendrier--%>
         <%-- Calendrier 1 --%>
-        <div class="col-md-2 calendar-fix">
+        <div class="calendar-fix">
             <%-- un box shadow sert à faire un distinciation avec les autres cadre --%>
             <div class="calendar light">
                 <%--<div class="calendar_header">
@@ -172,7 +172,7 @@
         </div>
         <%-- Fin du calendrier--%>
         <%-- Calendrier 1 --%>
-        <div class="col-md-2 calendar-fix">
+        <div class=" calendar-fix">
             <%-- un box shadow sert à faire un distinciation avec les autres cadre --%>
             <div class="calendar light">
                 <%--<div class="calendar_header">
@@ -219,7 +219,7 @@
         </div>
         <%-- Fin du calendrier--%>
         <%-- Calendrier 1 --%>
-        <div class="col-md-2 calendar-fix">
+        <div class=" calendar-fix">
             <%-- un box shadow sert à faire un distinciation avec les autres cadre --%>
             <div class="calendar light">
                 <%--<div class="calendar_header">
@@ -272,9 +272,9 @@
                                 <%-- Calendrier de Felix leclerc --%>
                     <%-- ------------------------------------------------------------------ --%>
                     <div class="h1" style="margin-left:10%;">Félix Leclerc</div>
-                    <div class="row justify-content-center" style="padding-right: 50px;">
+                    <div class="row" style="flex-wrap: unset;">
                         <%-- Calendrier 1 --%>
-                        <div class="col-md-2 calendar-fix">
+                        <div class=" calendar-fix">
                             <%-- un box shadow sert à faire un distinciation avec les autres cadre --%>
                             <div class="calendar light">
                                 <%--<div class="calendar_header">
@@ -328,7 +328,7 @@
                         </div>
                         <%-- Fin du calendrier--%>
                         <%-- Calendrier 1 --%>
-                        <div class="col-md-2 calendar-fix">
+                        <div class=" calendar-fix">
                             <%-- un box shadow sert à faire un distinciation avec les autres cadre --%>
                             <div class="calendar light">
                                 <%--<div class="calendar_header">
@@ -375,7 +375,7 @@
                         </div>
                         <%-- Fin du calendrier--%>
                         <%-- Calendrier 1 --%>
-                        <div class="col-md-2 calendar-fix">
+                        <div class=" calendar-fix">
                             <%-- un box shadow sert à faire un distinciation avec les autres cadre --%>
                             <div class="calendar light">
                                 <%--<div class="calendar_header">
@@ -422,7 +422,7 @@
                         </div>
                         <%-- Fin du calendrier--%>
                         <%-- Calendrier 1 --%>
-                        <div class="col-md-2 calendar-fix">
+                        <div class=" calendar-fix">
                             <%-- un box shadow sert à faire un distinciation avec les autres cadre --%>
                             <div class="calendar light">
                                 <%--<div class="calendar_header">
@@ -469,7 +469,7 @@
                         </div>
                         <%-- Fin du calendrier--%>
                         <%-- Calendrier 1 --%>
-                        <div class="col-md-2 calendar-fix">
+                        <div class=" calendar-fix">
                             <%-- un box shadow sert à faire un distinciation avec les autres cadre --%>
                             <div class="calendar light">
                                 <%--<div class="calendar_header">
@@ -538,45 +538,45 @@
 
 
     <%-- boutton pour tout dérouler et pour monter vers le haut --%>
-    <a class="goUp" style="position:fixed;bottom:20px;right: 77px;" href="#">
+    <a class="goUp" style="position:fixed;bottom:20px;right: 25px;" href="#">
         <div class="cl_add" 
             style="background-color:#117a8b;color:white;transform:rotate(-90deg);padding: 8px 8px;">
             <i class="material-icons">arrow_forward</i>
         </div>
     </a>
-    <div class="Magnifying" style="position:fixed;bottom:20px;right:30px;">
+<%--    <div class="Magnifying" style="position:fixed;bottom:20px;right:30px;">
         <div class="cl_add" style="background-color:#117a8b;color:white;">
             <i class="fas fa-search-plus" style="vertical-align:middle;"></i>
         </div>
-    </div>
+    </div>--%>
     <div style="height:40px;"></div>
 
     <script>
         $(document).ready(function () {
-            $('.calendar_plan').click(function () {
-                $(this).next('.calendar_events').toggleClass('collapse')
-            });
-            //lorsque le window size change l'événement se fait faire
-            $(window).resize(function () {
-                //si le window est à la limite donné de collapse les calendars events pour que ce soit bien pour le mobil
-                if ($(window).width() <= 1500) {
-                    $('.calendar_events').addClass('collapse');
-                } else {
-                    $('.calendar_events').removeClass('collapse');
-                }
+            //$('.calendar_plan').click(function () {
+            //    $(this).next('.calendar_events').toggleClass('collapse')
+            //});
+            ////lorsque le window size change l'événement se fait faire
+            //$(window).resize(function () {
+            //    //si le window est à la limite donné de collapse les calendars events pour que ce soit bien pour le mobil
+            //    if ($(window).width() <= 1500) {
+            //        $('.calendar_events').addClass('collapse');
+            //    } else {
+            //        $('.calendar_events').removeClass('collapse');
+            //    }
 
-            }).resize();//Afin de vérifier au ready de la page
+            //}).resize();//Afin de vérifier au ready de la page
 
-            $('.Magnifying').click(function () {
-                if ($(this).hasClass('activeMagnify')) {
-                    $('.calendar_events').addClass('collapse');
-                    $(this).removeClass('activeMagnify');
-                }
-                else {
-                    $('.calendar_events').removeClass('collapse');
-                    $(this).addClass('activeMagnify');
-                }
-            });                                         
+            //$('.Magnifying').click(function () {
+            //    if ($(this).hasClass('activeMagnify')) {
+            //        $('.calendar_events').addClass('collapse');
+            //        $(this).removeClass('activeMagnify');
+            //    }
+            //    else {
+            //        $('.calendar_events').removeClass('collapse');
+            //        $(this).addClass('activeMagnify');
+            //    }
+            //});                                         
             //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
             var numChild = $('.calendar_events').children().length;
                 for (var i = 0; i < numChild; i++) {
