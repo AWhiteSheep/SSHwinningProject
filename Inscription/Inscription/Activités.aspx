@@ -11,9 +11,9 @@
 <%-- le content place holder pour le body qui ajoute de l'information dans la page autre que la master --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" runat="server">
 <%-- Page Web pour les activités --%>
-    <div class="container search-activity">
+    <div class="container search-activity" style="padding-bottom:10px;">
         <div class="display-1" style="text-align:center;">Ateliers</div>
-        <hr />
+        <hr style="width:70%;"/>
         <%-- Le boutton est clické celui-ci enlêve  --%>
         <button class="btn choix-jour" id="J1">Journée 1</button>
         <button class="btn choix-jour" id="J2">Journée 2</button>
@@ -28,7 +28,6 @@
         <button class="btn choix-tag" id="tag_humain">l'humain</button>
         <button class="btn choix-tag" id="tag_ecole">école</button>
 
-        <hr />
     </div>
     <div class="row justify-content-md-center">
         <div class="activity-card">

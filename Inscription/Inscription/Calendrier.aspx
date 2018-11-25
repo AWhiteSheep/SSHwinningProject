@@ -550,7 +550,6 @@
         </div>
     </div>--%>
     <div style="height:40px;"></div>
-
     <script>
         $(document).ready(function () {
             //$('.calendar_plan').click(function () {

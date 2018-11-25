@@ -123,13 +123,13 @@ footer {
     padding: 35px 0 60px;
     height: auto !important;
     width: 100%;
-    background-color: rgba(248,249,250,1) !important;
+    background-color: white !important;
     font-size: 17px;
     color: black;
     background-repeat: no-repeat;
     background-position: bottom left;
-    background-image: url('../Images/logo.PNG');
-    background-size: 100px;
+    background-size: 100%;
+    background-image: url('../Images/footer.PNG');
 }
 
 .container.footer {padding-left: 50px;}
@@ -154,7 +154,7 @@ nav .btn{padding: .35rem 0.75rem;}
     color: black !important;
     border-bottom: 6px solid rgba(255,255,255,0);
 }
-.nav-link:hover {border-bottom:6px solid #00B5DF;}
+.nav-link:hover {border-bottom:6px solid black;}
 
 .collapse.navbar-collapse{margin-top:6px;}
 
@@ -169,7 +169,7 @@ nav button {
 
 .bg-my-dark {
     background-color: rgba(255,255,255,.72) !important;
-    border-bottom: grey solid 3px;
+    border-bottom: black solid 3px;
 }
 .navbar-dark .navbar-text {
     border-radius: 500px;
@@ -182,4 +182,7 @@ nav button {
 
 .navbar-light .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+hr {
+    border: .5px solid black !important;
 }

@@ -18,3 +18,10 @@
 .gallery_item img {
     width: 100%;
 }
+
+.btn.choix-filter-annee.active {
+    background-color: rgb(4, 123, 93);
+}
+.btn.choix-filter-annee.active:focus {
+    box-shadow:none !important;
+}

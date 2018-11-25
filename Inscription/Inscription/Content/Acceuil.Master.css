@@ -1,5 +1,11 @@
 ﻿ /*Controle la grandeur que le container prendra et set l'image de background qui pourra être remplacé*/
-.acceuilBanner {background-image: url('../Images/milky-way-1030765_1920.jpg'); height: 350px; background-position-y:70%;}
+.acceuilBanner {
+    background-repeat: no-repeat;
+    background-color: rgb(238, 140, 58);
+    background-image: url('../Images/homePage.PNG');
+    background-position-x:center;
+    height: 350px;
+}
 
 
 .acceuilTitle {
@@ -51,6 +57,19 @@
     top:0;
 }
 
-footer {
-   
+/*Carousel*/
+.bouton-control-slider .material-icons {
+    background-color: #6cc4f3;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    font-size: 50px !important;
+    vertical-align: middle;
+    border-radius:15px;
+}
+.img-box {
+    position: relative;
+    float: left;
+    width: 330px;
+    margin: 0 40px 0 0;
 }
