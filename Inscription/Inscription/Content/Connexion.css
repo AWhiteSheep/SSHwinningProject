@@ -1,0 +1,41 @@
+﻿body.login-body {
+}
+
+.container.login-container{
+    margin-top: 10%;
+}
+
+div.login-title{
+    text-align:center;
+}
+
+.card.login-card{
+    padding: 2%;
+    background-color: #f4f4f4;
+    box-shadow: 2px 2px 5px; rgba(0, 0, 0, .6);
+
+    -webkit-box-shadow: 2px 2px 5px; rgba(0, 0, 0, .6);
+    -moz-box-shadow: 2px 2px 5px; rgba(0, 0, 0, .6);
+
+    align-content: center;
+}
+
+img.login-img {
+    padding: 0 2rem 2rem;
+    margin: auto;
+    display: block;
+}
+
+.login-input{
+    margin: auto;
+    align-content: center;
+}
+
+
+/*
+   -------------- Mobile ----------------
+*/
+
+@media screen and (max-width: 640px){
+
+}

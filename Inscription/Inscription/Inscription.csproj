@@ -75,11 +75,14 @@
     <Content Include="App_Data\SSHdataBase_log.ldf">
       <DependentUpon>SSHdataBase.mdf</DependentUpon>
     </Content>
+    <Content Include="Connexion.aspx" />
     <Content Include="Content\Acceuil.Master.css" />
     <Content Include="Content\Activites.css" />
     <Content Include="Content\Album.css" />
     <Content Include="Content\Calendrier.css" />
+    <Content Include="Content\Connexion.css" />
     <Content Include="Film\29438271_153448085310129_2980283944900829754_n.mp4" />
+    <Content Include="Global.asax" />
     <Content Include="Images\bonding.jpg" />
     <Content Include="Images\bustos.jpg" />
     <Content Include="Images\canvas-1009232_640.jpg" />
@@ -207,6 +210,16 @@
     </Compile>
     <Compile Include="Backup\Inscription.Master.designer.cs">
       <DependentUpon>Inscription.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Connexion.aspx.cs">
+      <DependentUpon>Connexion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Connexion.aspx.designer.cs">
+      <DependentUpon>Connexion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Backup\TestPage.aspx.cs">
