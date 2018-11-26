@@ -11,15 +11,16 @@
 <%-- le content place holder pour le body qui ajoute de l'information dans la page autre que la master --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" runat="server">
 <%-- Page Web pour les activités --%>
+
     <div class="container search-activity">
         <div class="display-1" style="text-align:center;">Ateliers</div>
         <hr />
         <%-- Le boutton est clické celui-ci enlêve  --%>
-        <button class="btn choix-jour" id="J1">Journée 1</button>
-        <button class="btn choix-jour" id="J2">Journée 2</button>
-        <button class="btn choix-jour" id="J3">Journée 3</button>
-        <button class="btn choix-jour" id="J4">Journée 4</button>
-        <button class="btn choix-jour" id="J5">Journée 5</button>
+        <button class="btn choix-jour" id="J1" value="16">Journée 1</button>
+        <button class="btn choix-jour" id="J2" value="17">Journée 2</button>
+        <button class="btn choix-jour" id="J3" value="18">Journée 3</button>
+        <button class="btn choix-jour" id="J4" value="19">Journée 4</button>
+        <button class="btn choix-jour" id="J5" value="20">Journée 5</button>
         <br />
         <button class="btn effacer-tag" id="tag_enlever"><i class="fa fa-times-circle"></i></button>
         <button class="btn choix-tag" id="tag_science">science</button>
