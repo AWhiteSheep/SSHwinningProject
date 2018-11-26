@@ -47,7 +47,7 @@
 }
 
 .container-box ul li a:hover{border-left:deepskyblue solid 5px;cursor:pointer;}
-.Main-acceuil{margin-top:25px;margin-bottom:40px;}
+.Main-acceuil{margin-bottom:40px;}
 
 /*Création d'une petite séparation avec le haut pour le titre h1*/
 .Main-acceuil .h1{margin-top:40px;font-family: 'Adamina' !important;}

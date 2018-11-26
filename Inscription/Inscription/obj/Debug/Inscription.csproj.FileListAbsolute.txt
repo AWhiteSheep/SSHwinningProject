@@ -78,3 +78,4 @@ W:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscriptio
 W:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
 W:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
 W:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\AjaxControlToolkit.dll

@@ -139,6 +139,7 @@
     <Content Include="Contactez.aspx" />
     <Content Include="Panier.aspx" />
     <None Include="packages.config" />
+    <Content Include="Scripts\JavaAll.js" />
     <Content Include="Scripts\formValidation.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />

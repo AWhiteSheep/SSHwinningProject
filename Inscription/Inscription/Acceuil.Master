@@ -23,7 +23,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     
     
-
+    <%-- Javascripts for all --%>
+    <script src="Scripts/JavaAll.js"></script>
     <%-- Scripts for bootstrap --%>
     <script src="Scripts/jquery-3.0.0.js"></script>
     <script src="Scripts/bootstrap.js"></script>
@@ -104,10 +105,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="Calendrier.aspx">Calendrier</a>
               </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Contactez.aspx">Contactez-Nous</a>
-              </li>
-
+                <li id="dropdown" class="nav-item dropdown main-menu">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Liens Utiles</a>
+                    <div class="dropdown-menu main-menu">
+                        <a class="dropdown-item main-menu-dropdown-item" href="Contactez.aspx">Contactez-Nous</a>
+                        <a class="dropdown-item main-menu-dropdown-item" href="https://cegepoutaouais.omnivox.ca">Omnivox</a>
+                    </div>
+                </li>
             </ul>
               <%-- Section de recherche --%>
             <form class="form-inline mt-2 mt-md-0" style="margin:.5rem">
@@ -130,6 +134,7 @@
             <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
     <%-- ----------------------------------------------------------------------------------------- --%>
     <footer>
+        <div class="container-fluid footer-banner"></div>
         <div class="container footer">
             <div class="row justify-content-end">
                 <div class="col-md-3" style="">
@@ -153,5 +158,20 @@
             </div>
         </div>
     </footer>
+    <script>
+        //Pour hover menu dropdown-item
+            //Certains scripts ne fonctionnent par le fait que l'element ne se retrouve pas dans la page active 
+            //le tout est dispositionné pour ne pas interrompre le javascript des pages actives.
+
+            //Ajoute un événement que lorsque le pointeur de l'usager se trouve par dessus l'affiche selon le la méthode fadeIn 
+            $('#dropdown').mouseover(function () {
+                $(this).find('.dropdown-menu').stop(true, true).delay(150).fadeIn(150);
+            });
+            //Ajoute un événement que lorsque le pointeur de l'usager s'enleve de par dessus le cache selon le la méthode fadeOut
+            $('#dropdown').mouseout(function() {
+                $(this).find('.dropdown-menu').stop(true, true).delay(150).fadeOut(150);
+            });
+
+    </script>
 </body>
 </html>

@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="Content/Acceuil.Master.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%-- Javascripts --%>
+    
     <title>
         Accueil
     </title>
@@ -11,19 +13,15 @@
         <%-- Emplacement du titre si utilisé  --%>
         <%--<div class="acceuilTitle">SEMAINE DES SCIENCES HUMAINES</div>--%>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-3" style="padding-left:10px;">
                 <div class="container-box">
                     <%-- Liens utiles qui mènera à des sites intéressant pour les élèves --%>
-                    <div class="h3">LIENS UTILES</div>
-                    <ul>
-                        <%-- TODO ajouter les liens --%>
-                        <li><a href="https://cegepoutaouais.omnivox.ca">Omnivox</a></li>
-                        <li><a>Album</a></li>
-                        <li><a>FAQ</a></li>
-                        <li><a>Login</a></li>                        
-                    </ul>
+                    <blockquote class="blockquote">
+                      <p>“Le commencement de toutes les sciences, c’est l’étonnement de ce que les choses sont ce qu’elles sont.”</p>
+                      <footer style="text-align:right;">Aristote <cite title="Source Title">lefigaro.fr</cite></footer>
+                    </blockquote>                
                 </div>
             </div>
             <div class="col-md-8 Main-acceuil">
@@ -31,8 +29,10 @@
                 On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).
                 
                 <%-- Insertion d'un carousel afin de présenté quelques photos d'années précédentes --%>
-                        <!-- carouselExampleIndicators -->
-        <div id="slider_content" class="carousel slide" data-ride="carousel" style="padding-top:20px;">
+        </div>
+    <div class="container">
+            <!-- carouselExampleIndicators -->
+        <div id="slider_content" class="carousel slide" data-ride="carousel" style="padding-top:8px;">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="img-box">
@@ -60,16 +60,15 @@
             </div>
         </div>
         <div class="bouton-control-slider" style="padding-top:2px;">
-            <a class="slider_precedent" href="#slider_content" role="button" data-slide="prev" style="border-radius:10px;"> 
+            <a class="slider_precedent" href="#slider_content" role="button" data-slide="prev" style="border-radius:10px;float:left;padding-left:30%;"> 
                 <i class="material-icons">arrow_back</i>
             </a>
-            <a class="slider_suivant" href="#slider_content" role="button" data-slide="next" style="border-radius:10px;float:right;">
+            <a class="slider_suivant" href="#slider_content" role="button" data-slide="next" style="border-radius:10px;float:right;padding-right:30%;">
                 <i class="material-icons">arrow_forward</i>
             </a>
         </div>
                 
             </div>            
-        </div>
     </div>
-    
+    </div>
 </asp:Content>
