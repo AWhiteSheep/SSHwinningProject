@@ -71,6 +71,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ajax.aspx" />
     <Content Include="App_Data\SSHdataBase.mdf" />
     <Content Include="App_Data\SSHdataBase_log.ldf">
       <DependentUpon>SSHdataBase.mdf</DependentUpon>
@@ -212,6 +213,13 @@
     </Compile>
     <Compile Include="Acceuil.Master.designer.cs">
       <DependentUpon>Acceuil.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ajax.aspx.cs">
+      <DependentUpon>ajax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax.aspx.designer.cs">
+      <DependentUpon>ajax.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backup\Inscription.Master.cs">
       <DependentUpon>Inscription.Master</DependentUpon>
