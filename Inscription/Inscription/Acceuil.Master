@@ -144,8 +144,7 @@
         <a class="btn btn-connectez-vous" href="Login.aspx">Connectez-vous</a>        
     </div>
     <footer>
-        <div class="container-fluid footer-banner"></div>
-        <div class="container footer">
+        <div class="container-fluid footer">
             <div class="row justify-content-end">
                 <div class="col-md-3" >
                     <span style="color:rgb(101,147,245)">S</span><span style="color:rgb(4, 123, 93)">S</span><span style="color:rgb(2,2,2);">H</span></div>
@@ -165,7 +164,11 @@
                 <div class="col-md-3" style="">
                     ©Tous droits réservés
                 </div>
+
             </div>
+        </div>
+        <div class="container-fluid">
+            <img src="Images/footer.PNG" class="footer-banner" />
         </div>
     </footer>
     <script>

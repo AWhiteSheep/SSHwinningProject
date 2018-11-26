@@ -20,7 +20,7 @@
                     <%-- Liens utiles qui mènera à des sites intéressant pour les élèves --%>
                     <blockquote class="blockquote">
                       <p>“Le commencement de toutes les sciences, c’est l’étonnement de ce que les choses sont ce qu’elles sont.”</p>
-                      <footer style="text-align:right;">Aristote <cite title="Source Title">lefigaro.fr</cite></footer>
+                      <div style="text-align:right;">Aristote <cite title="Source Title">lefigaro.fr</cite></div>
                     </blockquote>                
                 </div>
             </div>
