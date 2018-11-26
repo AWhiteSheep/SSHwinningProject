@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="Content/Inscription.Master.css" />
 
     <link rel="stylesheet" href="Content/bootstrap.css" />
+    <link rel="icon" href="Images/earth-globe.png"/>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -40,6 +41,10 @@
             <%-- Lien facebook pour SSH --%>
             <a target="_blank" href="https://www.facebook.com/SHOutaouais/">
                 <i class="fab fa-facebook"></i>
+            </a>
+            <%-- Lien vers mon panier --%>
+            <a href="Panier.aspx">
+                <i class="fas fa-shopping-cart"></i>
             </a>
             <%-- Sera modifié lorsque l'usager va se connecter --%>
             <asp:Label CssClass="lbLogin" ID="lbLogin" runat="server" Text="Login"></asp:Label>
@@ -79,13 +84,18 @@
         </div>
         <%-- Nav bar temporary ??? --%>
         <nav class="navbar navbar-expand-lg navbar-light bg-my-dark">
-          <a class="navbar-brand" href="PageAcceuil.aspx"><span style="color:rgb(101,147,245)">S</span><span style="color:rgb(4, 123, 93)">S</span><span style="color:rgb(2,2,2)">H</span></a>
+          <a class="navbar-brand" href="PageAcceuil.aspx" >
+              <img  src="Images/earth-globe.svg" style="vertical-align:bottom;height: 50px;"/><span style="color:rgb(101,147,245)">S</span><span style="color:rgb(4, 123, 93)">S</span><span style="color:rgb(2,2,2);">H</span>
+          </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+            <ul class="navbar-nav mr-auto" style="margin-bottom: -16px;">
+               <li class="nav-item">
+                   <a class="nav-link" href="PageAcceuil.aspx">Accueil</a>
+               </li>
+              <li class="nav-item">
                 <a class="nav-link" href="Album.aspx">Album</a>
               </li>
                <li class="nav-item">
@@ -123,7 +133,7 @@
         <div class="container footer">
             <div class="row justify-content-end">
                 <div class="col-md-3" style="">
-                    <span style="color:rgb(101,147,245)">S</span><span style="color:rgb(101,147,245)">S</span><span style="color:rgb(101,147,245)">H</span>                </div>
+                    <span style="color:rgb(101,147,245)">S</span><span style="color:rgb(4, 123, 93)">S</span><span style="color:rgb(2,2,2);">H</span></div>
                 <div class="col-md-3" style="">
                     Cegep Outaouais<br />
                     Mon école<br />

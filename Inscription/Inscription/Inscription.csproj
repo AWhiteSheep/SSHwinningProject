@@ -80,6 +80,7 @@
     <Content Include="Content\Acceuil.Master.css" />
     <Content Include="Content\Activites.css" />
     <Content Include="Content\Album.css" />
+    <Content Include="Content\Atelier.css" />
     <Content Include="Content\Calendrier.css" />
     <Content Include="Content\Connexion.css" />
     <Content Include="Film\29438271_153448085310129_2980283944900829754_n.mp4" />
@@ -102,10 +103,16 @@
     <Content Include="Images\Default\insta_gallery_1 %289%29.jpg" />
     <Content Include="Images\Default\insta_gallery_1.jpg" />
     <Content Include="Images\Default\insta_gallery_2.jpg" />
+    <Content Include="Images\earth-globe.png" />
+    <Content Include="Images\earth-globe.svg" />
     <Content Include="Images\earth.jpg" />
+    <Content Include="Images\Efacebook.PNG" />
+    <Content Include="Images\EInstagram.PNG" />
+    <Content Include="Images\footer.PNG" />
     <Content Include="Images\guy-2617866_640.jpg" />
     <Content Include="Images\hands-600497_640.jpg" />
     <Content Include="Images\Histoire.jpg" />
+    <Content Include="Images\homePage.PNG" />
     <Content Include="Images\instaSSH.jpg" />
     <Content Include="Images\LesterBPerson.jpg" />
     <Content Include="Images\LisePayette.jpg" />
@@ -131,6 +138,7 @@
     <Content Include="Album.aspx" />
     <Content Include="Content\Album.scss" />
     <Content Include="Contactez.aspx" />
+    <Content Include="Panier.aspx" />
     <None Include="packages.config" />
     <Content Include="Scripts\formValidation.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
@@ -278,6 +286,13 @@
     </Compile>
     <Compile Include="Contactez.aspx.designer.cs">
       <DependentUpon>Contactez.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panier.aspx.cs">
+      <DependentUpon>Panier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panier.aspx.designer.cs">
+      <DependentUpon>Panier.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

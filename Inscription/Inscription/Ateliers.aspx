@@ -8,7 +8,7 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+    <title>Atelier</title>
 </asp:Content>
 
 
@@ -56,8 +56,9 @@
                 <div class="row">
                     <div class="col-md-2 Share-box">
                         <span class="Main-Share">PARTAGER</span><br />
-                        <i class="fab fa-facebook"></i><br/>
-                        <i class="fab fa-instagram"></i>
+                        <img src="Images/Efacebook.PNG" style="height: 57px; padding-top:5px;"/>
+                        <br />
+                        <img src="Images/EInstagram.PNG" style="height: 65px; padding-top:5px;"/>
                     </div>
                     <div class="col-md-10 description-box">
                         <h1>Description</h1>

@@ -15,39 +15,14 @@
             </span>
             <p>
                 <strong>Questions? Pas certain pour quelque chose?</strong><br />
-                On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle
+                N'ayez crainte, nous répondrons à toutes vos questions!
             </p>
-            <hr />
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <strong>Question pour branche programmation et sécurité?</strong><br />
-                    <i class="material-icons" style="vertical-align:middle;">
-                        local_phone
-                    </i> <i>Contactez : </i>Sylvain Lacroix (888)999-7585<br />
-                    <i class="material-icons" style="vertical-align:middle;">question_answer</i>
-                    <i>Sinon par email? : </i>example@domain.xx
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <strong>Question pour branche réseau et cybersécurité?</strong><br />
-                    <i class="material-icons" style="vertical-align:middle;">
-                        local_phone
-                    </i> <i>Contactez : </i>Jack Thomas (888)989-7585<br />
-                    <i class="material-icons" style="vertical-align:middle;">question_answer</i>
-                    <i>Sinon par email? : </i>example@domain.xx
-                </div>
-            </div>
-            <hr />
-            <span class="h3">
-                Des Questions Générales?
-            </span>
-            <br /><br />
             <form id="contactForm" class="form">
                 <div class="form-row">
                     <div class="form-group col-4">
                         <label class="form-text float-left">Nom</label>
                         <label class="form-text error-message float-right"></label>
                         <input type="text" class="form-control must-validate" aria-describedby="nameHelp" />
-                        <small id="nameHelp" class="form-text text-muted">Nom et prénom doivent commencer par une majuscule</small>
                     </div>
                     <div class="form-group col-4">
                         <label class="form-text float-left">E-mail</label>
@@ -76,12 +51,24 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <button class="btn btn-primary" onclick="validateForm(); return false;">Envoyer</button>
-                        <button class="btn btn-secondary" id="reset">Réinitialiser</button>
+                        <button class="btn btn-primary" onclick="validateForm(); return false;" style="border-radius:250px !important;">Envoyer</button>
+                        <button class="btn btn-secondary" id="reset" style="border-radius:250px !important;">Réinitialiser</button>
                         <label class=" form-text error-message"></label>
                     </div>
                 </div>
             </form>
+                        <hr />
+            <div class="row" style="padding-bottom:30px;">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <strong>Autre moyen</strong><br />
+                    <i class="material-icons" style="vertical-align:middle;">
+                        local_phone
+                    </i> <i>Contactez : </i>Sylvain Lacroix (888)999-7585<br />
+                    <i class="material-icons" style="vertical-align:middle;">question_answer</i>
+                    <i>Sinon par email? : </i>example@domain.xx
+                </div>
+            </div>
+
         </div>
     </div>
 </asp:Content>
