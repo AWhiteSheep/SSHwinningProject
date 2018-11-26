@@ -76,7 +76,7 @@
     <Content Include="App_Data\SSHdataBase_log.ldf">
       <DependentUpon>SSHdataBase.mdf</DependentUpon>
     </Content>
-    <Content Include="Connexion.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Content\Acceuil.Master.css" />
     <Content Include="Content\Activites.css" />
     <Content Include="Content\Album.css" />
@@ -228,12 +228,12 @@
     <Compile Include="Backup\Inscription.Master.designer.cs">
       <DependentUpon>Inscription.Master</DependentUpon>
     </Compile>
-    <Compile Include="Connexion.aspx.cs">
-      <DependentUpon>Connexion.aspx</DependentUpon>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Connexion.aspx.designer.cs">
-      <DependentUpon>Connexion.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

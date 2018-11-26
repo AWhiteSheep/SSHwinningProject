@@ -48,7 +48,11 @@
                 <i class="fas fa-shopping-cart"></i>
             </a>
             <%-- Sera modifié lorsque l'usager va se connecter --%>
-            <asp:Label CssClass="lbLogin" ID="lbLogin" runat="server" Text="Login"></asp:Label>
+            <form  runat="server" style="float:right;">
+                <asp:LoginStatus LoginText="Login" ID="LoginStatus1" runat="server" />
+
+            </form>
+            
         </div>
 
         <%-- image banner, representing human science --%>
