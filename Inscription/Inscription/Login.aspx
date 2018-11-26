@@ -60,10 +60,14 @@
                                 </asp:Login>
                             </div>
                         </div>
+                        <a href="PageAcceuil.aspx" style="margin-right:0;">Passez à accueil</a>
                     </div>
                 </div>
+                 
                 <div class="col-md"></div>
+
             </div>
+           
         </div>
     </form>
 </body>

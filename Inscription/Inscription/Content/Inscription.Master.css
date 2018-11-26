@@ -192,3 +192,13 @@ nav button {
 hr {
     border: .5px solid black !important;
 }
+.connectez-vous {
+    position: fixed;
+    bottom: 20px;
+    right: 35px;
+}
+.btn-connectez-vous {
+    border-radius: 15px !important;
+    background-color: rgb(238, 140, 58);
+    color: black;
+}

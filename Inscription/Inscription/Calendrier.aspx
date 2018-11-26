@@ -538,7 +538,8 @@
 
 
     <%-- boutton pour tout dérouler et pour monter vers le haut --%>
-    <a class="goUp" style="position:fixed;bottom:20px;right: 25px;" href="#">
+    <a class="goUp" style="position:fixed;bottom: 83px;
+    right: 37px;" href="#">
         <div class="cl_add" 
             style="background-color:#117a8b;color:white;transform:rotate(-90deg);padding: 8px 8px;">
             <i class="material-icons">arrow_forward</i>

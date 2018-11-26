@@ -29,7 +29,7 @@
     <script src="Scripts/jquery-3.0.0.js"></script>
     <script src="Scripts/bootstrap.js"></script>
 </head>
-<body style="overflow-x: hidden;">
+<body style="overflow-x: hidden;" id="body">
         <%-- Pour la connection sql nous avons besoin de mettre la ligne de connection dans le content holder dans la page crée de l'atelier --%>
         <asp:ContentPlaceHolder ID="SQLconnection" runat="server"></asp:ContentPlaceHolder>
 
@@ -137,11 +137,17 @@
     <%-- ----------------------------------------------------------------------------------------- --%>
             <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
     <%-- ----------------------------------------------------------------------------------------- --%>
+    
+    <%-- si n'est pas connecté afficher le boutton pour que l'usager se connnecte --%>
+    <div id="btnConnection" class="connectez-vous" runat="server">
+        <small style="font-size:12px;">Vous n'êtes pas connecté</small><br />
+        <a class="btn btn-connectez-vous" href="Login.aspx">Connectez-vous</a>        
+    </div>
     <footer>
         <div class="container-fluid footer-banner"></div>
         <div class="container footer">
             <div class="row justify-content-end">
-                <div class="col-md-3" style="">
+                <div class="col-md-3" >
                     <span style="color:rgb(101,147,245)">S</span><span style="color:rgb(4, 123, 93)">S</span><span style="color:rgb(2,2,2);">H</span></div>
                 <div class="col-md-3" style="">
                     Cegep Outaouais<br />
@@ -149,7 +155,7 @@
                     333 Boulevard cité<br />
                     819-222-8888<br />
                 </div>
-                <div class="col-md-3" style="">
+                <div class="col-md-3">
                     <a href="#">Événements</a><br />
                     <a href="https://cegepoutaouais.omnivox.ca/intr/Module/Identification/Login/Login.aspx?ReturnUrl=%2fintr">Étudiant</a><br />
                     <a href="#">Calendrier</a><br />
@@ -163,8 +169,8 @@
         </div>
     </footer>
     <script>
+        $('#btnConnection').hide();
         //Pour hover menu dropdown-item
-            //Certains scripts ne fonctionnent par le fait que l'element ne se retrouve pas dans la page active 
             //le tout est dispositionné pour ne pas interrompre le javascript des pages actives.
 
             //Ajoute un événement que lorsque le pointeur de l'usager se trouve par dessus l'affiche selon le la méthode fadeIn 
@@ -176,6 +182,14 @@
                 $(this).find('.dropdown-menu').stop(true, true).delay(150).fadeOut(150);
             });
 
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 100) {
+                    $('#btnConnection').fadeIn("slow");
+                }
+                else {
+                    $('#btnConnection').fadeOut("slow");
+                }
+            }).scroll;
     </script>
 </body>
 </html>

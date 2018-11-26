@@ -11,7 +11,14 @@ namespace Inscription
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                btnConnection.Visible = false;
+            }
+            else
+            {
+                btnConnection.Visible = true;
+            }
         }
     }
 }
