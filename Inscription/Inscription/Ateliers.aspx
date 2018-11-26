@@ -8,6 +8,7 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Atelier</title>
 </asp:Content>
 
 

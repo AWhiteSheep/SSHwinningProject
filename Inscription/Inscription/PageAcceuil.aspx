@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="Content/Acceuil.Master.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>
-        Acceuil
+        Accueil
     </title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" runat="server">

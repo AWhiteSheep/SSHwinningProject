@@ -137,6 +137,7 @@
     <Content Include="Album.aspx" />
     <Content Include="Content\Album.scss" />
     <Content Include="Contactez.aspx" />
+    <Content Include="Panier.aspx" />
     <None Include="packages.config" />
     <Content Include="Scripts\formValidation.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
@@ -277,6 +278,13 @@
     </Compile>
     <Compile Include="Contactez.aspx.designer.cs">
       <DependentUpon>Contactez.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Panier.aspx.cs">
+      <DependentUpon>Panier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Panier.aspx.designer.cs">
+      <DependentUpon>Panier.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
