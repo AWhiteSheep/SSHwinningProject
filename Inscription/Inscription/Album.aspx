@@ -48,9 +48,13 @@
             width: 133px;
             background-position-y: bottom;
         }*/
-        .no_display{
+        /*.no_display{
             width:0% ;
-            transition: width 0.5s linear;
+            transition: all 0.5s linear;
+            display:none;
+        }*/
+        .all{
+            display:none;
         }
     </style>
 </asp:Content>
@@ -70,16 +74,20 @@
                 $(".btn").not(this).removeClass("active");
             });
             $("#all").click(function () {
-                $("div").filter(".all").removeClass("no_display");
+                $("div").filter(".all").show("slow");
                 //$("div").filter(".all").css("display", "");
             });
             $("#all2017").click(function () {
-                $(".all").filter(".a2017").css("display", "");
-                $(".all").not(".a2017").css("display", "none");
+                $(".all").filter(".a2017").show("slow");
+                $(".all").not(".a2017").hide("slow");
+                //$(".all").filter(".a2017").css("display", "");
+                //$(".all").not(".a2017").css("display", "none");
             });
             $("#all2018").click(function () {
-                $(".all").filter(".a2018").css("display", "");
-                $(".all").not(".a2018").css("display", "none");
+                $(".all").filter(".a2018").show("slow");
+                $(".all").not(".a2018").hide("slow");
+                //$(".all").filter(".a2018").css("display", "");
+                //$(".all").not(".a2018").css("display", "none");
             });
 
         </script>
@@ -164,4 +172,9 @@
 
     </div>
     </div>
+    <script>
+            $(document).ready(function () {
+                $("div").filter(".all").show("fast");
+            });
+    </script>
 </asp:Content>

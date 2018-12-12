@@ -21,7 +21,7 @@
 }
 
 .btn.choix-filter-annee.active {
-    background-color: rgb(4, 123, 93);
+    background-color: rgb(245, 134, 134);
 }
 .btn.choix-filter-annee.active:focus {
     box-shadow:none !important;
