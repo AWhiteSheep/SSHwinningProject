@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SSHdataBase" Class="AtelierDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SSHdataBase.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ConnectionStringToDonneesActivite" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DonneesActivites" Member="DonneesActivites">
+    <Type Name="DonneesActivites">
+      <Column Name="NumActivite" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="contentTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Campus" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Salle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="contentInfo" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="poster" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="contentMain" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitreCoupOeil" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Etudiant" Member="Etudiant">
+    <Type Name="Etudiant">
+      <Column Name="Numero_Etudiant" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Etudiant_Etudiant_Atelier" Member="Etudiant_Atelier" ThisKey="Numero_Etudiant" OtherKey="Numero_Etudiant" Type="Etudiant_Atelier" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Etudiant_Atelier" Member="Etudiant_Atelier">
+    <Type Name="Etudiant_Atelier">
+      <Column Name="Numero_Etudiant" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumAtelier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Etudiant_Etudiant_Atelier" Member="Etudiant" ThisKey="Numero_Etudiant" OtherKey="Numero_Etudiant" Type="Etudiant" IsForeignKey="true" />
+      <Association Name="DonneesAteliers_Etudiant_Atelier" Member="DonneesAteliers" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAteliers" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DonneesAteliers" Member="DonneesAteliers">
+    <Type Name="DonneesAteliers">
+      <Column Name="NumAtelier" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="contentTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="campus" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Salle" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="contentInfo" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="poster" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="contentMain" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="sommaire" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="dateDebut" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="dateFin" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Max_Eleves" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DonneesAteliers_Etudiant_Atelier" Member="Etudiant_Atelier" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Etudiant_Atelier" />
+      <Association Name="DonneesAteliers_Ateliers_Tags" Member="Ateliers_Tags" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Ateliers_Tags" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tags" Member="Tags">
+    <Type Name="Tags">
+      <Column Name="Description" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Tags_Ateliers_Tags" Member="Ateliers_Tags" ThisKey="Description" OtherKey="Description" Type="Ateliers_Tags" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ateliers_Tags" Member="Ateliers_Tags">
+    <Type Name="Ateliers_Tags">
+      <Column Name="NumAtelier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Association Name="Tags_Ateliers_Tags" Member="Tags" ThisKey="Description" OtherKey="Description" Type="Tags" IsForeignKey="true" />
+      <Association Name="DonneesAteliers_Ateliers_Tags" Member="DonneesAteliers" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAteliers" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetAllAteliersByTag" Method="GetAllAteliersByTag" IsComposable="true">
+    <Parameter Name="Tags" Parameter="tags" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="GetAllAteliersByTagResult">
+      <Column Name="NumAtelier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
