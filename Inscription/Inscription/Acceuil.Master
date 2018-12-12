@@ -28,19 +28,27 @@
     <%-- Scripts for bootstrap --%>
     <script src="Scripts/jquery-3.0.0.js"></script>
     <script src="Scripts/bootstrap.js"></script>
+    <style>
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body style="overflow-x: hidden;" id="body">
         <%-- Pour la connection sql nous avons besoin de mettre la ligne de connection dans le content holder dans la page crée de l'atelier --%>
         <asp:ContentPlaceHolder ID="SQLconnection" runat="server"></asp:ContentPlaceHolder>
-
+        
         <%-- Top section the socials --%>
         <div class="top-indicator">
+            <%-- Lien vers omnivox --%>
+            <a style="float:left !important; padding-left:5px;" href="https://cegepoutaouais.omnivox.ca/intr/Module/Identification/Login/Login.aspx?ReturnUrl=%2fintr">Omnivox</a>
             <%-- Lien instagram pour SSH --%>
-            <a target="_blank" href="https://www.instagram.com/semaine.sciences.humaines/">
+            <a target="" href="https://www.instagram.com/semaine.sciences.humaines/">
                 <i class="fab fa-instagram"></i>
             </a>
             <%-- Lien facebook pour SSH --%>
-            <a target="_blank" href="https://www.facebook.com/SHOutaouais/">
+            <a target="" href="https://www.facebook.com/SHOutaouais/">
                 <i class="fab fa-facebook"></i>
             </a>
             <%-- Lien vers mon panier --%>
@@ -56,39 +64,9 @@
         </div>
 
         <%-- image banner, representing human science --%>
-        <div class="banner-image">            
-            <img src="Images/LesterBPerson.jpg" />
-            <img src="Images/instaSSH.jpg" />
-            <img src="Images/science.jpg" />
-            <img src="Images/SSH1.jpg" />
-            <img src="Images/earth.jpg" />
-            <img src="Images/SSH2.jpg" />
-            <img src="Images/LisePayette.jpg" />
-            <img src="Images/SSH3.jpg" />
-            <img src="Images/team.jpg" />
-            <img src="Images/SSH4.jpg" />
-            <img src="Images/statue-3289791_640.jpg" />
-            <img src="Images/bustos.jpg" />            
-            <img src="Images/canvas-1009232_640.jpg" />
-            <img src="Images/guy-2617866_640.jpg" />            
-            <img src="Images/pyramids-2371501_1280.jpg" />
-            <img src="Images/bonding.jpg" />            
-            <%-- REp --%>            
-            <img src="Images/LesterBPerson.jpg" />
-            <img src="Images/science.jpg" />
-            <img src="Images/rubik.jpg" />
-            <img src="Images/LisePayette.jpg" />
-            <img src="Images/team.jpg" />
-            <img src="Images/statue-3289791_640.jpg" />
-            <img src="Images/bustos.jpg" />
-            <img src="Images/canvas-1009232_640.jpg" />
-            <img src="Images/guy-2617866_640.jpg" />
-            <img src="Images/pyramids-2371501_1280.jpg" />
-            <img src="Images/bonding.jpg" />
-            <img src="Images/hands-600497_640.jpg" />
-        </div>
+        
         <%-- Nav bar temporary ??? --%>
-        <nav class="navbar navbar-expand-lg navbar-light bg-my-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-my-dark" style="background-color:#094569;">
           <a class="navbar-brand" href="PageAcceuil.aspx" >
               <img  src="Images/earth-globe.svg" style="vertical-align:bottom;height: 50px;"/><span style="color:rgb(101,147,245)">S</span><span style="color:rgb(4, 123, 93)">S</span><span style="color:rgb(2,2,2);">H</span>
           </a>
@@ -128,7 +106,37 @@
           </div>
         </nav>
         <%-- End of nav bar --%>
-
+    <div class="banner-image">            
+                <img src="Images/LesterBPerson.jpg" />
+                <img src="Images/instaSSH.jpg" />
+                <img src="Images/science.jpg" />
+                <img src="Images/SSH1.jpg" />
+                <img src="Images/earth.jpg" />
+                <img src="Images/SSH2.jpg" />
+                <img src="Images/LisePayette.jpg" />
+                <img src="Images/SSH3.jpg" />
+                <img src="Images/team.jpg" />
+                <img src="Images/SSH4.jpg" />
+                <img src="Images/statue-3289791_640.jpg" />
+                <img src="Images/bustos.jpg" />            
+                <img src="Images/canvas-1009232_640.jpg" />
+                <img src="Images/guy-2617866_640.jpg" />            
+                <img src="Images/pyramids-2371501_1280.jpg" />
+                <img src="Images/bonding.jpg" />            
+                <%-- REp --%>            
+                <img src="Images/LesterBPerson.jpg" />
+                <img src="Images/science.jpg" />
+                <img src="Images/rubik.jpg" />
+                <img src="Images/LisePayette.jpg" />
+                <img src="Images/team.jpg" />
+                <img src="Images/statue-3289791_640.jpg" />
+                <img src="Images/bustos.jpg" />
+                <img src="Images/canvas-1009232_640.jpg" />
+                <img src="Images/guy-2617866_640.jpg" />
+                <img src="Images/pyramids-2371501_1280.jpg" />
+                <img src="Images/bonding.jpg" />
+                <img src="Images/hands-600497_640.jpg" />
+            </div>
     <%-- ----------------------------------------------------------------------------------------- --%>
             <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
     <%-- ----------------------------------------------------------------------------------------- --%>

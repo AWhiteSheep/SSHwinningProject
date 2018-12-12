@@ -17,6 +17,7 @@
 
 .gallery_item img {
     width: 100%;
+    transition: width 0.5s linear;
 }
 
 .btn.choix-filter-annee.active {

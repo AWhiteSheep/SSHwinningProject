@@ -2,10 +2,10 @@
 }
 
 .top-indicator {
-    padding-top:.2rem;
+    padding-top: .2rem;
     padding-right: 1rem;
     text-align: right;
-    background-color: white;
+    background-color: #094569;
     height: 30px;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .top-indicator .lbLogin {color:black;}
-.top-indicator i {margin-right: 10px;color: black;}
+.top-indicator i {margin-right: 10px;}
 .top-indicator i:hover{color: navy;}
 .top-indicator .lbLogin:hover{color:navy; cursor:pointer;}
 
