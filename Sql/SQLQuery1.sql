@@ -42,5 +42,21 @@ select * from DonneesAteliers
 insert into Ateliers_Tags
 values(5, 'Science'),(6, 'Science'),(6, 'Philosophie'),(7, 'L''humain'),(7, 'École'),(7, 'Philosophie')
 
-select * from GetAllAteliersByTag('Philosophie')
+select * from GetAllAteliersByTag('science')
 select * from Ateliers_Tags
+
+update DonneesAteliers
+set posterPath = 'Images/bonding.jpg'
+where NumAtelier = 4
+
+update DonneesAteliers
+set posterPath = 'Images/bustos.jpg', campus = 'GR'
+where NumAtelier = 7
+
+update DonneesAteliers
+set posterPath = 'Images/earth.jpg'
+where NumAtelier = 5
+
+update DonneesAteliers
+set posterPath = 'Images/science.jpg'
+where NumAtelier = 6

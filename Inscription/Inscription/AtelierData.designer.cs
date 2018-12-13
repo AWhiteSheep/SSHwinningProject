@@ -36,12 +36,12 @@ namespace Inscription
     partial void InsertEtudiant(Etudiant instance);
     partial void UpdateEtudiant(Etudiant instance);
     partial void DeleteEtudiant(Etudiant instance);
-    partial void InsertDonneesAteliers(DonneesAteliers instance);
-    partial void UpdateDonneesAteliers(DonneesAteliers instance);
-    partial void DeleteDonneesAteliers(DonneesAteliers instance);
     partial void InsertTags(Tags instance);
     partial void UpdateTags(Tags instance);
     partial void DeleteTags(Tags instance);
+    partial void InsertDonneesAteliers(DonneesAteliers instance);
+    partial void UpdateDonneesAteliers(DonneesAteliers instance);
+    partial void DeleteDonneesAteliers(DonneesAteliers instance);
     #endregion
 		
 		public AtelierDataDataContext() : 
@@ -98,14 +98,6 @@ namespace Inscription
 			}
 		}
 		
-		public System.Data.Linq.Table<DonneesAteliers> DonneesAteliers
-		{
-			get
-			{
-				return this.GetTable<DonneesAteliers>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Tags> Tags
 		{
 			get
@@ -119,6 +111,14 @@ namespace Inscription
 			get
 			{
 				return this.GetTable<Ateliers_Tags>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DonneesAteliers> DonneesAteliers
+		{
+			get
+			{
+				return this.GetTable<DonneesAteliers>();
 			}
 		}
 		
@@ -278,7 +278,7 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_poster", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_poster", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary poster
 		{
 			get
@@ -466,6 +466,113 @@ namespace Inscription
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tags")]
+	public partial class Tags : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Description;
+		
+    #region Définitions de méthodes d'extensibilité
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    #endregion
+		
+		public Tags()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(25) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ateliers_Tags")]
+	public partial class Ateliers_Tags
+	{
+		
+		private System.Nullable<int> _NumAtelier;
+		
+		private string _Description;
+		
+		public Ateliers_Tags()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumAtelier", DbType="Int")]
+		public System.Nullable<int> NumAtelier
+		{
+			get
+			{
+				return this._NumAtelier;
+			}
+			set
+			{
+				if ((this._NumAtelier != value))
+				{
+					this._NumAtelier = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(25)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DonneesAteliers")]
 	public partial class DonneesAteliers : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -482,8 +589,6 @@ namespace Inscription
 		
 		private string _contentInfo;
 		
-		private System.Data.Linq.Binary _poster;
-		
 		private string _contentMain;
 		
 		private string _sommaire;
@@ -493,6 +598,8 @@ namespace Inscription
 		private System.Nullable<System.DateTime> _dateFin;
 		
 		private System.Nullable<int> _Max_Eleves;
+		
+		private string _posterPath;
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
@@ -508,8 +615,6 @@ namespace Inscription
     partial void OnSalleChanged();
     partial void OncontentInfoChanging(string value);
     partial void OncontentInfoChanged();
-    partial void OnposterChanging(System.Data.Linq.Binary value);
-    partial void OnposterChanged();
     partial void OncontentMainChanging(string value);
     partial void OncontentMainChanged();
     partial void OnsommaireChanging(string value);
@@ -520,6 +625,8 @@ namespace Inscription
     partial void OndateFinChanged();
     partial void OnMax_ElevesChanging(System.Nullable<int> value);
     partial void OnMax_ElevesChanged();
+    partial void OnposterPathChanging(string value);
+    partial void OnposterPathChanged();
     #endregion
 		
 		public DonneesAteliers()
@@ -627,26 +734,6 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_poster", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary poster
-		{
-			get
-			{
-				return this._poster;
-			}
-			set
-			{
-				if ((this._poster != value))
-				{
-					this.OnposterChanging(value);
-					this.SendPropertyChanging();
-					this._poster = value;
-					this.SendPropertyChanged("poster");
-					this.OnposterChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contentMain", DbType="Text", UpdateCheck=UpdateCheck.Never)]
 		public string contentMain
 		{
@@ -747,64 +834,22 @@ namespace Inscription
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tags")]
-	public partial class Tags : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Description;
-		
-    #region Définitions de méthodes d'extensibilité
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    #endregion
-		
-		public Tags()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(25) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Description
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_posterPath", DbType="VarChar(100)")]
+		public string posterPath
 		{
 			get
 			{
-				return this._Description;
+				return this._posterPath;
 			}
 			set
 			{
-				if ((this._Description != value))
+				if ((this._posterPath != value))
 				{
-					this.OnDescriptionChanging(value);
+					this.OnposterPathChanging(value);
 					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
+					this._posterPath = value;
+					this.SendPropertyChanged("posterPath");
+					this.OnposterPathChanged();
 				}
 			}
 		}
@@ -826,51 +871,6 @@ namespace Inscription
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ateliers_Tags")]
-	public partial class Ateliers_Tags
-	{
-		
-		private System.Nullable<int> _NumAtelier;
-		
-		private string _Description;
-		
-		public Ateliers_Tags()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumAtelier", DbType="Int")]
-		public System.Nullable<int> NumAtelier
-		{
-			get
-			{
-				return this._NumAtelier;
-			}
-			set
-			{
-				if ((this._NumAtelier != value))
-				{
-					this._NumAtelier = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(25)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this._Description = value;
-				}
 			}
 		}
 	}

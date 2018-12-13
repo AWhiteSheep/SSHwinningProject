@@ -26,23 +26,6 @@
       <Association Name="DonneesAteliers_Etudiant_Atelier" Member="DonneesAteliers" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAteliers" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.DonneesAteliers" Member="DonneesAteliers">
-    <Type Name="DonneesAteliers">
-      <Column Name="NumAtelier" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="contentTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="campus" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Salle" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="contentInfo" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="poster" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="contentMain" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="sommaire" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="dateDebut" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
-      <Column Name="dateFin" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
-      <Column Name="Max_Eleves" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="DonneesAteliers_Etudiant_Atelier" Member="Etudiant_Atelier" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Etudiant_Atelier" />
-      <Association Name="DonneesAteliers_Ateliers_Tags" Member="Ateliers_Tags" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Ateliers_Tags" />
-    </Type>
-  </Table>
   <Table Name="dbo.Tags" Member="Tags">
     <Type Name="Tags">
       <Column Name="Description" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -55,6 +38,23 @@
       <Column Name="Description" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
       <Association Name="Tags_Ateliers_Tags" Member="Tags" ThisKey="Description" OtherKey="Description" Type="Tags" IsForeignKey="true" />
       <Association Name="DonneesAteliers_Ateliers_Tags" Member="DonneesAteliers" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAteliers" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DonneesAteliers" Member="DonneesAteliers">
+    <Type Name="DonneesAteliers">
+      <Column Name="NumAtelier" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="contentTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="campus" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Salle" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="contentInfo" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="contentMain" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="sommaire" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="dateDebut" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="dateFin" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Max_Eleves" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="posterPath" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="DonneesAteliers_Etudiant_Atelier" Member="Etudiant_Atelier" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Etudiant_Atelier" />
+      <Association Name="DonneesAteliers_Ateliers_Tags" Member="Ateliers_Tags" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Ateliers_Tags" />
     </Type>
   </Table>
   <Function Name="dbo.GetAllAteliersByTag" Method="GetAllAteliersByTag" IsComposable="true">

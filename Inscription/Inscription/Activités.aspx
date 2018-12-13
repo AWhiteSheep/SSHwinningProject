@@ -10,38 +10,40 @@
 
 <%-- le content place holder pour le body qui ajoute de l'information dans la page autre que la master --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" runat="server">
-<%-- Page Web pour les activités --%>
+    <%-- Page Web pour les activités --%>
+    <%-- Script manager pour le ajax --%>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-    <div class="container search-activity">
-        <div class="display-1" style="text-align:center;">Ateliers</div>
-        <hr />
-        <%-- Le boutton est clické celui-ci enlêve  --%>
-        <button class="btn choix-jour" id="J1" value="16">Journée 1</button>
-        <button class="btn choix-jour" id="J2" value="17">Journée 2</button>
-        <button class="btn choix-jour" id="J3" value="18">Journée 3</button>
-        <button class="btn choix-jour" id="J4" value="19">Journée 4</button>
-        <button class="btn choix-jour" id="J5" value="20">Journée 5</button>
-        <br />
-        <button class="btn effacer-tag" id="tag_enlever"><i class="fa fa-times-circle"></i></button>
-        <button class="btn choix-tag" id="tag_science">science</button>
-        <button class="btn choix-tag" id="tag_philosophie">philosophie</button>
-        <button class="btn choix-tag" id="tag_economie">economie</button>
-        <button class="btn choix-tag" id="tag_humain">l'humain</button>
-        <button class="btn choix-tag" id="tag_ecole">école</button>
+        <div class="container search-activity">
+            <div class="display-1" style="text-align: center;">Ateliers</div>
+            <hr />
+            <asp:UpdatePanel ID="doCommand" runat="server">
+                <%-- Le boutton est clické celui-ci enlêve  --%>
+                <ContentTemplate>
+                    <button class="btn choix-jour" id="J1" value="16" runat="server" ClientIDMode="static" onclick="btnChoix-jour_Click">Journée 1</button> 
+                    <button class="btn choix-jour" id="J2" value="17" runat="server" ClientIDMode="static">Journée 2</button>
+                    <button class="btn choix-jour" id="J3" value="18" runat="server" ClientIDMode="static">Journée 3</button>
+                    <button class="btn choix-jour" id="J4" value="19" runat="server" ClientIDMode="static">Journée 4</button>
+                    <button class="btn choix-jour" id="J5" value="20" runat="server" ClientIDMode="static">Journée 5</button>
+                    <br />
+                    <Button class="btn effacer-tag" id="tag_enlever" runat="server" ClientIDMode="static"><i class="fa fa-times-circle"></i></Button>
+                    <%--<asp:Button class="btn choix-tag" ID="tag_science" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click">science</asp:Button>--%>
+                    <asp:Button class="btn choix-tag" ID="tagScience" runat="server"   ClientIDMode="static" Text="science" onclick="btnChoixTags_Click" />
+                    <asp:button class="btn choix-tag" id="tagPhilosophie" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click" text="philosophie" />
+                    <asp:button class="btn choix-tag" id="tagEconomie" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click" Text="economie"></asp:button>
+                    <asp:button class="btn choix-tag" id="tagHumain" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click" Text="humain"/>
+                    <asp:button class="btn choix-tag" id="tagEcole" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click" Text="école" />
 
-        <hr />
-    </div>
-    <div class="row justify-content-md-center">
-        <div class="activity-card">
-            <div class="image-box">
-                <img src="Images/Histoire.jpg" />
-                <div class="h4">L'éducation gratuite!</div>
-                <p>Vous êtes convoqués à venir nous joindre à une superbe preésentation magistral pour une éducation accessible à tous!</p>
-                <span style="float:right;"><button class="btn activity-btn-inscription">Inscription</button><a href="Ateliers.aspx" class="btn activity-btn-voir">Plus...</a></span>
-            </div>            
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
+
+            <hr />
         </div>
-    </div>
-
+        <div class="row justify-content-md-center">
+            <asp:UpdatePanel ID="upSlotForServerHead" ClientIDMode="Static" runat="server">
+            </asp:UpdatePanel>
+        </div>
     <%-- Script mis a fin de page afin de load soit plus efficace --%>
     <script>
         <%-- Jquery afin de toggle la class de boutton activé, afin de savoir à l'usager laquelles des journées il  a choisi --%>
@@ -52,25 +54,6 @@
                 $(".choix-jour").not(this).removeClass("jour-active"); //Enlève de tous les autres boutons la classe jour-active 
                 //Pour celui qui à activé l'événement il toggle la class jour-active, de cette façon nous pouvons l'enlever s'il la class lui appartient
                 $(this).toggleClass("jour-active");
-
-                //Événement click pour envoyé une demande par ajax, pour rechercher selon le jour
-                if ($(this).hasClass("jour-active")) {
-                    var journee = (this).innerHTML;
-                    var xmlhttp = new XMLHttpRequest();
-                    xmlhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            //Quoi faire lorsque la réponse du serveur est prête.
-                            //todo script qui change, avec l'aide de innerHtml, le contenu de l'endroit placé dans le html
-                            document.getElementById("txtHint").innerHTML = this.responseText;
-                        }
-                    };
-
-                    //Ouvre la connection en metant une sting qui dictera quoi chercher
-                    xmlhttp.open("GET", "Je Ne sais quoi.asp?q=" + journee, true);
-
-                    //Envoie la demande 
-                    xmlhttp.send();
-                }
 
             });
 

@@ -1,18 +1,19 @@
-﻿.activity-card{
-    min-width:470px;
-    max-width:600px;
-    height:230px;
+﻿.activity-card {
+    min-width: 470px;
+    max-width: 600px;
+    height: 200px;
+    margin-bottom: 18px !important;
 }
-.activity-card img{
-    width:250px;
-    float:left;
-    margin-right:10px;
+.activity-card img {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-right: 10px;
 }
-.search-activity input{
-    margin-left:25%;
-    text-align:center;
-    width:45% !important;
+.search-activity input {
+    text-align: center;
     border-radius: 500px !important;
+    width: 115px ;
 }
 .image-box .btn{
     border-radius:500px;

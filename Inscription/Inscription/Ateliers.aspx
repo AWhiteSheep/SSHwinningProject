@@ -34,9 +34,7 @@
                         <asp:Label ID="lbSmallInfo" runat="server" Text="Label"></asp:Label>
                     </p>
                     <hr />
-                    <form runat="server">
                         <div class="h3">Quand?</div>
-                        <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
                         <hr />
                         <%-- Content Holder pour le titre de la session --%>
                         <div class="h3">Où?</div>
@@ -48,7 +46,6 @@
                             <%-- Boutton d'inscription --%>
                             <button class="btn btn-success btnSincrire">S'inscrire</button>
                         </div>                
-                    </form>
 
                 </div>
                     </div>
