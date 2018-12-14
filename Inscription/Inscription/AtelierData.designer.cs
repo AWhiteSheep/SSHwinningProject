@@ -127,6 +127,12 @@ namespace Inscription
 		{
 			return this.CreateMethodCallQuery<GetAllAteliersByTagResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tags);
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetAllAteliersByStudent", IsComposable=true)]
+		public IQueryable<GetAllAteliersByStudentResult> GetAllAteliersByStudent([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Etudiant", DbType="Int")] System.Nullable<int> etudiant)
+		{
+			return this.CreateMethodCallQuery<GetAllAteliersByStudentResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), etudiant);
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DonneesActivites")]
@@ -595,11 +601,13 @@ namespace Inscription
 		
 		private System.Nullable<System.DateTime> _dateDebut;
 		
-		private System.Nullable<System.DateTime> _dateFin;
-		
 		private System.Nullable<int> _Max_Eleves;
 		
 		private string _posterPath;
+		
+		private System.Nullable<System.TimeSpan> _HeureDebut;
+		
+		private System.Nullable<System.TimeSpan> _HeureFin;
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
@@ -621,12 +629,14 @@ namespace Inscription
     partial void OnsommaireChanged();
     partial void OndateDebutChanging(System.Nullable<System.DateTime> value);
     partial void OndateDebutChanged();
-    partial void OndateFinChanging(System.Nullable<System.DateTime> value);
-    partial void OndateFinChanged();
     partial void OnMax_ElevesChanging(System.Nullable<int> value);
     partial void OnMax_ElevesChanged();
     partial void OnposterPathChanging(string value);
     partial void OnposterPathChanged();
+    partial void OnHeureDebutChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnHeureDebutChanged();
+    partial void OnHeureFinChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnHeureFinChanged();
     #endregion
 		
 		public DonneesAteliers()
@@ -794,26 +804,6 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateFin", DbType="SmallDateTime")]
-		public System.Nullable<System.DateTime> dateFin
-		{
-			get
-			{
-				return this._dateFin;
-			}
-			set
-			{
-				if ((this._dateFin != value))
-				{
-					this.OndateFinChanging(value);
-					this.SendPropertyChanging();
-					this._dateFin = value;
-					this.SendPropertyChanged("dateFin");
-					this.OndateFinChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Max_Eleves", DbType="Int")]
 		public System.Nullable<int> Max_Eleves
 		{
@@ -850,6 +840,46 @@ namespace Inscription
 					this._posterPath = value;
 					this.SendPropertyChanged("posterPath");
 					this.OnposterPathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeureDebut", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HeureDebut
+		{
+			get
+			{
+				return this._HeureDebut;
+			}
+			set
+			{
+				if ((this._HeureDebut != value))
+				{
+					this.OnHeureDebutChanging(value);
+					this.SendPropertyChanging();
+					this._HeureDebut = value;
+					this.SendPropertyChanged("HeureDebut");
+					this.OnHeureDebutChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeureFin", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HeureFin
+		{
+			get
+			{
+				return this._HeureFin;
+			}
+			set
+			{
+				if ((this._HeureFin != value))
+				{
+					this.OnHeureFinChanging(value);
+					this.SendPropertyChanging();
+					this._HeureFin = value;
+					this.SendPropertyChanged("HeureFin");
+					this.OnHeureFinChanged();
 				}
 			}
 		}
@@ -896,6 +926,230 @@ namespace Inscription
 				if ((this._NumAtelier != value))
 				{
 					this._NumAtelier = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetAllAteliersByStudentResult
+	{
+		
+		private System.Nullable<int> _NumAtelier;
+		
+		private string _contentTitle;
+		
+		private string _campus;
+		
+		private string _Salle;
+		
+		private string _contentInfo;
+		
+		private string _contentMain;
+		
+		private string _sommaire;
+		
+		private System.Nullable<System.DateTime> _dateDebut;
+		
+		private System.Nullable<int> _Max_Eleves;
+		
+		private string _posterPath;
+		
+		private System.Nullable<System.TimeSpan> _HeureDebut;
+		
+		private System.Nullable<System.TimeSpan> _HeureFin;
+		
+		public GetAllAteliersByStudentResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumAtelier", DbType="Int")]
+		public System.Nullable<int> NumAtelier
+		{
+			get
+			{
+				return this._NumAtelier;
+			}
+			set
+			{
+				if ((this._NumAtelier != value))
+				{
+					this._NumAtelier = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contentTitle", DbType="VarChar(50)")]
+		public string contentTitle
+		{
+			get
+			{
+				return this._contentTitle;
+			}
+			set
+			{
+				if ((this._contentTitle != value))
+				{
+					this._contentTitle = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_campus", DbType="VarChar(20)")]
+		public string campus
+		{
+			get
+			{
+				return this._campus;
+			}
+			set
+			{
+				if ((this._campus != value))
+				{
+					this._campus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Salle", DbType="VarChar(40)")]
+		public string Salle
+		{
+			get
+			{
+				return this._Salle;
+			}
+			set
+			{
+				if ((this._Salle != value))
+				{
+					this._Salle = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contentInfo", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string contentInfo
+		{
+			get
+			{
+				return this._contentInfo;
+			}
+			set
+			{
+				if ((this._contentInfo != value))
+				{
+					this._contentInfo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contentMain", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string contentMain
+		{
+			get
+			{
+				return this._contentMain;
+			}
+			set
+			{
+				if ((this._contentMain != value))
+				{
+					this._contentMain = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sommaire", DbType="VarChar(25)")]
+		public string sommaire
+		{
+			get
+			{
+				return this._sommaire;
+			}
+			set
+			{
+				if ((this._sommaire != value))
+				{
+					this._sommaire = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateDebut", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> dateDebut
+		{
+			get
+			{
+				return this._dateDebut;
+			}
+			set
+			{
+				if ((this._dateDebut != value))
+				{
+					this._dateDebut = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Max_Eleves", DbType="Int")]
+		public System.Nullable<int> Max_Eleves
+		{
+			get
+			{
+				return this._Max_Eleves;
+			}
+			set
+			{
+				if ((this._Max_Eleves != value))
+				{
+					this._Max_Eleves = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_posterPath", DbType="VarChar(100)")]
+		public string posterPath
+		{
+			get
+			{
+				return this._posterPath;
+			}
+			set
+			{
+				if ((this._posterPath != value))
+				{
+					this._posterPath = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeureDebut", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HeureDebut
+		{
+			get
+			{
+				return this._HeureDebut;
+			}
+			set
+			{
+				if ((this._HeureDebut != value))
+				{
+					this._HeureDebut = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeureFin", DbType="Time")]
+		public System.Nullable<System.TimeSpan> HeureFin
+		{
+			get
+			{
+				return this._HeureFin;
+			}
+			set
+			{
+				if ((this._HeureFin != value))
+				{
+					this._HeureFin = value;
 				}
 			}
 		}

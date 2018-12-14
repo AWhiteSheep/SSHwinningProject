@@ -15,7 +15,7 @@ namespace Inscription
         {
             ////Source du code pour la connection https://www.c-sharpcorner.com/UploadFile/ea3ed6/showing-some-data-in-Asp-Net-from-sql-server-database-using/
             //le ID de l'activité une variable est global à la solution qui déterminera se qui sera affiché sur la page --TODO
-            string ActID = "1";
+            string ActID = Request.QueryString["id"];
 
             //string pour la connection à la base de données
             string connStr = ConfigurationManager.ConnectionStrings["ConnectionStringToDonneesActivite"].ConnectionString;
@@ -24,7 +24,7 @@ namespace Inscription
             SqlConnection conn = new SqlConnection(connStr);
 
             //Query au serveur à la table d'activité pour les information pour l'activité voulu
-            string sql = $"select * from DonneesActivites where NumActivite = '" + ActID + "'";
+            string sql = $"select * from DonneesAteliers where NumAtelier = '" + ActID + "'";
 
             //Création d'une instance de SQlCommand qui format la commande afin que SQL puisse le lire
             SqlCommand cmd = new SqlCommand(sql, conn);
@@ -45,7 +45,6 @@ namespace Inscription
                         lbSalle.Text = reader.GetString(3);
                         lbSmallInfo.Text = reader.GetString(4);
                         lbContentMain.Text = reader.GetString(6);
-                        lbTitleCoupOeil.Text = reader.GetString(7);
                     }
                 }
                 else

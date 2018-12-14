@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SSHdataBase" Class="AtelierDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SSHdataBase.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ConnectionStringToDonneesActivite" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SSHdataBase.mdf;Integrated Security=True" SettingsObjectName="Inscription.Properties.Settings" SettingsPropertyName="ConnectionStringToDonneesActivite" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DonneesActivites" Member="DonneesActivites">
     <Type Name="DonneesActivites">
       <Column Name="NumActivite" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -50,9 +50,10 @@
       <Column Name="contentMain" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="sommaire" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
       <Column Name="dateDebut" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
-      <Column Name="dateFin" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
       <Column Name="Max_Eleves" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="posterPath" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HeureDebut" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="HeureFin" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Association Name="DonneesAteliers_Etudiant_Atelier" Member="Etudiant_Atelier" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Etudiant_Atelier" />
       <Association Name="DonneesAteliers_Ateliers_Tags" Member="Ateliers_Tags" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Ateliers_Tags" />
     </Type>
@@ -61,6 +62,23 @@
     <Parameter Name="Tags" Parameter="tags" Type="System.String" DbType="VarChar(25)" />
     <ElementType Name="GetAllAteliersByTagResult">
       <Column Name="NumAtelier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetAllAteliersByStudent" Method="GetAllAteliersByStudent" IsComposable="true">
+    <Parameter Name="Etudiant" Parameter="etudiant" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetAllAteliersByStudentResult">
+      <Column Name="NumAtelier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="contentTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="campus" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Salle" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="contentInfo" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="contentMain" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="sommaire" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="dateDebut" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Max_Eleves" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="posterPath" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HeureDebut" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="HeureFin" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
