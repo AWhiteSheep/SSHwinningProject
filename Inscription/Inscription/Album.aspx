@@ -56,17 +56,6 @@
         .all{
             display:none;
         }
-        .modal-body.imageContent{
-                margin: auto;
-                
-        }
-        .modal-header.imageContent{
-            border-bottom:none !important;
-            padding: 1rem 1rem 0 1rem;
-        } 
-        .modal-footer.imageContent{
-            border-top:none !important;
-        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="SQLconnection" runat="server">
@@ -80,8 +69,6 @@
         <button class="btn choix-filter-annee" id="all2017">2017</button>
         <button class="btn choix-filter-annee" id="all2018">2018</button>
         <script>
-
-           
             $(".btn").click(function () {
                 $(this).toggleClass("active");
                 $(".btn").not(this).removeClass("active");
@@ -102,115 +89,92 @@
                 //$(".all").filter(".a2018").css("display", "");
                 //$(".all").not(".a2018").css("display", "none");
             });
-            
+
         </script>
     </div>
         <br />
         <hr style="width: 100%; border: .5px solid black; margin: auto; visibility: hidden" />
         <div class="col-lg-3 col-md-4 col-sm-6 a2017 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(10).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(10).jpg" />
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 a2017 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(11).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(11).jpg" />
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 a2017 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(12).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(12).jpg" />
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 a2017 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(13).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(13).jpg" />
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 a2017 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(14).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(14).jpg" />
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 a2018 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(2).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(2).jpg" />
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 a2018 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(3).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(3).jpg" />
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 a2018 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(4).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(4).jpg" />
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 a2018 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(6).jpg" />
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 a2018 all">
-            <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(5).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(6).jpg" />
             </div>
         </div>
 
         <div class="col-lg-3 col-md-4 col-sm-6 a2018 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(7).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(5).jpg" />
             </div>
         </div>
 
         <div class="col-lg-3 col-md-4 col-sm-6 a2018 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(8).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(7).jpg" />
             </div>
         </div>
 
         <div class="col-lg-3 col-md-4 col-sm-6 a2018 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1%20(9).jpg" />
+                <img src="Images/Default/insta_gallery_1%20(8).jpg" />
             </div>
         </div>
 
         <div class="col-lg-3 col-md-4 col-sm-6 a2018 all">
             <div class="gallery_item">
-                <img class="image" src="Images/Default/insta_gallery_1.jpg" />
+                <img src="Images/Default/insta_gallery_1%20(9).jpg" />
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 a2018 all">
+            <div class="gallery_item">
+                <img src="Images/Default/insta_gallery_1.jpg" />
             </div>
         </div>
 
     </div>
-    </div>
-    <%-- Modal for image --%>
-    <div class="modal fade" id="ModalForImage" tabindex="-1" role="dialog" aria-labelledby="ModalForImage" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header imageContent">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body imageContent">
-            <img style="width:300px;height:300px;align-content:center" src="Images/default-thumb.png" id="pushImageForModal"/>
-          </div>
-          <div class="modal-footer imageContent">
-          </div>
-        </div>
-      </div>
     </div>
     <script>
-        $(document).ready(function () {
-            $("div").filter(".all").show("fast");
-            $(document).on("click", "div .all", function () {
-                var ImageSrc = $(this).children().children().attr("src");
-                $("#pushImageForModal").attr("src", ImageSrc);
-                $("#ModalForImage").modal('show');
+            $(document).ready(function () {
+                $("div").filter(".all").show("fast");
             });
-        });
-        
     </script>
 </asp:Content>
