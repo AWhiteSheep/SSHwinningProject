@@ -101,3 +101,14 @@ K:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.cs
 K:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
 K:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
 K:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb
+E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\bin\Inscription.dll.config
+E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\bin\Inscription.dll
+E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\bin\Inscription.pdb
+E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\bin\AjaxControlToolkit.dll
+E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csprojAssemblyReference.cache
+E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CoreCompileInputs.cache
+E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
+E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
+E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb

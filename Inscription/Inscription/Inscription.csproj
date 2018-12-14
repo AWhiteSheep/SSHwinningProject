@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ajax.aspx" />
+    <Content Include="AjoutAtelier.aspx" />
     <Content Include="App_Data\SSHdataBase.mdf" />
     <Content Include="App_Data\SSHdataBase_log.ldf">
       <DependentUpon>SSHdataBase.mdf</DependentUpon>
@@ -84,6 +85,7 @@
     <Content Include="Images\Banners\GreenBubble.png" />
     <Content Include="Images\Banners\YellowBubble.jpg" />
     <Content Include="Images\Banners\YellowBubble.png" />
+    <Content Include="Images\default-thumb.png" />
     <Content Include="Login.aspx" />
     <Content Include="Content\Acceuil.Master.css" />
     <Content Include="Content\Activites.css" />
@@ -236,6 +238,13 @@
     </Compile>
     <Compile Include="ajax.aspx.designer.cs">
       <DependentUpon>ajax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutAtelier.aspx.cs">
+      <DependentUpon>AjoutAtelier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutAtelier.aspx.designer.cs">
+      <DependentUpon>AjoutAtelier.aspx</DependentUpon>
     </Compile>
     <Compile Include="AtelierData.designer.cs">
       <AutoGen>True</AutoGen>
