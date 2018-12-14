@@ -18,6 +18,7 @@ namespace Inscription
             if (this.Page.User.Identity.IsAuthenticated)
             {
                 btnShowLogin.InnerText = HttpContext.Current.User.Identity.Name;
+                //btnShowLogin.
             }
             else
             {
@@ -59,12 +60,23 @@ namespace Inscription
                         dvMessage.Visible = true;
                         lblMessage.Text = "Username and/or password is incorrect.";
                         break;
+
                     default:                        
-                            FormsAuthentication.SetAuthCookie(username, chkRememberMe.Checked);                        
+                        FormsAuthentication.SetAuthCookie(username, chkRememberMe.Checked);
+                        btnShowLogin.InnerText = username;
                         break;
                 }
             }
         }//https://www.aspsnippets.com/Articles/Responsive-Login-Form-inside-Bootstrap-Modal-Popup-in-ASPNet.aspx
         //Source pour la belle procédure
+        protected void LogOut(object sender, EventArgs e)
+        {
+            if (this.Page.User.Identity.IsAuthenticated)
+            {
+                FormsAuthentication.SignOut();
+                Page.Response.Redirect(Page.Request.Url.ToString(), true);
+            }
+        }
+
     }
 }

@@ -86,6 +86,7 @@
     <Content Include="Images\Banners\YellowBubble.jpg" />
     <Content Include="Images\Banners\YellowBubble.png" />
     <Content Include="Images\default-thumb.png" />
+    <Content Include="Images\Poster.JPG" />
     <Content Include="Login.aspx" />
     <Content Include="Content\Acceuil.Master.css" />
     <Content Include="Content\Activites.css" />
@@ -162,6 +163,10 @@
     <Content Include="Scripts\formValidation.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -324,6 +329,11 @@
     </Compile>
     <Compile Include="Panier.aspx.designer.cs">
       <DependentUpon>Panier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

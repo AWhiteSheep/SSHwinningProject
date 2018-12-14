@@ -72,13 +72,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="SQLconnection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentBody" runat="server">
-    <div style="">
-    <div class="row container align-content-center" style="margin:auto;padding:10px 0px">
+    <div style="min-height:1050px">
+    <div class="row container align-content-center" style="margin:auto;padding:10px 0px;">
 
-    <div class="menuYear" style="margin:auto; padding:24px 0">
+    <div class="menuYear" style="margin:0 auto 0 auto; padding:24px 0">
         <button class="btn choix-filter-annee" id="all">Toutes</button>
         <button class="btn choix-filter-annee" id="all2017">2017</button>
         <button class="btn choix-filter-annee" id="all2018">2018</button>
+        <button class="btn choix-filter-annee" id="all2019">2019</button>
         <script>
 
            
@@ -99,6 +100,12 @@
             $("#all2018").click(function () {
                 $(".all").filter(".a2018").show("slow");
                 $(".all").not(".a2018").hide("slow");
+                //$(".all").filter(".a2018").css("display", "");
+                //$(".all").not(".a2018").css("display", "none");
+            });
+            $("#all2019").click(function () {
+                $(".all").filter(".a2019").show("slow");
+                $(".all").not(".a2019").hide("slow");
                 //$(".all").filter(".a2018").css("display", "");
                 //$(".all").not(".a2018").css("display", "none");
             });

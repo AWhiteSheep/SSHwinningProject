@@ -5,13 +5,13 @@
 <html>
 <head runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<%--    <meta http-equiv="Content-Type" content="width=device-width, initial-scale=1.0;text/html; charset=utf-8"/>--%>
+    <%--    <meta http-equiv="Content-Type" content="width=device-width, initial-scale=1.0;text/html; charset=utf-8"/>--%>
     <%-- Section Link --%>
     <%-- css pour cette master --%>
     <link rel="stylesheet" href="Content/Inscription.Master.css" />
 
     <link rel="stylesheet" href="Content/bootstrap.css" />
-    <link rel="icon" href="Images/earth-globe.png"/>
+    <link rel="icon" href="Images/earth-globe.png" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -21,8 +21,8 @@
 
     <%-- font pour les icons --%>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-    
-    
+
+
     <%-- Javascripts for all --%>
     <script src="Scripts/JavaAll.js"></script>
     <%-- Scripts for bootstrap --%>
@@ -33,19 +33,41 @@
             color: white;
             text-decoration: none;
         }
-        #btnRecherche:hover{
-            background-color:rgb(30, 117, 52) !important;
-            border-color:rgb(30, 117, 52) !important;
+
+        #btnRecherche:hover {
+            background-color: rgb(30, 117, 52) !important;
+            border-color: rgb(30, 117, 52) !important;
         }
-        .btnConnectionAsUrl{
-            text-decoration:none;
+
+        .btnConnectionAsUrl {
+            text-decoration: none;
         }
-        .ModalLoginPage{
-            text-align:left !important;
-            
+
+        .ModalLoginPage {
+            text-align: left !important;
         }
-        .modal-header{
+
+        .modal-header {
             display: inline !important;
+        }
+
+        #settingsMenu{
+            display:none;
+            position: absolute;
+            right: 15px;
+            z-index: 103;
+            text-align: unset !important;
+            background-color: white;
+            border-bottom: 2px black solid;
+            border-radius: 4px 0 4px 4px;
+            padding: 0 7px 0 11px;
+        }
+        .menuItem:hover{
+            text-decoration:none;
+            cursor:pointer;
+        }
+        .btnLogOut{
+
         }
     </style>
 </head>
@@ -53,11 +75,11 @@
     <form runat="server">
         <%-- Pour la connection sql nous avons besoin de mettre la ligne de connection dans le content holder dans la page crée de l'atelier --%>
         <asp:ContentPlaceHolder ID="SQLconnection" runat="server"></asp:ContentPlaceHolder>
-        
+        <div style="float: left !important; padding-left: 5px; height: 30px; background-color: rgb(92,212,239); padding-top: .2rem; width: 20%; border-right: 3px white solid; color: white;"></div>
         <%-- Top section the socials --%>
         <div class="top-indicator">
             <%-- Lien vers omnivox --%>
-            <a style="float:left !important; padding-left:5px;" href="https://cegepoutaouais.omnivox.ca/intr/Module/Identification/Login/Login.aspx?ReturnUrl=%2fintr">Omnivox</a>
+            <%--            <a style="float:left !important; padding-left:5px;" href="https://cegepoutaouais.omnivox.ca/intr/Module/Identification/Login/Login.aspx?ReturnUrl=%2fintr">Omnivox</a>--%>
             <%-- Lien instagram pour SSH --%>
             <a target="" href="https://www.instagram.com/semaine.sciences.humaines/">
                 <i class="fab fa-instagram"></i>
@@ -71,147 +93,142 @@
                 <i class="fas fa-shopping-cart"></i>
             </a>
             <%-- Sera modifié lorsque l'usager va se connecter --%>
-            <span style="float:right;">
+            <div style="float: right;">                
                 <a href="#" id="btnShowLogin" class="btnConnectionAsUrl" runat="server">Login</a>
-                <script type="text/javascript">
-                    $(function () {
-                            $("#btnShowLogin").click(function () {
-                                $('#LoginModal').modal('show');
-                            });
-                    });
-                </script>
-            </span>
-            <div class="modal fade ModalLoginPage" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                &times;</button>
-                            <h4 class="modal-title" id="ModalTitle">Login</h4>
+            </div>
+                <div id="settingsMenu">
+                    <div class="menuItem">Profile</div>
+                    <div class="menuItem">Account</div>
+                    <div class="menuItem">Manage users</div>
+                    <asp:Button ID="GoodLogOut" CssClass="menuItem" runat="server" Text="LogOut" OnClick="LogOut"/>
+                </div>
+        </div>
+            
+        <script type="text/javascript">
+            $("#btnShowLogin").click(function () {
+                if (document.getElementById('btnShowLogin').innerText == "Login") {
+                    $('#LoginModal').modal('show');
+                    $('#txtUsername').prop('required', true);
+                    $('#txtPassword').prop('required', true);
+                }
+            });
+            $('#btnShowLogin').mouseover(function (e) {
+                if (document.getElementById('btnShowLogin').innerText != "Login") {
+                    //Ajoute un événement que lorsque le pointeur de l'usager se trouve par dessus l'affiche selon le la méthode fadeIn 
+                    $('#settingsMenu').stop(true, true).delay(150).fadeIn(150);
+                }
+            });
+            $('#settingsMenu').mouseleave(function (e) {
+                //Ajoute un événement que lorsque le pointeur de l'usager se trouve par dessus l'affiche selon le la méthode fadeIn 
+                $('#settingsMenu').stop(true, true).delay(150).fadeOut(150);
+            });
+            $('#LoginModal').on('hidden.bs.modal', function () {
+                $('#txtUsername').prop('required', false);
+                $('#txtPassword').prop('required', false);
+            });
+        </script>
+
+        <div class="modal fade ModalLoginPage" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;</button>
+                        <h4 class="modal-title" id="ModalTitle">Login</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="txtUsername">
+                            Username</label>
+                        <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Enter Username" />
+                        <br />
+                        <label for="txtPassword">
+                            Password</label>
+                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control"
+                            placeholder="Enter Password" />
+                        <div class="checkbox">
+                            <asp:CheckBox ID="chkRememberMe" Text="Remember Me" runat="server" />
                         </div>
-                        <div class="modal-body">
-                            <label for="txtUsername">
-                                Username</label>
-                            <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Enter Username"
-                                required />
-                            <br />
-                            <label for="txtPassword">
-                                Password</label>
-                            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control"
-                                placeholder="Enter Password" required />
-                            <div class="checkbox">
-                                <asp:CheckBox ID="chkRememberMe" Text="Remember Me" runat="server" />
-                            </div>
-                            <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
-                                <strong>Error!</strong>
-                                <asp:Label ID="lblMessage" runat="server" />
-                            </div>
+                        <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
+                            <strong>Error!</strong>
+                            <asp:Label ID="lblMessage" runat="server" />
                         </div>
-                        <div class="modal-footer">
-                            <asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="ValidateUser" Class="btn btn-primary" />
-                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                                Close</button>
-                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="ValidateUser" Class="btn btn-primary" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Close</button>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
         <%-- image banner, representing human science --%>
 
         <%-- Nav bar temporary ??? --%>
-        <nav class="navbar navbar-expand-lg navbar-light bg-my-dark" style="background-color:#094569;">
-          <a class="navbar-brand" href="PageAcceuil.aspx" >
-              <img  src="Images/earth-globe.svg" style="vertical-align:bottom;height: 50px;"/><span style="color:rgb(101,147,245)">S</span><span style="color:rgb(4, 123, 93)">S</span><span style="color:rgb(2,2,2);">H</span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto" style="margin-bottom: -16px;">
-               <li class="nav-item">
-                   <a class="nav-link" href="PageAcceuil.aspx">Accueil</a>
-               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Album.aspx">Album</a>
-              </li>
-               <li class="nav-item">
-                <a class="nav-link" href="Activités.aspx">Ateliers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Calendrier.aspx">Calendrier</a>
-              </li>
-                <li id="dropdown" class="nav-item dropdown main-menu">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Liens Utiles</a>
-                    <div class="dropdown-menu main-menu">
-                        <a class="dropdown-item main-menu-dropdown-item" href="Contactez.aspx">Contactez-Nous</a>
-                        <a class="dropdown-item main-menu-dropdown-item" href="https://cegepoutaouais.omnivox.ca">Omnivox</a>
-                    </div>
-                </li>
-            </ul>
-              <%-- Section de recherche --%>
-            <span class="form-inline mt-2 mt-md-0" style="margin:.5rem">
-                <input class="form-control mr-sm-2" type="text"
-                    placeholder="Rechercher" aria-label="Search" />
-                <button id="btnRecherche" class="btn btn-success my-2 my-sm-0" type="submit" style="border-color:black">
-                    <i class="fas fa-search"></i>
-                </button>
-            </span>
-          </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-my-dark" style="background-color: #094569;">
+            <a class="navbar-brand" href="PageAcceuil.aspx">
+                <img src="Images/earth-globe.svg" style="vertical-align: bottom; height: 50px;" /><span style="color: rgb(101,147,245)">S</span><span style="color: rgb(4, 123, 93)">S</span><span style="color: rgb(2,2,2);">H</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto" style="margin-bottom: -16px;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="PageAcceuil.aspx">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Album.aspx">Album</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Activités.aspx">Ateliers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Calendrier.aspx">Calendrier</a>
+                    </li>
+                    <li id="dropdown" class="nav-item dropdown main-menu">
+                        <a class="nav-link dropdown-toggle" href="#" <%--data-toggle="dropdown"--%>>Liens Utiles</a>
+                        <div class="dropdown-menu main-menu">
+                            <a class="dropdown-item main-menu-dropdown-item" href="Contactez.aspx">Contactez-Nous</a>
+                            <a class="dropdown-item main-menu-dropdown-item" href="https://cegepoutaouais.omnivox.ca">Omnivox</a>
+                        </div>
+                    </li>
+                </ul>
+                <%-- Section de recherche --%>
+                <span class="form-inline mt-2 mt-md-0" style="margin: .5rem">
+                    <input class="form-control mr-sm-2" type="text"
+                        placeholder="Rechercher" aria-label="Search" />
+                    <button id="btnRecherche" class="btn btn-success my-2 my-sm-0" type="submit" style="border-color: black">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </span>
+            </div>
         </nav>
         <%-- End of nav bar --%>
-    <div class="banner-image">            
-                <img src="Images/LesterBPerson.jpg" />
-                <img src="Images/instaSSH.jpg" />
-                <img src="Images/science.jpg" />
-                <img src="Images/SSH1.jpg" />
-                <img src="Images/earth.jpg" />
-                <img src="Images/SSH2.jpg" />
-                <img src="Images/LisePayette.jpg" />
-                <img src="Images/SSH3.jpg" />
-                <img src="Images/team.jpg" />
-                <img src="Images/SSH4.jpg" />
-                <img src="Images/statue-3289791_640.jpg" />
-                <img src="Images/bustos.jpg" />            
-                <img src="Images/canvas-1009232_640.jpg" />
-                <img src="Images/guy-2617866_640.jpg" />            
-                <img src="Images/pyramids-2371501_1280.jpg" />
-                <img src="Images/bonding.jpg" />            
-                <%-- REp --%>            
-                <img src="Images/LesterBPerson.jpg" />
-                <img src="Images/science.jpg" />
-                <img src="Images/rubik.jpg" />
-                <img src="Images/LisePayette.jpg" />
-                <img src="Images/team.jpg" />
-                <img src="Images/statue-3289791_640.jpg" />
-                <img src="Images/bustos.jpg" />
-                <img src="Images/canvas-1009232_640.jpg" />
-                <img src="Images/guy-2617866_640.jpg" />
-                <img src="Images/pyramids-2371501_1280.jpg" />
-                <img src="Images/bonding.jpg" />
-                <img src="Images/hands-600497_640.jpg" />
-            </div>
-    <%-- ----------------------------------------------------------------------------------------- --%>
-            <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
-    <%-- ----------------------------------------------------------------------------------------- --%>
-    <asp:ContentPlaceHolder ID="contentBody" runat="server">
-    </asp:ContentPlaceHolder>
-    <%-- ----------------------------------------------------------------------------------------- --%>
-            <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
-    <%-- ----------------------------------------------------------------------------------------- --%>
-    
-    <%-- si n'est pas connecté afficher le boutton pour que l'usager se connnecte --%>
-    <div id="btnConnection" class="connectez-vous" runat="server">
-        <small style="font-size:12px;">Vous n'êtes pas connecté</small><br />
-        <a class="btn btn-connectez-vous" href="Login.aspx">Connectez-vous</a>        
-    </div>
-        </form>
+
+        <%-- ----------------------------------------------------------------------------------------- --%>
+        <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
+        <%-- ----------------------------------------------------------------------------------------- --%>
+        <asp:ContentPlaceHolder ID="contentBody" runat="server">
+        </asp:ContentPlaceHolder>
+        <%-- ----------------------------------------------------------------------------------------- --%>
+        <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
+        <%-- ----------------------------------------------------------------------------------------- --%>
+
+        <%-- si n'est pas connecté afficher le boutton pour que l'usager se connnecte --%>
+        <div id="btnConnection" class="connectez-vous" runat="server">
+            <small style="font-size: 12px;">Vous n'êtes pas connecté</small><br />
+            <a class="btn btn-connectez-vous" href="Login.aspx">Connectez-vous</a>
+        </div>
+    </form>
     <footer>
         <div class="container-fluid footer">
             <div class="row justify-content-end">
-                <div class="col-md-3" >
-                    <span style="color:rgb(101,147,245)">S</span><span style="color:rgb(4, 123, 93)">S</span><span style="color:rgb(2,2,2);">H</span></div>
+                <div class="col-md-3">
+                    <span style="color: rgb(101,147,245)">S</span><span style="color: rgb(4, 123, 93)">S</span><span style="color: rgb(2,2,2);">H</span>
+                </div>
                 <div class="col-md-3" style="">
                     Cegep Outaouais<br />
                     Mon école<br />
@@ -226,7 +243,7 @@
                     <a href="#">Activités Spéciales</a>
                 </div>
                 <div class="col-md-3" style="">
-                    ©Tous droits réservés
+                    ©Cégep Outaouais
                 </div>
 
             </div>
@@ -238,25 +255,25 @@
     <script>
         $('#btnConnection').hide();
         //Pour hover menu dropdown-item
-            //le tout est dispositionné pour ne pas interrompre le javascript des pages actives.
+        //le tout est dispositionné pour ne pas interrompre le javascript des pages actives.
 
-            //Ajoute un événement que lorsque le pointeur de l'usager se trouve par dessus l'affiche selon le la méthode fadeIn 
-            $('#dropdown').mouseover(function () {
-                $(this).find('.dropdown-menu').stop(true, true).delay(150).fadeIn(150);
-            });
-            //Ajoute un événement que lorsque le pointeur de l'usager s'enleve de par dessus le cache selon le la méthode fadeOut
-            $('#dropdown').mouseout(function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(150).fadeOut(150);
-            });
+        //Ajoute un événement que lorsque le pointeur de l'usager se trouve par dessus l'affiche selon le la méthode fadeIn 
+        $('#dropdown').mouseover(function () {
+            $(this).find('.dropdown-menu').stop(true, true).delay(150).fadeIn(150);
+        });
+        //Ajoute un événement que lorsque le pointeur de l'usager s'enleve de par dessus le cache selon le la méthode fadeOut
+        $('#dropdown').mouseout(function () {
+            $(this).find('.dropdown-menu').stop(true, true).delay(150).fadeOut(150);
+        });
 
-            $(window).scroll(function () {
-                if ($(document).scrollTop() > 100) {
-                    $('#btnConnection').fadeIn("slow");
-                }
-                else {
-                    $('#btnConnection').fadeOut("slow");
-                }
-            }).scroll;
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > 100) {
+                $('#btnConnection').fadeIn("slow");
+            }
+            else {
+                $('#btnConnection').fadeOut("slow");
+            }
+        }).scroll;
     </script>
 </body>
 </html>

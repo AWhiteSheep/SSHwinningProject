@@ -29,6 +29,37 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" runat="server">
+    <div class="banner-image">            
+                <img src="Images/LesterBPerson.jpg" />
+                <img src="Images/instaSSH.jpg" />
+                <img src="Images/science.jpg" />
+                <img src="Images/SSH1.jpg" />
+                <img src="Images/earth.jpg" />
+                <img src="Images/SSH2.jpg" />
+                <img src="Images/LisePayette.jpg" />
+                <img src="Images/SSH3.jpg" />
+                <img src="Images/team.jpg" />
+                <img src="Images/SSH4.jpg" />
+                <img src="Images/statue-3289791_640.jpg" />
+                <img src="Images/bustos.jpg" />            
+                <img src="Images/canvas-1009232_640.jpg" />
+                <img src="Images/guy-2617866_640.jpg" />            
+                <img src="Images/pyramids-2371501_1280.jpg" />
+                <img src="Images/bonding.jpg" />            
+                <%-- REp --%>            
+                <img src="Images/LesterBPerson.jpg" />
+                <img src="Images/science.jpg" />
+                <img src="Images/rubik.jpg" />
+                <img src="Images/LisePayette.jpg" />
+                <img src="Images/team.jpg" />
+                <img src="Images/statue-3289791_640.jpg" />
+                <img src="Images/bustos.jpg" />
+                <img src="Images/canvas-1009232_640.jpg" />
+                <img src="Images/guy-2617866_640.jpg" />
+                <img src="Images/pyramids-2371501_1280.jpg" />
+                <img src="Images/bonding.jpg" />
+                <img src="Images/hands-600497_640.jpg" />
+            </div>
     <div style="text-align: center; height:22px;background-color:#094569;">
 <%--        <div class="bot-indicator container" style="align-items: center; text-align: center; justify-content: center; display: inline-flex;">--%>
             <%-- Lien vers omnivox --%>
@@ -48,7 +79,7 @@
                 <%-- Liens utiles qui mènera à des sites intéressant pour les élèves --%>
                 <blockquote class="blockquote">
                     <p>“Le commencement de toutes les sciences, c’est l’étonnement de ce que les choses sont ce qu’elles sont.”</p>
-                    <div style="text-align: right;">Aristote <cite title="Source Title">lefigaro.fr</cite></div>
+                    <div style="text-align: right;">Aristote</div>
                 </blockquote>
             </div>
         </div>
@@ -61,7 +92,7 @@
                 On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).
                 
                 <%-- Insertion d'un carousel afin de présenté quelques photos d'années précédentes --%>
-        <div class="row" style="padding-bottom:15px;padding-top:15px;">
+        <div class="row" style="padding-bottom:15px;padding-top:15px;    background-color: rgb(3,116,156);">
 
            <%-- </div>--%>
             <div class="container">

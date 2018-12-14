@@ -16,7 +16,6 @@
 
         <div class="container search-activity">
             <div class="display-1" style="text-align: center;">Ateliers</div>
-            <hr />
             <asp:UpdatePanel ID="doCommand" runat="server">
                 <%-- Le boutton est clické celui-ci enlêve  --%>
                 <ContentTemplate>
@@ -38,7 +37,6 @@
             </asp:UpdatePanel>
 
 
-            <hr />
         </div>
         <div class="row justify-content-md-center">
             <asp:UpdatePanel ID="upSlotForServerHead" ClientIDMode="Static" runat="server">

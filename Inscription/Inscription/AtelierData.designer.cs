@@ -45,7 +45,7 @@ namespace Inscription
     #endregion
 		
 		public AtelierDataDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringToDonneesActivite"].ConnectionString, mappingSource)
+				base(global::Inscription.Properties.Settings.Default.ConnectionStringToDonneesActivite, mappingSource)
 		{
 			OnCreated();
 		}
@@ -278,7 +278,7 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_poster", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_poster", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary poster
 		{
 			get
