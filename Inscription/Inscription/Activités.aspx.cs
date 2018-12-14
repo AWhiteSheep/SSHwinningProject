@@ -19,6 +19,8 @@ namespace Inscription
 
         public static AtelierDataDataContext AtelierDataContext = new AtelierDataDataContext(connStr);
 
+        public static SqlConnection conn = new SqlConnection(connStr);
+
         protected void Page_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < AtelierDataContext.DonneesAteliers.ToList().Count && i < 5; i++)
@@ -78,16 +80,34 @@ namespace Inscription
             
         }
 
+        static List<int> AllAtelierID = new List<int>();
+        List<Button> TagSelected = new List<Button>();
+
         public void btnChoixTags_Click(object sender, EventArgs e)
         {
+
+
+
+            Button theButton = (sender as Button);
+            theButton.Attributes.Add("style", "background-color:red");
+            TagSelected.Add(theButton);
+
+
+
             upSlotForServerHead.ContentTemplateContainer.Controls.Clear();
 
-            List<int> AllAtelierID = new List<int>();
+            var AllAtelier = AtelierDataContext.GetAllAteliersByTag(theButton.Text).ToList();
 
-            for (int i = 0; i < AtelierDataContext.GetAllAteliersByTag((sender as Button).Text).ToList().Count; i++)
+            for (int i = 0; i < AllAtelier.Count; i++)
             {
-                AllAtelierID.Add((int)AtelierDataContext.GetAllAteliersByTag((sender as Button).Text).ToList()[i].NumAtelier);
+                
+                int atelierID = (int)AllAtelier[i].NumAtelier;
+
+                if (!AllAtelierID.Contains(atelierID))
+                    AllAtelierID.Add(atelierID);
+
             }
+
 
             var AtelierWithTag = AtelierDataContext.DonneesAteliers.Where(o => AllAtelierID.Contains(o.NumAtelier));
                       
@@ -146,7 +166,15 @@ namespace Inscription
 
                 upSlotForServerHead.ContentTemplateContainer.Controls.Add(pushingDiv);
             }
+
+            
         }
+
+        public void btnEnleverChoix_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

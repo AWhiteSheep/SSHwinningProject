@@ -28,6 +28,7 @@ as begin
 
 	return
 end
+go
 
 go
 
@@ -43,8 +44,16 @@ insert into Ateliers_Tags
 values(5, 'Science'),(6, 'Science'),(6, 'Philosophie'),(7, 'L''humain'),(7, 'École'),(7, 'Philosophie')
 
 select * from GetAllAteliersByTag('science')
-select * from Ateliers_Tags
 
+
+select t1.NumAtelier  from Ateliers_Tags t1
+	
+	where [Description] = 'L''humain' and [Description] = 'École' and [Description] = 'Philosophie'
+	group by NumAtelier
+
+
+select * from Ateliers_Tags
+go
 update DonneesAteliers
 set posterPath = 'Images/bonding.jpg'
 where NumAtelier = 4
