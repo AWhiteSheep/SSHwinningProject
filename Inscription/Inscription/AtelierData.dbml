@@ -23,7 +23,7 @@
       <Column Name="Numero_Etudiant" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NumAtelier" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Etudiant_Etudiant_Atelier" Member="Etudiant" ThisKey="Numero_Etudiant" OtherKey="Numero_Etudiant" Type="Etudiant" IsForeignKey="true" />
-      <Association Name="DonneesAteliers_Etudiant_Atelier" Member="DonneesAteliers" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAteliers" IsForeignKey="true" />
+      <Association Name="DonneesAtelier_Etudiant_Atelier" Member="DonneesAtelier" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAtelier" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tags" Member="Tags">
@@ -37,11 +37,11 @@
       <Column Name="NumAtelier" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
       <Association Name="Tags_Ateliers_Tags" Member="Tags" ThisKey="Description" OtherKey="Description" Type="Tags" IsForeignKey="true" />
-      <Association Name="DonneesAteliers_Ateliers_Tags" Member="DonneesAteliers" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAteliers" IsForeignKey="true" />
+      <Association Name="DonneesAtelier_Ateliers_Tags" Member="DonneesAtelier" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAtelier" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.DonneesAteliers" Member="DonneesAteliers">
-    <Type Name="DonneesAteliers">
+    <Type Name="DonneesAtelier">
       <Column Name="NumAtelier" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="contentTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="campus" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
@@ -54,8 +54,9 @@
       <Column Name="posterPath" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="HeureDebut" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Column Name="HeureFin" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Association Name="DonneesAteliers_Etudiant_Atelier" Member="Etudiant_Atelier" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Etudiant_Atelier" />
-      <Association Name="DonneesAteliers_Ateliers_Tags" Member="Ateliers_Tags" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Ateliers_Tags" />
+      <Column Name="Conferencier" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="DonneesAtelier_Etudiant_Atelier" Member="Etudiant_Ateliers" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Etudiant_Atelier" />
+      <Association Name="DonneesAtelier_Ateliers_Tags" Member="Ateliers_Tags" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Ateliers_Tags" />
     </Type>
   </Table>
   <Function Name="dbo.GetAllAteliersByTag" Method="GetAllAteliersByTag" IsComposable="true">
