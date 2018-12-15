@@ -16,7 +16,7 @@
 
         <div class="container search-activity">
             <div class="display-1" style="text-align: center;">Ateliers</div>
-            <asp:UpdatePanel ID="doCommand" runat="server">
+            <asp:UpdatePanel ID="doCommand" runat="server" UpdateMode="Conditional">
                 <%-- Le boutton est clické celui-ci enlêve  --%>
                 <ContentTemplate>
                     <button class="btn choix-jour" id="J1" value="16" runat="server" ClientIDMode="static" onclick="btnChoix-jour_Click">Journée 1</button> 
@@ -27,12 +27,7 @@
                     <br />
                     <Button class="btn effacer-tag" id="tag_enlever" runat="server" ClientIDMode="static"><i class="fa fa-times-circle"></i></Button>
                     <%--<asp:Button class="btn choix-tag" ID="tag_science" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click">science</asp:Button>--%>
-                    <asp:Button class="btn choix-tag" ID="tagScience" runat="server"   ClientIDMode="static" Text="science" onclick="btnChoixTags_Click" />
-                    <asp:button class="btn choix-tag" id="tagPhilosophie" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click" text="philosophie" />
-                    <asp:button class="btn choix-tag" id="tagEconomie" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click" Text="economie"></asp:button>
-                    <asp:button class="btn choix-tag" id="tagHumain" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click" Text="humain"/>
-                    <asp:button class="btn choix-tag" id="tagEcole" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click" Text="école" />
-
+                    <asp:Panel ID="pnButtons" runat="server"></asp:Panel>
                 </ContentTemplate>
             </asp:UpdatePanel>
 

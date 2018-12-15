@@ -62,3 +62,7 @@
 .text-search{
     text-align:right;
 }
+
+input.tag-active {
+    background-color: rgba(0, 100, 0, .9);
+}

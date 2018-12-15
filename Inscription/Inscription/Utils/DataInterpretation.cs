@@ -18,6 +18,15 @@ namespace Inscription.Utils
     /// </summary>
     public static class DataInterpretation
     {
+        /// <summary>
+        /// Crée un élément HTML qui sert de représentation brève d'un atelier.
+        /// </summary>
+        /// <param name="row">
+        /// Un objet DonneesAtelier qui représente une rangée de la table DonneesAtelier
+        /// </param>
+        /// <returns>
+        /// Un contrôle HTML Div prêt à être affiché.
+        /// </returns>
         public static HtmlGenericControl CreateInfoPanel(DonneesAtelier row)
         {
             HtmlGenericControl panel = new HtmlGenericControl("div");
@@ -38,8 +47,8 @@ namespace Inscription.Utils
 
             HtmlGenericControl data = new HtmlGenericControl("div")
             {
-                InnerText = row.Conferencier + " | " + row.campus + " | " + row.Salle + " | " + row.dateDebut.Value.ToShortDateString() + " | "
-                + row.dateDebut.Value.ToShortTimeString()
+                InnerText = row.Conferencier + " | " + row.campus + " | " + row.Salle + " | " + row.dateDebut?.ToShortDateString() + " | "
+                + row.dateDebut?.ToShortTimeString()
             };
 
             data.InnerText = data.InnerText.ToUpper();
@@ -57,7 +66,10 @@ namespace Inscription.Utils
             List<DonneesAtelier> output = new List<DonneesAtelier>();
             AtelierDataDataContext context = new AtelierDataDataContext();
 
-            if (tags.Count == 0) { return null; }
+            if (tags.Count == 0)
+            {
+                output = context.DonneesAteliers.ToList();
+            } 
 
             foreach(string tag in tags)
             {
@@ -68,6 +80,8 @@ namespace Inscription.Utils
                     output.Add(context.DonneesAteliers.Single(a => a.NumAtelier == result.NumAtelier));
                 }
             }
+
+            output = output.Distinct().ToList();
 
             return output;
         }
