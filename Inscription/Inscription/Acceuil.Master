@@ -4,30 +4,36 @@
 
 <html>
 <head runat="server">
+
+    <%-- Logo --%>
+    <link rel="icon" href="Images/earth-globe.png" />
+    <%-- Content place holder afin de mettre des liens au css pour les page enfants--%>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <%-- Ligne pour que ce soit responsive --%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%--    <meta http-equiv="Content-Type" content="width=device-width, initial-scale=1.0;text/html; charset=utf-8"/>--%>
     <%-- Section Link --%>
     <%-- css pour cette master --%>
     <link rel="stylesheet" href="Content/Inscription.Master.css" />
-
-    <link rel="stylesheet" href="Content/bootstrap.css" />
-    <link rel="icon" href="Images/earth-globe.png" />
-
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-
+    
+    
+    
     <%-- For special fonts --%>
     <link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
-
-    <%-- font pour les icons --%>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
 
     <%-- Javascripts for all --%>
     <script src="Scripts/JavaAll.js"></script>
-    <%-- Scripts for bootstrap --%>
+
+    <%-- bootstrap etJquery --%>
+    <link rel="stylesheet" href="Content/bootstrap.css" />
     <script src="Scripts/jquery-3.0.0.js"></script>
     <script src="Scripts/bootstrap.js"></script>
+    
+    <%-- Du css --%>
     <style>
         a {
             color: white;
@@ -51,8 +57,8 @@
             display: inline !important;
         }
 
-        #settingsMenu{
-            display:none;
+        #settingsMenu {
+            display: none;
             position: absolute;
             right: 15px;
             z-index: 103;
@@ -62,52 +68,61 @@
             border-radius: 4px 0 4px 4px;
             padding: 0 7px 0 11px;
         }
-        .menuItem:hover{
-            text-decoration:none;
-            cursor:pointer;
-        }
-        .btnLogOut{
 
+        .menuItem:hover {
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btnLogOut {
         }
     </style>
+
 </head>
 <body style="overflow-x: hidden;" id="body">
+    <%-- Le form qui doit englober tout afin que tout puisse bien communiquer avec le serveur --%>
     <form runat="server">
         <%-- Pour la connection sql nous avons besoin de mettre la ligne de connection dans le content holder dans la page crée de l'atelier --%>
         <asp:ContentPlaceHolder ID="SQLconnection" runat="server"></asp:ContentPlaceHolder>
+        <%-- Rectangle en haut gauche pour le design --%>
         <div style="float: left !important; padding-left: 5px; height: 30px; background-color: rgb(92,212,239); padding-top: .2rem; width: 20%; border-right: 3px white solid; color: white;"></div>
-        <%-- Top section the socials --%>
+        <%-- Top section réserver pour le media  --%>
         <div class="top-indicator">
             <%-- Lien vers omnivox --%>
-            <%--            <a style="float:left !important; padding-left:5px;" href="https://cegepoutaouais.omnivox.ca/intr/Module/Identification/Login/Login.aspx?ReturnUrl=%2fintr">Omnivox</a>--%>
+            <%--<a style="float:left !important; padding-left:5px;" href="https://cegepoutaouais.omnivox.ca/intr/Module/Identification/Login/Login.aspx?ReturnUrl=%2fintr">Omnivox</a>--%>
             <%-- Lien instagram pour SSH --%>
             <a target="" href="https://www.instagram.com/semaine.sciences.humaines/">
                 <i class="fab fa-instagram"></i>
             </a>
-            <%-- Lien facebook pour SSH --%>
+            <%-- Lien facebook pour science humaine --%>
             <a target="" href="https://www.facebook.com/SHOutaouais/">
                 <i class="fab fa-facebook"></i>
             </a>
-            <%-- Lien vers mon panier --%>
+            <%-- Lien vers mon panier mon panier si n'est pas connecté redirigé vers la connection --%>
             <a href="Panier.aspx">
                 <i class="fas fa-shopping-cart"></i>
             </a>
             <%-- Sera modifié lorsque l'usager va se connecter --%>
-            <div style="float: right;">                
+            <div style="float: right;">
                 <a href="#" id="btnShowLogin" class="btnConnectionAsUrl" runat="server">Login</a>
             </div>
-                <div id="settingsMenu">
-                    <div class="menuItem">Profile</div>
-                    <div class="menuItem">Account</div>
-                    <div class="menuItem">Manage users</div>
-                    <asp:Button ID="GoodLogOut" CssClass="menuItem" runat="server" Text="LogOut" OnClick="LogOut"/>
-                </div>
+            <%-- Lorsque nous avons le curseur sur l'usager s'il est connecté le menu se déroulera --%>
+            <div id="settingsMenu">
+                <div class="menuItem">Profile</div>
+                <div class="menuItem">Account</div>
+                <div class="menuItem">Manage users</div>
+                <asp:Button ID="GoodLogOut" CssClass="menuItem" runat="server" Text="LogOut" OnClick="LogOut" />
+            </div>
         </div>
-            
+
         <script type="text/javascript">
             $("#btnShowLogin").click(function () {
+                //s'il est clické avec le text Login ouvrire la modal afin que l'usager puisse se connecter
+                //Les cookies s'occuperons de le garder connecté
                 if (document.getElementById('btnShowLogin').innerText == "Login") {
+                    //Ouvre en modal
                     $('#LoginModal').modal('show');
+                    //prop les textbox avec l'attribut required
                     $('#txtUsername').prop('required', true);
                     $('#txtPassword').prop('required', true);
                 }
@@ -123,15 +138,17 @@
                 $('#settingsMenu').stop(true, true).delay(150).fadeOut(150);
             });
             $('#LoginModal').on('hidden.bs.modal', function () {
+                //Enlève l'attribut required pou ne pas créer des erreurs dans la pages
                 $('#txtUsername').prop('required', false);
                 $('#txtPassword').prop('required', false);
             });
         </script>
-
+        <%-- La modal de bootstrap --%>
         <div class="modal fade ModalLoginPage" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <%-- Le header --%>
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                             &times;</button>
@@ -140,10 +157,12 @@
                     <div class="modal-body">
                         <label for="txtUsername">
                             Username</label>
+                        <%-- Le txtUsername va être lue par le serveur --%>
                         <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Enter Username" />
                         <br />
                         <label for="txtPassword">
                             Password</label>
+                        <%-- Le txtPassword va être aussi lu par le serveur et va être comparé avec la connection de génie au serveur du cégep --%>
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control"
                             placeholder="Enter Password" />
                         <div class="checkbox">
@@ -155,6 +174,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <%-- Au boutton click demande au serveur pour valider l'usager --%>
                         <asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="ValidateUser" Class="btn btn-primary" />
                         <button type="button" class="btn btn-default" data-dismiss="modal">
                             Close</button>
@@ -163,10 +183,7 @@
             </div>
         </div>
         </div>
-
-        <%-- image banner, representing human science --%>
-
-        <%-- Nav bar temporary ??? --%>
+        <%-- Nav bar temporary --%>
         <nav class="navbar navbar-expand-lg navbar-light bg-my-dark" style="background-color: #094569;">
             <a class="navbar-brand" href="PageAcceuil.aspx">
                 <img src="Images/earth-globe.svg" style="vertical-align: bottom; height: 50px;" /><span style="color: rgb(101,147,245)">S</span><span style="color: rgb(4, 123, 93)">S</span><span style="color: rgb(2,2,2);">H</span>
@@ -188,6 +205,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Calendrier.aspx">Calendrier</a>
                     </li>
+                    <%-- Drop down à été avec du Jquery --%>
+                    <%-- Jusqu'a un mouseOut --%>
                     <li id="dropdown" class="nav-item dropdown main-menu">
                         <a class="nav-link dropdown-toggle" href="#" <%--data-toggle="dropdown"--%>>Liens Utiles</a>
                         <div class="dropdown-menu main-menu">

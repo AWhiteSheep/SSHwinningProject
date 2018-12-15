@@ -40,9 +40,6 @@ namespace Inscription
                     HtmlGenericControl pushingDiv = new HtmlGenericControl("div");
                     pushingDiv.Attributes.Add("class", "activity-card");
 
-                    HtmlGenericControl imageDiv = new HtmlGenericControl("div");
-                    imageDiv.Attributes.Add("class", "image-box");
-
                     HtmlGenericControl img = new HtmlGenericControl("img");
                     img.Attributes.Add("src", Atelier[i].posterPath);
 
@@ -54,29 +51,20 @@ namespace Inscription
                     HtmlGenericControl p = new HtmlGenericControl("p");
                     p.InnerHtml = Atelier[i].sommaire;
 
-                    HtmlGenericControl span = new HtmlGenericControl("span");
-                    span.Attributes.Add("style", "float:right;");
-
-                    //to add in span
                     HtmlGenericControl bInscription = new HtmlGenericControl("button");
                     bInscription.Attributes.Add("class", "btn activity-btn-inscription");
-                    bInscription.InnerHtml = "Inscription";
+                    bInscription.InnerHtml = "Ne plus participer";
 
                     HtmlGenericControl aLink = new HtmlGenericControl("a");
                     aLink.Attributes.Add("class", "btn activity-btn-voir");
                     aLink.Attributes.Add("href", $"Ateliers.aspx?id={Atelier[i].NumAtelier.ToString()}");
                     aLink.InnerHtml = "Plus...";
 
-                    span.Controls.Add(bInscription);
-                    span.Controls.Add(aLink);
-
-                    imageDiv.Controls.Add(img);
-                    imageDiv.Controls.Add(h4);
-                    imageDiv.Controls.Add(p);
-                    imageDiv.Controls.Add(span);
-
-                    pushingDiv.Controls.Add(imageDiv);
-
+                    pushingDiv.Controls.Add(img);
+                    pushingDiv.Controls.Add(h4);
+                    pushingDiv.Controls.Add(p);
+                    pushingDiv.Controls.Add(bInscription);
+                    pushingDiv.Controls.Add(aLink);
                     //pushFromServer += @"<div class='image-box'>
                     //                            <img src = 'Images/Histoire.jpg'/>
                     //                            <div class='h4'>L'éducation gratuite!</div>
