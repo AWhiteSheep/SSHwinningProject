@@ -16,7 +16,7 @@
 
         <div class="container search-activity">
             <div class="display-1" style="text-align: center;">Ateliers</div>
-            <asp:UpdatePanel ID="doCommand" runat="server" UpdateMode="Conditional">
+            <asp:UpdatePanel ID="doCommand" runat="server">
                 <%-- Le boutton est clické celui-ci enlêve  --%>
                 <ContentTemplate>
                     <button class="btn choix-jour" id="J1" value="16" runat="server" ClientIDMode="static" onclick="btnChoix-jour_Click">Journée 1</button> 
@@ -25,7 +25,7 @@
                     <button class="btn choix-jour" id="J4" value="19" runat="server" ClientIDMode="static">Journée 4</button>
                     <button class="btn choix-jour" id="J5" value="20" runat="server" ClientIDMode="static">Journée 5</button>
                     <br />
-                    <Button class="btn effacer-tag" id="tag_enlever" runat="server" ClientIDMode="static"><i class="fa fa-times-circle"></i></Button>
+                    <Button class="btn effacer-tag" id="tag_enlever" runat="server" onserverclick="btnEnleverChoix_Click" ClientIDMode="static"><i class="fa fa-times-circle"></i></Button>
                     <%--<asp:Button class="btn choix-tag" ID="tag_science" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click">science</asp:Button>--%>
                     <asp:Panel ID="pnButtons" runat="server"></asp:Panel>
                 </ContentTemplate>
@@ -33,7 +33,7 @@
 
 
         </div>
-        <div class="row justify-content-md-center">
+        <div class="container align-content-md-center justify-content-md-center info-display">
             <asp:UpdatePanel ID="upSlotForServerHead" ClientIDMode="Static" runat="server">
             </asp:UpdatePanel>
         </div>
@@ -60,5 +60,9 @@
                 $(".choix-tag").removeClass("tag-active");
             });
         });
+
+        function ResetTags() {
+            $(".tag-active").removeClass("tag-active");
+        }
     </script>
 </asp:Content>

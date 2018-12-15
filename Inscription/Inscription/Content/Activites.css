@@ -63,6 +63,26 @@
     text-align:right;
 }
 
+.info-display{
+    margin-top: 3px;
+    padding: 1% 10%;
+}
+
 input.tag-active {
     background-color: rgba(0, 100, 0, .9);
+}
+
+div.info-panel {
+    padding: 1% 4%;
+    border-top: 1px solid rgb(50, 0, 100);
+    font-family: 'Adamina';
+}
+
+div.info-panel img{
+    float: left;
+    max-height: 64px;
+}
+
+div.info-panel p{
+    text-align:justify;
 }

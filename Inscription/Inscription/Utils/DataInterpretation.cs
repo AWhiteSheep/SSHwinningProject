@@ -38,26 +38,38 @@ namespace Inscription.Utils
                 Src = row.posterPath
             };
 
-            HtmlGenericControl title = new HtmlGenericControl("h2")
+            img.Attributes.Add("class", "align-self-start mr-3 img-thumbnail");
+
+            HtmlGenericControl body = new HtmlGenericControl("div");
+
+            body.Attributes.Add("class", "media-body");
+
+            HtmlGenericControl title = new HtmlGenericControl("h4")
             {
                 InnerText = row.contentTitle
             };
 
-            HtmlGenericControl summary = new HtmlGenericControl("h3") { InnerText = row.sommaire};
+            title.Attributes.Add("class", "mt-0");
 
-            HtmlGenericControl data = new HtmlGenericControl("div")
+            HtmlGenericControl summary = new HtmlGenericControl("h5") { InnerText = row.sommaire};
+
+            HtmlGenericControl data = new HtmlGenericControl("p")
             {
                 InnerText = row.Conferencier + " | " + row.campus + " | " + row.Salle + " | " + row.dateDebut?.ToShortDateString() + " | "
                 + row.dateDebut?.ToShortTimeString()
             };
 
+            data.Attributes.Add("class", "mb-0");
+
             data.InnerText = data.InnerText.ToUpper();
 
             panel.Controls.Add(img);
-            panel.Controls.Add(title);
-            panel.Controls.Add(summary);
-            panel.Controls.Add(data);
 
+            body.Controls.Add(title);
+            body.Controls.Add(summary);
+            body.Controls.Add(data);
+
+            panel.Controls.Add(body);
             return panel;
         }
 

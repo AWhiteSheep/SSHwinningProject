@@ -26,7 +26,7 @@ namespace Inscription
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Crée un bouton pour chaque entrée dans la table Tags de notre database, et l'ajoute à la page.
             foreach (var tag in AtelierDataContext.Tags)
             {
                 HtmlInputButton newButton = CreateTagButton(tag);
@@ -40,14 +40,25 @@ namespace Inscription
 
         public void btnEnleverChoix_Click(object sender, EventArgs e)
         {
+            activeTags.Clear();
 
+            foreach (var button in pnButtons.Controls.OfType<HtmlInputButton>())
+            {
+                button.Attributes["class"] = "btn choix-tag";
+            }
+
+            PopulateList();
         }
 
+        //Prend en charge le remplissage de la liste des ateliers.
         private void PopulateList()
         {
             upSlotForServerHead.ContentTemplateContainer.Controls.Clear();
+            List<DonneesAtelier> results = DataInterpretation.LookupTags(activeTags);
 
-            foreach (DonneesAtelier atelier in DataInterpretation.LookupTags(activeTags))
+            var orderedResults = results.OrderBy(atelier => atelier.contentTitle);
+
+            foreach (DonneesAtelier atelier in orderedResults)
             {
                 upSlotForServerHead.ContentTemplateContainer.Controls.Add(DataInterpretation.CreateInfoPanel(atelier));
             }
