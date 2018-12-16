@@ -73,11 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ajax.aspx" />
-    <Content Include="AjoutAtelier.aspx" />
     <Content Include="App_Data\SSHdataBase.mdf" />
     <Content Include="App_Data\SSHdataBase_log.ldf">
       <DependentUpon>SSHdataBase.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\AjoutAtelier.css" />
+    <Content Include="Images\659444.jpg" />
     <Content Include="Images\Banners\53.jpg" />
     <Content Include="Images\Banners\BlueBubble.jpg" />
     <Content Include="Images\Banners\BlueBubble.png" />
@@ -155,6 +156,7 @@
       <LastGenOutput>AtelierData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="AjoutAtelier.aspx" />
     <None Include="AtelierData.dbml.layout">
       <DependentUpon>AtelierData.dbml</DependentUpon>
     </None>
@@ -245,13 +247,6 @@
     <Compile Include="ajax.aspx.designer.cs">
       <DependentUpon>ajax.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AjoutAtelier.aspx.cs">
-      <DependentUpon>AjoutAtelier.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AjoutAtelier.aspx.designer.cs">
-      <DependentUpon>AjoutAtelier.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AtelierData.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -337,6 +332,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Utils\DataInterpretation.cs" />
+    <Compile Include="AjoutAtelier.aspx.cs">
+      <DependentUpon>AjoutAtelier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutAtelier.aspx.designer.cs">
+      <DependentUpon>AjoutAtelier.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
