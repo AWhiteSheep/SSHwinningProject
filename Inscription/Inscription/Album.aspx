@@ -83,9 +83,10 @@
         <script>
 
            
-            $(".btn").click(function () {
+            $(".choix-filter-annee").click(function (e) {
                 $(this).toggleClass("active");
                 $(".btn").not(this).removeClass("active");
+                e.preventDefault();
             });
             $("#all").click(function () {
                 $("div").filter(".all").show("slow");
