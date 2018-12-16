@@ -73,6 +73,11 @@ namespace Inscription.Utils
             return panel;
         }
 
+        /// <summary>
+        /// Retourne une liste de toutes les conférences portant les tags demandées.
+        /// </summary>
+        /// <param name="tags">Les tags à rechercher</param>
+        /// <returns>Une liste d'objets DonneesAtelier</returns>
         public static List<DonneesAtelier> LookupTags(List<string> tags)
         {
             List<DonneesAtelier> output = new List<DonneesAtelier>();
@@ -94,6 +99,25 @@ namespace Inscription.Utils
             }
 
             output = output.Distinct().ToList();
+
+            return output;
+        }
+
+        /// <summary>
+        /// Retourne toutes les conférences auxquelles l'étudiant spécifié est inscrit.
+        /// </summary>
+        /// <param name="studentNum">Le numéro de l'étudiant</param>
+        /// <returns>Une liste d'objets DonneesAtelier</returns>
+        public static List<DonneesAtelier> LookupStudent(int studentNum)
+        {
+            List<DonneesAtelier> output = new List<DonneesAtelier>();
+            AtelierDataDataContext context = new AtelierDataDataContext();
+
+            List<int> nums = context.Etudiant_Atelier.Where(ea => ea.Numero_Etudiant == studentNum)
+                                                     .Select(ea => ea.NumAtelier.Value)
+                                                     .ToList();
+
+            output = context.DonneesAteliers.Where(a => nums.Contains(a.NumAtelier)).ToList();
 
             return output;
         }

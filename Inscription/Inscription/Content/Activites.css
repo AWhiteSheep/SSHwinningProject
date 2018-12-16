@@ -79,10 +79,11 @@ div.info-panel {
 }
 
 div.info-panel img{
+    max-width: 100%;
     float: left;
     max-height: 64px;
 }
 
 div.info-panel p{
-    text-align:justify;
+    text-align:right;
 }
