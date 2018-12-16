@@ -20,8 +20,8 @@
   </Table>
   <Table Name="dbo.Etudiant_Atelier" Member="Etudiant_Atelier">
     <Type Name="Etudiant_Atelier">
-      <Column Name="Numero_Etudiant" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NumAtelier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Numero_Etudiant" Type="System.Int32" DbType="Int" IsPrimaryKey="true" CanBeNull="true" />
+      <Column Name="NumAtelier" Type="System.Int32" DbType="Int" IsPrimaryKey="true" CanBeNull="true" />
       <Association Name="Etudiant_Etudiant_Atelier" Member="Etudiant" ThisKey="Numero_Etudiant" OtherKey="Numero_Etudiant" Type="Etudiant" IsForeignKey="true" />
       <Association Name="DonneesAtelier_Etudiant_Atelier" Member="DonneesAtelier" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAtelier" IsForeignKey="true" />
     </Type>

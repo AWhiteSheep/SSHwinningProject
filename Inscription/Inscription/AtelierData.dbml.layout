@@ -20,7 +20,7 @@
         <elementListCompartment Id="2da79a62-da82-4e53-a346-5a1368cf400e" absoluteBounds="3.64, 4.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 3.62584554036458); (4.625 : 3.62584554036458); (4.625 : 4.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 3.62584554036458); (4.625 : 3.62584554036458); (4.625 : 4.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/AtelierDataDataContext/Etudiant/Etudiant_Etudiant_Atelier" />
       <nodes>
         <classShapeMoniker Id="7515e9aa-3e16-4f4e-ba0c-7e3031634255" />
@@ -39,7 +39,7 @@
         <elementListCompartment Id="0381ab1f-1cc7-4181-9c6d-694d494ebc7d" absoluteBounds="8.015, 3.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.5625 : 5.75); (8.5625 : 4.31899251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5625 : 5.75); (8.5625 : 4.31899251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/AtelierDataDataContext/Tags/Tags_Ateliers_Tags" />
       <nodes>
         <classShapeMoniker Id="fc9ef978-2bf9-4ceb-bb84-dea155ea44af" />
@@ -59,7 +59,7 @@
         <classShapeMoniker Id="521f2190-72bb-48eb-9cab-7ab54e9bfb0b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.875 : 3.65465413411458); (8 : 3.65465413411458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.875 : 3.65465413411458); (8 : 3.65465413411458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/AtelierDataDataContext/DonneesAtelier/DonneesAtelier_Ateliers_Tags" />
       <nodes>
         <classShapeMoniker Id="7d0d5255-2a79-422e-a3b6-5b87c58cde55" />

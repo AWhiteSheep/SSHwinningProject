@@ -36,7 +36,7 @@
             right:15px;
             margin: 0 20px 5px 10px;
         }
-        .activity-btn-inscription {
+        .activity-btn-deinscription {
             right: 85px !important;
             background-color: rgb(220, 53, 69);
             color:white;
@@ -67,9 +67,29 @@
                 <ContentTemplate>
                     <%-- Table artificiel --%>
                     <div  id="GridAtelierInscrit" class="container" runat="server">                        
-                    </div>                    
+                    </div>                   
+                        <asp:Button ClientIDMode="Static" ID="DoMyServerClick" runat="server" OnClick="PlusParticiper" CssClass="invisible"/>
+                    <input type="text" ID="inputTextBox1" ClientIDMode="Static" runat="server" class="invisible"/>
+
                 </ContentTemplate>
             </asp:UpdatePanel>            
         </div>
     </div>
+    <script>
+        $(".activity-btn-deinscription").click(function (e) {
+            e.preventDefault();
+            alert($(this).attr("name"));
+            var text = $(this).attr("name").toString();
+            $("#inputTextBox1").val(text);
+            DoMyServerClick.click();
+        });
+
+    </script>
+    <style>
+        .DoMyServerClick_invisible{
+            width:0px;
+            height:0px;
+            background-color:rgba(255,255,255,0);
+        }
+    </style>
 </asp:Content>
