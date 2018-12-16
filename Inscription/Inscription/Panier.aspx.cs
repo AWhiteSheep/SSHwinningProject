@@ -17,10 +17,7 @@ namespace Inscription
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                _BindAtelierAndStudent();
-            }
+            _BindAtelierAndStudent();
         }
 
         private void _BindAtelierAndStudent()
@@ -51,10 +48,24 @@ namespace Inscription
                     HtmlGenericControl p = new HtmlGenericControl("p");
                     p.InnerHtml = Atelier[i].sommaire;
 
-                    HtmlButton bInscription = new HtmlButton();
+                    //HtmlButton bInscription = new HtmlButton();
+                    //bInscription.Attributes.Add("class", "btn activity-btn-deinscription");
+                    //bInscription.Attributes.Add("name", $"{Atelier[i].NumAtelier.ToString()}");
+                    //bInscription.InnerHtml = "Ne plus participer";
+
+                    HtmlInputButton bInscription = new HtmlInputButton()
+                    {
+                        Value = "Ne plus participer",
+                       
+                    };
+
+                    bInscription.Attributes.Add("AtelierKey", ((int)Atelier[i].NumAtelier).ToString());
+
                     bInscription.Attributes.Add("class", "btn activity-btn-deinscription");
-                    bInscription.Attributes.Add("name", $"{Atelier[i].NumAtelier.ToString()}");
-                    bInscription.InnerHtml = "Ne plus participer";
+
+                    bInscription.ServerClick += PlusParticiper_Click;
+
+                    bInscription.CausesValidation = false;
 
                     HtmlGenericControl aLink = new HtmlGenericControl("a");
                     aLink.Attributes.Add("class", "btn activity-btn-voir");
@@ -82,9 +93,11 @@ namespace Inscription
             }
         }
 
-        protected void PlusParticiper(object sender, EventArgs e)
+        protected void PlusParticiper_Click(object sender, EventArgs e)
         {
-            string value = inputTextBox1.Value;
+            HtmlInputButton theSender = (HtmlInputButton)sender;
+            string value = theSender.Attributes["AtelierKey"];
+
             int idStudent = 0;
             if (HttpContext.Current.User.Identity.Name == "" || HttpContext.Current.User.Identity.Name == "Admin")
             {
@@ -101,6 +114,8 @@ namespace Inscription
 
                 AtelierDataContext.Etudiant_Atelier.DeleteOnSubmit(Atelier);
                 AtelierDataContext.SubmitChanges();
+
+                _BindAtelierAndStudent();
             }
         }
     }
