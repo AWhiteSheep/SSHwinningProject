@@ -12,10 +12,25 @@ returns @tableOfAtelierIDs table(
     [Max_Eleves]   INT           NULL,
     [posterPath]   VARCHAR (100) NULL,
     [HeureDebut]   TIME (7)      NULL,
-    [HeureFin]     TIME (7)      NULL
+    [HeureFin]     TIME (7)      NULL,
+	[conferencier] varchar(50)
 )
 as begin
-	insert into @tableOfAtelierIDs
+	insert into @tableOfAtelierIDs(	
+	NumAtelier, 
+	[contentTitle],
+    [campus],
+    [Salle],
+    [contentInfo],
+    [contentMain],
+    [sommaire],
+    [dateDebut],
+    [Max_Eleves],
+    [posterPath],
+    [HeureDebut],
+    [HeureFin],
+	[conferencier]
+	)	
 	select * from DonneesAteliers
 		where NumAtelier in
 		(select t.NumAtelier from (select NumAtelier from Etudiant_Atelier where Numero_Etudiant = @Etudiant) t)
