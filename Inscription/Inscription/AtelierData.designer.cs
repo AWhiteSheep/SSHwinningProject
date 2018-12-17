@@ -33,15 +33,15 @@ namespace Inscription
     partial void InsertDonneesActivites(DonneesActivites instance);
     partial void UpdateDonneesActivites(DonneesActivites instance);
     partial void DeleteDonneesActivites(DonneesActivites instance);
-    partial void InsertEtudiant(Etudiant instance);
-    partial void UpdateEtudiant(Etudiant instance);
-    partial void DeleteEtudiant(Etudiant instance);
     partial void InsertTags(Tags instance);
     partial void UpdateTags(Tags instance);
     partial void DeleteTags(Tags instance);
     partial void InsertDonneesAtelier(DonneesAtelier instance);
     partial void UpdateDonneesAtelier(DonneesAtelier instance);
     partial void DeleteDonneesAtelier(DonneesAtelier instance);
+    partial void InsertEtudiant(Etudiant instance);
+    partial void UpdateEtudiant(Etudiant instance);
+    partial void DeleteEtudiant(Etudiant instance);
     #endregion
 		
 		public AtelierDataDataContext() : 
@@ -82,22 +82,6 @@ namespace Inscription
 			}
 		}
 		
-		public System.Data.Linq.Table<Etudiant> Etudiant
-		{
-			get
-			{
-				return this.GetTable<Etudiant>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Etudiant_Atelier> Etudiant_Atelier
-		{
-			get
-			{
-				return this.GetTable<Etudiant_Atelier>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Tags> Tags
 		{
 			get
@@ -119,6 +103,22 @@ namespace Inscription
 			get
 			{
 				return this.GetTable<DonneesAtelier>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Etudiant> Etudiants
+		{
+			get
+			{
+				return this.GetTable<Etudiant>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Etudiant_Atelier> Etudiant_Ateliers
+		{
+			get
+			{
+				return this.GetTable<Etudiant_Atelier>();
 			}
 		}
 		
@@ -361,113 +361,6 @@ namespace Inscription
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Etudiant")]
-	public partial class Etudiant : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Numero_Etudiant;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNumero_EtudiantChanging(int value);
-    partial void OnNumero_EtudiantChanged();
-    #endregion
-		
-		public Etudiant()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numero_Etudiant", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Numero_Etudiant
-		{
-			get
-			{
-				return this._Numero_Etudiant;
-			}
-			set
-			{
-				if ((this._Numero_Etudiant != value))
-				{
-					this.OnNumero_EtudiantChanging(value);
-					this.SendPropertyChanging();
-					this._Numero_Etudiant = value;
-					this.SendPropertyChanged("Numero_Etudiant");
-					this.OnNumero_EtudiantChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Etudiant_Atelier")]
-	public partial class Etudiant_Atelier
-	{
-		
-		private System.Nullable<int> _Numero_Etudiant;
-		
-		private System.Nullable<int> _NumAtelier;
-		
-		public Etudiant_Atelier()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numero_Etudiant", DbType="Int")]
-		public System.Nullable<int> Numero_Etudiant
-		{
-			get
-			{
-				return this._Numero_Etudiant;
-			}
-			set
-			{
-				if ((this._Numero_Etudiant != value))
-				{
-					this._Numero_Etudiant = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumAtelier", DbType="Int")]
-		public System.Nullable<int> NumAtelier
-		{
-			get
-			{
-				return this._NumAtelier;
-			}
-			set
-			{
-				if ((this._NumAtelier != value))
-				{
-					this._NumAtelier = value;
-				}
 			}
 		}
 	}
@@ -925,6 +818,185 @@ namespace Inscription
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Etudiant")]
+	public partial class Etudiant : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Numero_Etudiant;
+		
+		private System.Data.Linq.Binary _m_Password;
+		
+		private string _email;
+		
+		private string _username;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNumero_EtudiantChanging(int value);
+    partial void OnNumero_EtudiantChanged();
+    partial void Onm_PasswordChanging(System.Data.Linq.Binary value);
+    partial void Onm_PasswordChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    #endregion
+		
+		public Etudiant()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numero_Etudiant", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Numero_Etudiant
+		{
+			get
+			{
+				return this._Numero_Etudiant;
+			}
+			set
+			{
+				if ((this._Numero_Etudiant != value))
+				{
+					this.OnNumero_EtudiantChanging(value);
+					this.SendPropertyChanging();
+					this._Numero_Etudiant = value;
+					this.SendPropertyChanged("Numero_Etudiant");
+					this.OnNumero_EtudiantChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_m_Password", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary m_Password
+		{
+			get
+			{
+				return this._m_Password;
+			}
+			set
+			{
+				if ((this._m_Password != value))
+				{
+					this.Onm_PasswordChanging(value);
+					this.SendPropertyChanging();
+					this._m_Password = value;
+					this.SendPropertyChanged("m_Password");
+					this.Onm_PasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this.OnemailChanging(value);
+					this.SendPropertyChanging();
+					this._email = value;
+					this.SendPropertyChanged("email");
+					this.OnemailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Etudiant_Atelier")]
+	public partial class Etudiant_Atelier
+	{
+		
+		private System.Nullable<int> _Numero_Etudiant;
+		
+		private System.Nullable<int> _NumAtelier;
+		
+		public Etudiant_Atelier()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numero_Etudiant", DbType="Int")]
+		public System.Nullable<int> Numero_Etudiant
+		{
+			get
+			{
+				return this._Numero_Etudiant;
+			}
+			set
+			{
+				if ((this._Numero_Etudiant != value))
+				{
+					this._Numero_Etudiant = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumAtelier", DbType="Int")]
+		public System.Nullable<int> NumAtelier
+		{
+			get
+			{
+				return this._NumAtelier;
+			}
+			set
+			{
+				if ((this._NumAtelier != value))
+				{
+					this._NumAtelier = value;
+				}
 			}
 		}
 	}

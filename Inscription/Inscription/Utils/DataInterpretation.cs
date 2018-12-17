@@ -10,6 +10,8 @@ using System.Linq.Expressions;
 using System.ComponentModel;
 using static Inscription.AtelierDataDataContext;
 using System.Web.UI.HtmlControls;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Inscription.Utils
 {
@@ -113,13 +115,27 @@ namespace Inscription.Utils
             List<DonneesAtelier> output = new List<DonneesAtelier>();
             AtelierDataDataContext context = new AtelierDataDataContext();
 
-            List<int> nums = context.Etudiant_Atelier.Where(ea => ea.Numero_Etudiant == studentNum)
+            List<int> nums = context.Etudiant_Ateliers.Where(ea => ea.Numero_Etudiant == studentNum)
                                                      .Select(ea => ea.NumAtelier.Value)
                                                      .ToList();
 
             output = context.DonneesAteliers.Where(a => nums.Contains(a.NumAtelier)).ToList();
 
             return output;
+        }
+
+        public static Etudiant GetStudent(string userName)
+        {
+            AtelierDataDataContext context = new AtelierDataDataContext();
+
+            return context.Etudiants.SingleOrDefault(e => e.username == userName);
+        }
+
+        public static byte[] ComputeHash(string input)
+        {
+            SHA256 hasher = SHA256.Create();
+
+            return (hasher.ComputeHash(Encoding.UTF8.GetBytes(input)));
         }
     }
 }
