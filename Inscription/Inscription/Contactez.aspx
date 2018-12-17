@@ -17,7 +17,7 @@
                 <strong>Questions? Pas certain pour quelque chose?</strong><br />
                 N'ayez crainte, nous répondrons à toutes vos questions!
             </p>
-            <form id="contactForm" class="form">
+            <div id="contactForm" class="form">
                 <div class="form-row">
                     <div class="form-group col-4">
                         <label class="form-text float-left">Nom</label>
@@ -56,7 +56,7 @@
                         <label class=" form-text error-message"></label>
                     </div>
                 </div>
-            </form>
+            </div>
                         <hr />
             <div class="row" style="padding-bottom:30px;">
                 <div class="col-lg-6 col-md-6 col-sm-6">

@@ -36,7 +36,7 @@
             right:15px;
             margin: 0 20px 5px 10px;
         }
-        .activity-btn-inscription {
+        .activity-btn-deinscription {
             right: 85px !important;
             background-color: rgb(220, 53, 69);
             color:white;
@@ -67,9 +67,11 @@
                 <ContentTemplate>
                     <%-- Table artificiel --%>
                     <div  id="GridAtelierInscrit" class="container" runat="server">                        
-                    </div>                    
+                    </div>                   
                 </ContentTemplate>
             </asp:UpdatePanel>            
         </div>
     </div>
+    <script>
+    </script>
 </asp:Content>

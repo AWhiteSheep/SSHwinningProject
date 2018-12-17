@@ -17,21 +17,18 @@ namespace Inscription
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                _BindAtelierAndStudent();
-            }
+            _BindAtelierAndStudent();
         }
 
         private void _BindAtelierAndStudent()
         {
             try
             {
-                int res = 0 ;
-                if (HttpContext.Current.User.Identity.Name != "Admin")
-                    int.TryParse(HttpContext.Current.User.Identity.Name, out res);
-                else //Temporaire to do
-                    res = 1473192;
+                int res = 1473192;
+                //if (HttpContext.Current.User.Identity.Name != "Admin")
+                //    int.TryParse(HttpContext.Current.User.Identity.Name, out res);
+                //else //Temporaire to do
+                //    res = 1473192;
                
                 var Atelier = AtelierDataContext.GetAllAteliersByStudent(res).ToList();
 
@@ -51,9 +48,24 @@ namespace Inscription
                     HtmlGenericControl p = new HtmlGenericControl("p");
                     p.InnerHtml = Atelier[i].sommaire;
 
-                    HtmlGenericControl bInscription = new HtmlGenericControl("button");
-                    bInscription.Attributes.Add("class", "btn activity-btn-inscription");
-                    bInscription.InnerHtml = "Ne plus participer";
+                    //HtmlButton bInscription = new HtmlButton();
+                    //bInscription.Attributes.Add("class", "btn activity-btn-deinscription");
+                    //bInscription.Attributes.Add("name", $"{Atelier[i].NumAtelier.ToString()}");
+                    //bInscription.InnerHtml = "Ne plus participer";
+
+                    HtmlInputButton bInscription = new HtmlInputButton()
+                    {
+                        Value = "Ne plus participer",
+                       
+                    };
+
+                    bInscription.Attributes.Add("AtelierKey", ((int)Atelier[i].NumAtelier).ToString());
+
+                    bInscription.Attributes.Add("class", "btn activity-btn-deinscription");
+
+                    bInscription.ServerClick += PlusParticiper_Click;
+
+                    bInscription.CausesValidation = false;
 
                     HtmlGenericControl aLink = new HtmlGenericControl("a");
                     aLink.Attributes.Add("class", "btn activity-btn-voir");
@@ -78,6 +90,32 @@ namespace Inscription
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        protected void PlusParticiper_Click(object sender, EventArgs e)
+        {
+            HtmlInputButton theSender = (HtmlInputButton)sender;
+            string value = theSender.Attributes["AtelierKey"];
+
+            int idStudent = 0;
+            if (HttpContext.Current.User.Identity.Name == "" || HttpContext.Current.User.Identity.Name == "Admin")
+            {
+                idStudent = 1473192;
+            }
+            else
+            {
+                idStudent = int.Parse(HttpContext.Current.User.Identity.Name);
+            }
+
+            if (idStudent != 0)
+            {
+                var Atelier = AtelierDataContext.Etudiant_Atelier.Single(ea => ea.NumAtelier == int.Parse(value) && ea.Numero_Etudiant == idStudent);
+
+                AtelierDataContext.Etudiant_Atelier.DeleteOnSubmit(Atelier);
+                AtelierDataContext.SubmitChanges();
+
+                _BindAtelierAndStudent();
             }
         }
     }
