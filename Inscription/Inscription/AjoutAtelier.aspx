@@ -53,9 +53,10 @@
             justify-content: space-between;
             box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
         }
-        tr:hover {
-            background-color: rgba(255, 255, 255, 0.59);
-        }
+
+            tr:hover {
+                background-color: rgba(255, 255, 255, 0.59);
+            }
 
         th {
             font-size: 14px;
@@ -105,8 +106,9 @@
         .hiddenMessage {
             display: none;
         }
-        .modal-br{
-            padding-bottom:2px;
+
+        .modal-br {
+            padding-bottom: 2px;
         }
     </style>
     <title>Ajouter Atelier</title>
@@ -124,8 +126,8 @@
 
             <%-- La nav tabs controls --%>
             <ul class="nav nav-tabs container">
-                <li><a id="TheFormulaire" runat="server" clientIDMode="static" data-toggle="tab" href="#contentBody_FormulaireAtelier" class="active show">Ajouter un atelier</a></li>
-                <li><a id="ListAteler" runat="server" clientIDMode="static" data-toggle="tab" href="#contentBody_AtelierList">Les ateliers</a></li>
+                <li><a id="TheFormulaire" runat="server" clientidmode="static" data-toggle="tab" href="#contentBody_FormulaireAtelier" class="active show">Ajouter un atelier</a></li>
+                <li><a id="ListAteler" runat="server" clientidmode="static" data-toggle="tab" href="#contentBody_AtelierList">Les ateliers</a></li>
             </ul>
             <div class="tab-content">
                 <%-- container pour le formulaire --%>
@@ -193,10 +195,10 @@
                                     <span class="focus-input100"></span>
                                 </div>
 
-                              
+
 
                                 <%-- Ajout d'image upload --%>
-                                <asp:FileUpload ID="ImageUpload" runat="server"/>
+                                <asp:FileUpload ID="ImageUpload" runat="server" />
 
                                 <%-- Submit et si du côté serveur la page est valide de faire l'insertion dans la base de donnée --%>
                                 <div class="container-contact100-form-btn">
@@ -222,14 +224,14 @@
                     <asp:GridView ID="gridViewAtelier" runat="server" AutoGenerateColumns="false"
                         OnRowDeleting="RowDeleting">
                         <Columns>
-                            <asp:BoundField DataField="NumAtelier" HeaderText="ID"/>
-                            <asp:BoundField DataField="contentTitle" HeaderText="Titre"  />
-                            <asp:BoundField DataField="campus" HeaderText="Campus"  />
-                            <asp:BoundField DataField="Salle" HeaderText="Salle"/>
+                            <asp:BoundField DataField="NumAtelier" HeaderText="ID" />
+                            <asp:BoundField DataField="contentTitle" HeaderText="Titre" />
+                            <asp:BoundField DataField="campus" HeaderText="Campus" />
+                            <asp:BoundField DataField="Salle" HeaderText="Salle" />
                             <asp:BoundField DataField="dateDebut" HeaderText="Date" />
-                            <asp:BoundField DataField="HeureDebut" HeaderText="Heure"  />
-                            <asp:BoundField DataField="HeureFin" HeaderText="Heure fin"  />
-                            <asp:BoundField DataField="Max_Eleves" HeaderText="Élève maximal"  />
+                            <asp:BoundField DataField="HeureDebut" HeaderText="Heure" />
+                            <asp:BoundField DataField="HeureFin" HeaderText="Heure fin" />
+                            <asp:BoundField DataField="Max_Eleves" HeaderText="Élève maximal" />
                             <asp:BoundField DataField="Conferencier" HeaderText="Conférencier" />
                             <asp:CommandField ShowDeleteButton="true" />
                         </Columns>
@@ -249,38 +251,38 @@
                     $(this).attr("class", "hiddenMessage");
                 });
             </script>
-                <div class="modal fade ModalLoginPage" id="AtelierModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <%-- Le header --%>
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;</button>
-                    <h4 class="modal-title" id="ModalTitle">Login</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <asp:Label ID="lblSuccess" runat="server" Text="Label"></asp:Label>
+            <div class="modal fade ModalLoginPage" id="AtelierModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <%-- Le header --%>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;</button>
+                            <h4 class="modal-title" id="ModalTitle">Login</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <asp:Label ID="lblSuccess" runat="server" Text="Label"></asp:Label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <%-- Au boutton click demande au serveur pour ajouter l'atelier!!!!!!!! :))))))) yayayyyayay --%>
+                            <%-- Débute un postBackTrigger pour un file upload --%>
+                            <asp:Button ID="btnSubmit" ClientIDMode="Static" Text="Ajouter" runat="server" OnClick="AtelierCreation_Click" Class="btn btn-primary" CausesValidation="true" />
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                Changer</button>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <%-- Au boutton click demande au serveur pour ajouter l'atelier!!!!!!!! :))))))) yayayyyayay --%>
-                    <%-- Débute un postBackTrigger pour un file upload --%>
-                    <asp:Button ID="btnSubmit" clientIdmode="Static" Text="Ajouter" runat="server" OnClick="AtelierCreation_Click" Class="btn btn-primary" CausesValidation="true" />
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        Changer</button>
-                </div>
             </div>
-        </div>
-    </div>
 
         </ContentTemplate>
         <Triggers>
-        <asp:PostBackTrigger ControlID="btnSubmit" />
+            <asp:PostBackTrigger ControlID="btnSubmit" />
         </Triggers>
     </asp:UpdatePanel>
-   
+
     <%-- Panel pour option d'ajout d'un autre --%>
     <div class="modal fade ModalLoginPage" id="UpdateAtelier" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
         aria-hidden="true">
@@ -290,22 +292,31 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         &times;</button>
-                    <h4 class="modal-title" id="UpdateAtelierTitle" runat="server" clientidmode="static"></h4>
+                    <asp:TextBox ID="txtID" ClientIDMode="Static" runat="server"></asp:TextBox>
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        Campus: <asp:TextBox ID="txtCampus" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br"/>
-                        Salle: <asp:TextBox ID="txtSalle" ClientIDMode="Static"  runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br"/>
-                        Date: <asp:TextBox ID="txtDate" ClientIDMode="Static"  runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br"/>
-                        Heure: <asp:TextBox ID="txtHeure" ClientIDMode="Static"  runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br"/>
-                        Heure fin: <asp:TextBox ID="txtHeureFin" ClientIDMode="Static"  runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br"/>
-                        Élève max: <asp:TextBox ID="txteleveMax" ClientIDMode="Static"  runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br"/>
-                        Conférencier: <asp:TextBox ID="txtconferencier" ClientIDMode="Static"  runat="server" CssClass="form-control"></asp:TextBox>
+                        Titre:
+                        <asp:TextBox ID="txtAtelierTitle" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox><br class="modal-br" />
+                        Campus:
+                        <asp:TextBox ID="txtCampus" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br" />
+                        Salle:
+                        <asp:TextBox ID="txtSalle" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br" />
+                        Date:
+                        <asp:TextBox ID="txtDate" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br" />
+                        Heure:
+                        <asp:TextBox ID="txtHeure" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br" />
+                        Heure fin:
+                        <asp:TextBox ID="txtHeureFin" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br" />
+                        Élève max:
+                        <asp:TextBox ID="txteleveMax" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox><br class="modal-br" />
+                        Conférencier:
+                        <asp:TextBox ID="txtconferencier" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <%-- Au boutton click demande au serveur pour ajouter l'atelier!!!!!!!! :))))))) yayayyyayay --%>
-                    <asp:Button ID="btnModifier" Text="Modifier" runat="server" Class="btn btn-primary"/>
+                    <asp:Button ID="btnModifier" Text="Modifier" runat="server" OnClick="Update" Class="btn btn-primary" CausesValidation="false"/>
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         Canceler
                     </button>
@@ -315,46 +326,46 @@
     </div>
     <%-- La modal de bootstrap --%>
     <script>
-        //popup pour show que c'est bien entré 
-        //function ShowAjoutAdded() {
-        //    $("#AtelierModal").modal('show');
-        //}
+                //popup pour show que c'est bien entré 
+                //function ShowAjoutAdded() {
+                //    $("#AtelierModal").modal('show');
+                //}
 
-        //donner une option s'il veut ajouter un autre ou afficher tout les ateliers
+                //donner une option s'il veut ajouter un autre ou afficher tout les ateliers
 
-        $("tr").click(function () {
-            if (this.getAttribute("class") == null) {
-                //insertion de toute les informations qui sont modifiable
-                document.getElementById("UpdateAtelierTitle").innerText = $(this).children().eq(1).text();
-                document.getElementById("txtCampus").value = $(this).children().eq(2).text();
-                document.getElementById("txtSalle").value = $(this).children().eq(3).text();
-                document.getElementById("txtDate").value = $(this).children().eq(4).text();
-                document.getElementById("txtHeure").value = $(this).children().eq(5).text();
-                document.getElementById("txtHeureFin").value = $(this).children().eq(6).text();
-                document.getElementById("txteleveMax").value = $(this).children().eq(7).text();
-                document.getElementById("txtconferencier").value = $(this).children().eq(8).text();
+                $("tr").click(function () {
+                    if (this.getAttribute("class") == null) {
+                        //insertion de toute les informations qui sont modifiable
+                        document.getElementById("txtAtelierTitle").value = $(this).children().eq(1).text();
+                        document.getElementById("txtCampus").value = $(this).children().eq(2).text();
+                        document.getElementById("txtSalle").value = $(this).children().eq(3).text();
+                        document.getElementById("txtDate").value = $(this).children().eq(4).text();
+                        document.getElementById("txtHeure").value = $(this).children().eq(5).text();
+                        document.getElementById("txtHeureFin").value = $(this).children().eq(6).text();
+                        document.getElementById("txteleveMax").value = $(this).children().eq(7).text();
+                        document.getElementById("txtconferencier").value = $(this).children().eq(8).text();
+                        document.getElementById("txtID").value = $(this).children().eq(0).text();
+                        $("#UpdateAtelier").modal('show');
+                    }
+                });
 
-                $("#UpdateAtelier").modal('show');
-            }
-        });
+                $("#clear").click(function (e) {
 
-        $("#clear").click(function (e) {
+                    $("input[ToValidate]").each(function () {
+                        $(this).val('');
+                    });
+                    $("textarea[ToValidate]").each(function () {
+                        $(this).val('');
+                    });
+                    return false;
 
-            $("input[ToValidate]").each(function () {
-                $(this).val('');
-            });
-            $("textarea[ToValidate]").each(function () {
-                $(this).val('');
-            });
-            return false;
+                });
 
-        });
-
-        $(document).ready(function () {
-            $("tbody").children().first().addClass("row-header");
-            $("td>a").click(function (e) {
-                e.stopPropagation();
-            });
-        });
+                $(document).ready(function () {
+                    $("tbody").children().first().addClass("row-header");
+                    $("td>a").click(function (e) {
+                        e.stopPropagation();
+                    });
+                });
     </script>
 </asp:Content>

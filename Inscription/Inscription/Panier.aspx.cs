@@ -17,7 +17,17 @@ namespace Inscription
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _BindAtelierAndStudent();
+            if(HttpContext.Current.User.Identity.Name == "0785024")
+            {
+                Response.Redirect("AjoutAtelier.aspx");
+            }else if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                _BindAtelierAndStudent();
+            }
         }
 
         private void _BindAtelierAndStudent()

@@ -198,6 +198,7 @@ namespace Inscription.Utils
                 context.Etudiant_Atelier.InsertOnSubmit(newEntry);
 
                 context.SubmitChanges();
+                button.Value = "Succès";
             }
         }
 
@@ -217,6 +218,7 @@ namespace Inscription.Utils
                 context.Etudiant_Atelier.DeleteOnSubmit(toDelete);
 
                 context.SubmitChanges();
+                button.Value = "Succès";
             }
         }
     }

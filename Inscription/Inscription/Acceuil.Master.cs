@@ -101,7 +101,7 @@ namespace Inscription
             if (this.Page.User.Identity.IsAuthenticated)
             {
                 FormsAuthentication.SignOut();
-                Page.Response.Redirect(Page.Request.Url.ToString(), true);
+                Page.Response.Redirect("PageAcceuil.aspx");
             }
         }
 

@@ -139,5 +139,38 @@ namespace Inscription
         {
            
         }
+
+        protected void Update(object sender, EventArgs e)
+        {
+            var Atelier = AtelierDataContext.DonneesAteliers.Single(a => a.NumAtelier == int.Parse(txtID.Text));
+
+            if (txtAtelierTitle.Text != "")
+                Atelier.contentTitle = txtAtelierTitle.Text;
+            if(txtCampus.Text != "")
+            Atelier.campus = txtCampus.Text;
+            if (txtSalle.Text != "")
+                Atelier.Salle = txtSalle.Text;
+            //if (txtDate.Text != "")
+            //    Atelier.dateDebut = DateTime.ParseExact(txtDate.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            if (txtHeure.Text != "")
+                Atelier.HeureDebut = TimeSpan.Parse(txtHeure.Text);
+            if (txtHeureFin.Text != "")
+                Atelier.HeureFin = TimeSpan.Parse(txtHeureFin.Text);
+            if (txteleveMax.Text != "")
+                Atelier.Max_Eleves = int.Parse(txteleveMax.Text);
+            if (txtconferencier.Text != "")
+                Atelier.Conferencier = txtconferencier.Text;
+
+            ////Submit les changements
+            AtelierDataContext.SubmitChanges();
+            gvbind();
+
+            FormulaireAtelier.Attributes.Remove("class");
+            FormulaireAtelier.Attributes.Add("class", "container tab-pane fade in");
+            AtelierList.Attributes.Remove("class");
+            AtelierList.Attributes.Add("class", "container  tab-pane fade in active show");
+            TheFormulaire.Attributes.Remove("class");
+            ListAteler.Attributes.Add("class", "active show");
+        }
     }
 }

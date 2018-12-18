@@ -36,8 +36,14 @@ namespace Inscription
             }
 
             PopulateList();
+
+            Page.SaveStateComplete += RefreshButtons;
         }
-        
+
+        private void RefreshButtons(object sender, EventArgs e)
+        {
+            PopulateList();
+        }
 
         public void btnEnleverChoix_Click(object sender, EventArgs e)
         {

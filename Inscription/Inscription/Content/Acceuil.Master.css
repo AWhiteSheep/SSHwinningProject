@@ -1,6 +1,5 @@
 ﻿ /*Controle la grandeur que le container prendra et set l'image de background qui pourra être remplacé*/
 .acceuilBanner {
-    display: none;
     background-repeat: no-repeat;
     background-image: url('../Images/Poster.JPG');
     background-position-x: center;

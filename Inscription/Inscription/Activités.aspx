@@ -19,19 +19,19 @@
             <asp:UpdatePanel ID="doCommand" runat="server">
                 <%-- Le boutton est clické celui-ci enlêve  --%>
                 <ContentTemplate>
-                    <button class="btn choix-jour" id="J1" value="16" runat="server" ClientIDMode="static" onclick="btnChoix-jour_Click">Journée 1</button> 
+<%--                    <button class="btn choix-jour" id="J1" value="16" runat="server" ClientIDMode="static" onclick="btnChoix-jour_Click">Journée 1</button> 
                     <button class="btn choix-jour" id="J2" value="17" runat="server" ClientIDMode="static">Journée 2</button>
                     <button class="btn choix-jour" id="J3" value="18" runat="server" ClientIDMode="static">Journée 3</button>
                     <button class="btn choix-jour" id="J4" value="19" runat="server" ClientIDMode="static">Journée 4</button>
                     <button class="btn choix-jour" id="J5" value="20" runat="server" ClientIDMode="static">Journée 5</button>
-                    <br />
+                    <br />--%>
                     <Button class="btn effacer-tag" id="tag_enlever" runat="server" onserverclick="btnEnleverChoix_Click" ClientIDMode="static"><i class="fa fa-times-circle"></i></Button>
                     <%--<asp:Button class="btn choix-tag" ID="tag_science" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click">science</asp:Button>--%>
                     <asp:Panel ID="pnButtons" runat="server"></asp:Panel>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-        <div class="container align-content-md-center justify-content-md-center info-display">
+        <div class="container align-content-md-center justify-content-md-center info-display" style="min-height:85vh;">
             <asp:UpdatePanel ID="upSlotForServerHead" ClientIDMode="Static" runat="server">
             </asp:UpdatePanel>
         </div>

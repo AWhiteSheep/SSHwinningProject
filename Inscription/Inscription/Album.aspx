@@ -67,6 +67,9 @@
         .modal-footer.imageContent{
             border-top:none !important;
         }
+        .image:hover{
+            cursor:pointer;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="SQLconnection" runat="server">
@@ -110,7 +113,6 @@
                 //$(".all").filter(".a2018").css("display", "");
                 //$(".all").not(".a2018").css("display", "none");
             });
-            
         </script>
     </div>
         <br />
