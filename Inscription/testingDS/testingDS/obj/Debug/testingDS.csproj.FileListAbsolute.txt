@@ -1,0 +1,14 @@
+K:\A18\Prog3\proj\testingDS\testingDS\bin\Debug\testingDS.exe.config
+K:\A18\Prog3\proj\testingDS\testingDS\bin\Debug\testingDS.exe
+K:\A18\Prog3\proj\testingDS\testingDS\bin\Debug\testingDS.pdb
+K:\A18\Prog3\proj\testingDS\testingDS\obj\Debug\testingDS.csprojAssemblyReference.cache
+K:\A18\Prog3\proj\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
+K:\A18\Prog3\proj\testingDS\testingDS\obj\Debug\testingDS.exe
+K:\A18\Prog3\proj\testingDS\testingDS\obj\Debug\testingDS.pdb
+K:\A18\Prog3\proj\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe.config
+K:\A18\Prog3\proj\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe
+K:\A18\Prog3\proj\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.pdb
+K:\A18\Prog3\proj\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csprojAssemblyReference.cache
+K:\A18\Prog3\proj\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
+K:\A18\Prog3\proj\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.exe
+K:\A18\Prog3\proj\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.pdb

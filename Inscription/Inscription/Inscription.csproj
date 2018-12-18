@@ -350,7 +350,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\testingDS\testingDS\testingDS.csproj">
+    <ProjectReference Include="..\testingDS\testingDS\testingDS.csproj">
       <Project>{294c3edd-ce02-438b-8bff-50a80d2a4e10}</Project>
       <Name>testingDS</Name>
     </ProjectReference>

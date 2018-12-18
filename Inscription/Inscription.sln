@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inscription", "Inscription\Inscription.csproj", "{DF552325-756A-4256-B988-C4CD9CE6BF68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testingDS", "..\..\testingDS\testingDS\testingDS.csproj", "{294C3EDD-CE02-438B-8BFF-50A80D2A4E10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testingDS", "testingDS\testingDS\testingDS.csproj", "{294C3EDD-CE02-438B-8BFF-50A80D2A4E10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
