@@ -225,11 +225,9 @@
                 </ul>
                 <%-- Section de recherche --%>
                 <span class="form-inline mt-2 mt-md-0" style="margin: .5rem">
-                    <input class="form-control mr-sm-2" type="text"
-                        placeholder="Rechercher" aria-label="Search" />
-                    <button id="btnRecherche" class="btn btn-success my-2 my-sm-0" type="submit" style="border-color: black">
-                        <i class="fas fa-search"></i>
-                    </button>
+                    
+                 <%-- Entré pour le boutton d'insription a un atelier --%>
+
                 </span>
             </div>
         </nav>
@@ -254,7 +252,7 @@
         <div class="container-fluid footer">
             <div class="row justify-content-end">
                 <div class="col-md-3">
-                    <span style="color: rgb(101,147,245)">S</span><span style="color: rgb(4, 123, 93)">S</span><span style="color: rgb(2,2,2);">H</span>
+                    <img src="Images/earth-globe.png" style="width:38px"/>
                 </div>
                 <div class="col-md-3" style="">
                     Cegep Outaouais<br />

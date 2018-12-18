@@ -86,7 +86,7 @@
             </div>
         </div>
 
-        <div class="display-3" style="padding: 30px 30px; background-color: rgba(128, 128, 128, .58); position: absolute; bottom: 0px; width: -webkit-fill-available;">La science humaine</div>
+        <div class="display-3" style="padding: 30px 30px; background-color: rgba(128, 128, 128, .8); position: absolute; bottom: 0px; width: -webkit-fill-available;">La science humaine</div>
     </div>
 
     <%--    <div class="container">

@@ -3,7 +3,42 @@
 <%-- Le content place holder pour le head afin d'ajouter le css dédié pour la page --%>
 <asp:Content ID="ActHead" ContentPlaceHolderID="head" runat="server">
     <title>Activités</title>
-
+    <style>
+        .search-txtBox{
+            border-radius: 50px 0px 0px 50px!important;
+        }
+        .search-container{
+            margin:auto;
+            white-space:nowrap;
+        }
+        .my-form-control{            
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            width: 60% !important;
+        }
+        .my-form-control:focus{
+            color: #495057;
+            background-color: #fff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        
+        }
+        #btnRecherche{
+            vertical-align:unset!important;
+            margin: 0px;
+            margin-left: -5px;
+            border-radius: 0 50px 50px 0;
+            border-color: #28a744 !important;
+        }
+    </style>
     <%-- Ajout du css pour la page Activité --%>
     <link rel="stylesheet" href="Content/Activites.css" />
 </asp:Content>
@@ -19,6 +54,13 @@
             <asp:UpdatePanel ID="doCommand" runat="server">
                 <%-- Le boutton est clické celui-ci enlêve  --%>
                 <ContentTemplate>
+                    <div class="search-container">
+                        <input class="my-form-control search-txtBox" type="text"
+                            placeholder="Rechercher" aria-label="Search" />
+                        <button id="btnRecherche" class="btn btn-success my-2 my-sm-0" type="submit" style="border-color: black">
+                            <i class="fas fa-search" style="padding: 0px 5px;"></i>
+                        </button>
+                    </div>
 <%--                    <button class="btn choix-jour" id="J1" value="16" runat="server" ClientIDMode="static" onclick="btnChoix-jour_Click">Journée 1</button> 
                     <button class="btn choix-jour" id="J2" value="17" runat="server" ClientIDMode="static">Journée 2</button>
                     <button class="btn choix-jour" id="J3" value="18" runat="server" ClientIDMode="static">Journée 3</button>

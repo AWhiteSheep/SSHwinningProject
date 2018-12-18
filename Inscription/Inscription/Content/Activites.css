@@ -12,7 +12,7 @@
 }
 .search-activity input {
     text-align: center;
-    border-radius: 500px !important;
+    border-radius: 500px;
     width: 115px ;
 }
 .image-box .btn{
@@ -44,8 +44,9 @@
 .search-activity .tag-active{
     background-color:darkorange;
 }
-.search-activity .choix-tag{
-    border-radius:500px;
+.search-activity .choix-tag {
+    border-radius: 500px;
+    margin: 10px 5px;
 }
 .search-activity .effacer-tag {
     border-radius: 500px;
