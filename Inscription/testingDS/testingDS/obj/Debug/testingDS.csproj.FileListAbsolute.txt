@@ -19,3 +19,10 @@ C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\testingDS\testingD
 C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
 C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.exe
 C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.pdb
+K:\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe.config
+K:\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe
+K:\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.pdb
+K:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csprojAssemblyReference.cache
+K:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
+K:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.exe
+K:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.pdb

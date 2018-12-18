@@ -31,7 +31,7 @@ namespace Inscription.Utils
         /// <returns>
         /// Un contrôle HTML Div prêt à être affiché.
         /// </returns>
-        public static HtmlGenericControl CreateInfoPanel(DonneesAtelier row)
+        public static HtmlGenericControl CreateInfoPanel(DonneesAteliers row)
         {
             HtmlGenericControl panel = new HtmlGenericControl("div");
 
@@ -63,38 +63,10 @@ namespace Inscription.Utils
                 + row.dateDebut?.ToShortTimeString()
             };
 
-            string username = HttpContext.Current.User.Identity.Name;
-            int numUser = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == username)
-                                          .Numero_Etudiant;
-
-            HtmlInputButton btnInscription;
-
-            //Si l'usager est déjà inscrit à cet atelier...
-            if (context.Etudiant_Ateliers.SingleOrDefault(entry => entry.Numero_Etudiant == numUser && entry.NumAtelier == row.NumAtelier) != null)
-            {
-                btnInscription = new HtmlInputButton()
-                {
-                    Value = "Désinscription",
-                    ID = row.NumAtelier.ToString()
-                };
-                btnInscription.ServerClick += Unsubscribe;
-                btnInscription.Attributes.Add("class", "btn btn-danger");
-            }
-
-            else
-            {
-                btnInscription = new HtmlInputButton()
-                {
-                    Value = "S'inscrire",
-                    ID = row.NumAtelier.ToString()
-                };
-
-                btnInscription.ServerClick += Subscribe;
-                btnInscription.Attributes.Add("class", "btn btn-success");
-            }
-
+            
 
             data.Attributes.Add("class", "mb-0");
+            data.Attributes.Add("style", "clear:both");
 
             data.InnerText = data.InnerText.ToUpper();
 
@@ -103,7 +75,42 @@ namespace Inscription.Utils
             body.Controls.Add(title);
             body.Controls.Add(summary);
             body.Controls.Add(data);
-            body.Controls.Add(btnInscription);
+
+            HtmlInputButton btnInscription;
+
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                string username = HttpContext.Current.User.Identity.Name;
+
+                            string numUser = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == username)
+                                                          .username;
+
+                            //Si l'usager est déjà inscrit à cet atelier...
+                            if (context.Etudiant_Atelier.SingleOrDefault(entry => entry.Numero_Etudiant == numUser.ToString() && entry.NumAtelier == row.NumAtelier) != null)
+                            {
+                                btnInscription = new HtmlInputButton()
+                                {
+                                    Value = "Désinscription",
+                                    ID = row.NumAtelier.ToString()
+                                };
+                                btnInscription.ServerClick += Unsubscribe;
+                                btnInscription.Attributes.Add("class", "btn btn-danger");
+                            }
+
+                            else
+                            {
+                                btnInscription = new HtmlInputButton()
+                                {
+                                    Value = "S'inscrire",
+                                    ID = row.NumAtelier.ToString()
+                                };
+
+                                btnInscription.ServerClick += Subscribe;
+                                btnInscription.Attributes.Add("class", "btn btn-success");
+                            }
+                            body.Controls.Add(btnInscription);
+            }
+
 
             panel.Controls.Add(body);
             return panel;
@@ -114,9 +121,9 @@ namespace Inscription.Utils
         /// </summary>
         /// <param name="tags">Les tags à rechercher</param>
         /// <returns>Une liste d'objets DonneesAtelier</returns>
-        public static List<DonneesAtelier> LookupTags(List<string> tags)
+        public static List<DonneesAteliers> LookupTags(List<string> tags)
         {
-            List<DonneesAtelier> output = new List<DonneesAtelier>();
+            List<DonneesAteliers> output = new List<DonneesAteliers>();
             AtelierDataDataContext context = new AtelierDataDataContext();
 
             if (tags.Count == 0)
@@ -144,13 +151,13 @@ namespace Inscription.Utils
         /// </summary>
         /// <param name="studentNum">Le numéro de l'étudiant</param>
         /// <returns>Une liste d'objets DonneesAtelier</returns>
-        public static List<DonneesAtelier> LookupStudent(int studentNum)
+        public static List<DonneesAteliers> LookupStudent(int studentNum)
         {
-            List<DonneesAtelier> output = new List<DonneesAtelier>();
+            List<DonneesAteliers> output = new List<DonneesAteliers>();
             AtelierDataDataContext context = new AtelierDataDataContext();
 
-            List<int> nums = context.Etudiant_Ateliers.Where(ea => ea.Numero_Etudiant == studentNum)
-                                                     .Select(ea => ea.NumAtelier.Value)
+            List<int> nums = context.Etudiant_Atelier.Where(ea => ea.Numero_Etudiant == studentNum.ToString())
+                                                     .Select(ea => ea.NumAtelier)
                                                      .ToList();
 
             output = context.DonneesAteliers.Where(a => nums.Contains(a.NumAtelier)).ToList();
@@ -177,8 +184,8 @@ namespace Inscription.Utils
             HtmlInputButton button = (HtmlInputButton)sender;
             string user = HttpContext.Current.User.Identity.Name;
 
-            int numEtudiant = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == user)
-                                                            .Numero_Etudiant;
+            string numEtudiant = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == user)
+                                                            .username;
 
             if (int.TryParse(button.ID, out int numAtelier))
             {
@@ -188,7 +195,7 @@ namespace Inscription.Utils
                     NumAtelier = numAtelier
                 };
 
-                context.Etudiant_Ateliers.InsertOnSubmit(newEntry);
+                context.Etudiant_Atelier.InsertOnSubmit(newEntry);
 
                 context.SubmitChanges();
             }
@@ -204,10 +211,10 @@ namespace Inscription.Utils
 
             if (int.TryParse(button.ID, out int numAtelier))
             {
-                Etudiant_Atelier toDelete = context.Etudiant_Ateliers.SingleOrDefault(ea => ea.Numero_Etudiant == numEtudiant
+                Etudiant_Atelier toDelete = context.Etudiant_Atelier.SingleOrDefault(ea => ea.Numero_Etudiant == numEtudiant.ToString()
                                                                                                             && ea.NumAtelier == numAtelier);
 
-                context.Etudiant_Ateliers.DeleteOnSubmit(toDelete);
+                context.Etudiant_Atelier.DeleteOnSubmit(toDelete);
 
                 context.SubmitChanges();
             }

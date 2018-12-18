@@ -24,7 +24,7 @@ namespace Inscription
         {
             try
             {
-                int res = 1473192;
+                string res = HttpContext.Current.User.Identity.Name;
                 //if (HttpContext.Current.User.Identity.Name != "Admin")
                 //    int.TryParse(HttpContext.Current.User.Identity.Name, out res);
                 //else //Temporaire to do
@@ -98,21 +98,21 @@ namespace Inscription
             HtmlInputButton theSender = (HtmlInputButton)sender;
             string value = theSender.Attributes["AtelierKey"];
 
-            int idStudent = 0;
+            string idStudent = "";
             if (HttpContext.Current.User.Identity.Name == "" || HttpContext.Current.User.Identity.Name == "Admin")
             {
-                idStudent = 1473192;
+                idStudent = "1473192";
             }
             else
             {
-                idStudent = int.Parse(HttpContext.Current.User.Identity.Name);
+                idStudent = HttpContext.Current.User.Identity.Name;
             }
 
-            if (idStudent != 0)
+            if (idStudent != "")
             {
-                var Atelier = AtelierDataContext.Etudiant_Ateliers.Single(ea => ea.NumAtelier == int.Parse(value) && ea.Numero_Etudiant == idStudent);
+                var Atelier = AtelierDataContext.Etudiant_Atelier.Single(ea => ea.NumAtelier == int.Parse(value) && ea.Numero_Etudiant == idStudent);
 
-                AtelierDataContext.Etudiant_Ateliers.DeleteOnSubmit(Atelier);
+                AtelierDataContext.Etudiant_Atelier.DeleteOnSubmit(Atelier);
                 AtelierDataContext.SubmitChanges();
 
                 _BindAtelierAndStudent();

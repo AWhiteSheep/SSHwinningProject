@@ -55,11 +55,11 @@ namespace Inscription
         private void PopulateList()
         {
             upSlotForServerHead.ContentTemplateContainer.Controls.Clear();
-            List<DonneesAtelier> results = DataInterpretation.LookupTags(activeTags);
+            List<DonneesAteliers> results = DataInterpretation.LookupTags(activeTags);
 
             var orderedResults = results.OrderBy(atelier => atelier.contentTitle);
 
-            foreach (DonneesAtelier atelier in orderedResults)
+            foreach (DonneesAteliers atelier in orderedResults)
             {
                 upSlotForServerHead.ContentTemplateContainer.Controls.Add(DataInterpretation.CreateInfoPanel(atelier));
             }

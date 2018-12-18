@@ -192,6 +192,12 @@
                                     <textarea id="txt_Sommaire" clientidmode="Static" tovalidate runat="server" class="input100" name="sommaire" placeholder="Sommaire"></textarea>
                                     <span class="focus-input100"></span>
                                 </div>
+
+                              
+
+                                <%-- Ajout d'image upload --%>
+                                <asp:FileUpload ID="ImageUpload" runat="server"/>
+
                                 <%-- Submit et si du côté serveur la page est valide de faire l'insertion dans la base de donnée --%>
                                 <div class="container-contact100-form-btn">
                                     <button id="ajouter" class="contact100-form-btn">
@@ -243,10 +249,7 @@
                     $(this).attr("class", "hiddenMessage");
                 });
             </script>
-        </ContentTemplate>
-    </asp:UpdatePanel>
-    <%-- Panel pour option d'ajout d'un autre --%>
-    <div class="modal fade ModalLoginPage" id="AtelierModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
+                <div class="modal fade ModalLoginPage" id="AtelierModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -263,13 +266,22 @@
                 </div>
                 <div class="modal-footer">
                     <%-- Au boutton click demande au serveur pour ajouter l'atelier!!!!!!!! :))))))) yayayyyayay --%>
-                    <asp:Button ID="btnSubmit" Text="Ajouter" runat="server" OnClick="AtelierCreation_Click" Class="btn btn-primary" CausesValidation="true" />
+                    <%-- Débute un postBackTrigger pour un file upload --%>
+                    <asp:Button ID="btnSubmit" clientIdmode="Static" Text="Ajouter" runat="server" OnClick="AtelierCreation_Click" Class="btn btn-primary" CausesValidation="true" />
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         Changer</button>
                 </div>
             </div>
         </div>
     </div>
+
+        </ContentTemplate>
+        <Triggers>
+        <asp:PostBackTrigger ControlID="btnSubmit" />
+        </Triggers>
+    </asp:UpdatePanel>
+   
+    <%-- Panel pour option d'ajout d'un autre --%>
     <div class="modal fade ModalLoginPage" id="UpdateAtelier" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -312,6 +324,7 @@
 
         $("tr").click(function () {
             if (this.getAttribute("class") == null) {
+                //insertion de toute les informations qui sont modifiable
                 document.getElementById("UpdateAtelierTitle").innerText = $(this).children().eq(1).text();
                 document.getElementById("txtCampus").value = $(this).children().eq(2).text();
                 document.getElementById("txtSalle").value = $(this).children().eq(3).text();
@@ -339,6 +352,9 @@
 
         $(document).ready(function () {
             $("tbody").children().first().addClass("row-header");
+            $("td>a").click(function (e) {
+                e.stopPropagation();
+            });
         });
     </script>
 </asp:Content>

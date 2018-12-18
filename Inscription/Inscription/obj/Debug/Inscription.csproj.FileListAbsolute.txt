@@ -132,3 +132,17 @@ E:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CoreCo
 E:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
 E:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
 E:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb
+K:\SSHwinningProject\Inscription\Inscription\bin\Inscription.dll.config
+K:\SSHwinningProject\Inscription\Inscription\bin\Inscription.dll
+K:\SSHwinningProject\Inscription\Inscription\bin\Inscription.pdb
+K:\SSHwinningProject\Inscription\Inscription\bin\AjaxControlToolkit.dll
+K:\SSHwinningProject\Inscription\Inscription\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+K:\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe
+K:\SSHwinningProject\Inscription\Inscription\bin\testingDS.pdb
+K:\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe.config
+K:\SSHwinningProject\Inscription\Inscription\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+K:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csprojAssemblyReference.cache
+K:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CoreCompileInputs.cache
+K:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
+K:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
+K:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb

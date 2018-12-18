@@ -1,10 +1,10 @@
 ﻿--création de la function
-create function GetAllAteliersByStudent(@Etudiant int)
+create function GetAllAteliersByStudent(@Etudiant varchar(25))
 returns @tableOfAtelierIDs table(
-	NumAtelier int, 
-	[contentTitle] VARCHAR (50)  NULL,
-    [campus]       VARCHAR (20)  NULL,
-    [Salle]        VARCHAR (40)  NULL,
+	[NumAtelier]   INT NOT NULL,
+    [contentTitle] VARCHAR (250) NOT NULL,
+    [campus]       VARCHAR (50)  NULL,
+    [Salle]        VARCHAR (70)  NULL,
     [contentInfo]  TEXT          NULL,
     [contentMain]  TEXT          NULL,
     [sommaire]     VARCHAR (25)  NULL,
@@ -13,12 +13,12 @@ returns @tableOfAtelierIDs table(
     [posterPath]   VARCHAR (100) NULL,
     [HeureDebut]   TIME (7)      NULL,
     [HeureFin]     TIME (7)      NULL,
-	[conferencier] varchar(50)
+    [Conferencier] NVARCHAR (50) NULL
 )
 as begin
 	insert into @tableOfAtelierIDs(	
-	NumAtelier, 
-	[contentTitle],
+	[NumAtelier],
+    [contentTitle],
     [campus],
     [Salle],
     [contentInfo],
@@ -29,7 +29,7 @@ as begin
     [posterPath],
     [HeureDebut],
     [HeureFin],
-	[conferencier]
+    [Conferencier]
 	)	
 	select * from DonneesAteliers
 		where NumAtelier in

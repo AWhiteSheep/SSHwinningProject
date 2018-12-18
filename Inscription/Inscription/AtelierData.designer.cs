@@ -36,15 +36,15 @@ namespace Inscription
     partial void InsertTags(Tags instance);
     partial void UpdateTags(Tags instance);
     partial void DeleteTags(Tags instance);
-    partial void InsertDonneesAtelier(DonneesAtelier instance);
-    partial void UpdateDonneesAtelier(DonneesAtelier instance);
-    partial void DeleteDonneesAtelier(DonneesAtelier instance);
-    partial void InsertEtudiant_Atelier(Etudiant_Atelier instance);
-    partial void UpdateEtudiant_Atelier(Etudiant_Atelier instance);
-    partial void DeleteEtudiant_Atelier(Etudiant_Atelier instance);
     partial void InsertEtudiant(Etudiant instance);
     partial void UpdateEtudiant(Etudiant instance);
     partial void DeleteEtudiant(Etudiant instance);
+    partial void InsertDonneesAteliers(DonneesAteliers instance);
+    partial void UpdateDonneesAteliers(DonneesAteliers instance);
+    partial void DeleteDonneesAteliers(DonneesAteliers instance);
+    partial void InsertEtudiant_Atelier(Etudiant_Atelier instance);
+    partial void UpdateEtudiant_Atelier(Etudiant_Atelier instance);
+    partial void DeleteEtudiant_Atelier(Etudiant_Atelier instance);
     #endregion
 		
 		public AtelierDataDataContext() : 
@@ -101,27 +101,27 @@ namespace Inscription
 			}
 		}
 		
-		public System.Data.Linq.Table<DonneesAtelier> DonneesAteliers
-		{
-			get
-			{
-				return this.GetTable<DonneesAtelier>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Etudiant_Atelier> Etudiant_Ateliers
-		{
-			get
-			{
-				return this.GetTable<Etudiant_Atelier>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Etudiant> Etudiant
 		{
 			get
 			{
 				return this.GetTable<Etudiant>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DonneesAteliers> DonneesAteliers
+		{
+			get
+			{
+				return this.GetTable<DonneesAteliers>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Etudiant_Atelier> Etudiant_Atelier
+		{
+			get
+			{
+				return this.GetTable<Etudiant_Atelier>();
 			}
 		}
 		
@@ -132,7 +132,7 @@ namespace Inscription
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetAllAteliersByStudent", IsComposable=true)]
-		public IQueryable<GetAllAteliersByStudentResult> GetAllAteliersByStudent([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Etudiant", DbType="Int")] System.Nullable<int> etudiant)
+		public IQueryable<GetAllAteliersByStudentResult> GetAllAteliersByStudent([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Etudiant", DbType="VarChar(25)")] string etudiant)
 		{
 			return this.CreateMethodCallQuery<GetAllAteliersByStudentResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), etudiant);
 		}
@@ -475,8 +475,170 @@ namespace Inscription
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Etudiant")]
+	public partial class Etudiant : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Numero_Etudiant;
+		
+		private System.Data.Linq.Binary _m_Password;
+		
+		private string _email;
+		
+		private string _username;
+		
+		private EntitySet<Etudiant_Atelier> _Etudiant_Atelier;
+		
+    #region Définitions de méthodes d'extensibilité
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNumero_EtudiantChanging(int value);
+    partial void OnNumero_EtudiantChanged();
+    partial void Onm_PasswordChanging(System.Data.Linq.Binary value);
+    partial void Onm_PasswordChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    #endregion
+		
+		public Etudiant()
+		{
+			this._Etudiant_Atelier = new EntitySet<Etudiant_Atelier>(new Action<Etudiant_Atelier>(this.attach_Etudiant_Atelier), new Action<Etudiant_Atelier>(this.detach_Etudiant_Atelier));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numero_Etudiant", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Numero_Etudiant
+		{
+			get
+			{
+				return this._Numero_Etudiant;
+			}
+			set
+			{
+				if ((this._Numero_Etudiant != value))
+				{
+					this.OnNumero_EtudiantChanging(value);
+					this.SendPropertyChanging();
+					this._Numero_Etudiant = value;
+					this.SendPropertyChanged("Numero_Etudiant");
+					this.OnNumero_EtudiantChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_m_Password", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary m_Password
+		{
+			get
+			{
+				return this._m_Password;
+			}
+			set
+			{
+				if ((this._m_Password != value))
+				{
+					this.Onm_PasswordChanging(value);
+					this.SendPropertyChanging();
+					this._m_Password = value;
+					this.SendPropertyChanged("m_Password");
+					this.Onm_PasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this.OnemailChanging(value);
+					this.SendPropertyChanging();
+					this._email = value;
+					this.SendPropertyChanged("email");
+					this.OnemailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Etudiant_Etudiant_Atelier", Storage="_Etudiant_Atelier", ThisKey="username", OtherKey="Numero_Etudiant")]
+		public EntitySet<Etudiant_Atelier> Etudiant_Atelier
+		{
+			get
+			{
+				return this._Etudiant_Atelier;
+			}
+			set
+			{
+				this._Etudiant_Atelier.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Etudiant_Atelier(Etudiant_Atelier entity)
+		{
+			this.SendPropertyChanging();
+			entity.Etudiant = this;
+		}
+		
+		private void detach_Etudiant_Atelier(Etudiant_Atelier entity)
+		{
+			this.SendPropertyChanging();
+			entity.Etudiant = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DonneesAteliers")]
-	public partial class DonneesAtelier : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class DonneesAteliers : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -507,7 +669,7 @@ namespace Inscription
 		
 		private string _Conferencier;
 		
-		private EntitySet<Etudiant_Atelier> _Etudiant_Ateliers;
+		private EntitySet<Etudiant_Atelier> _Etudiant_Atelier;
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
@@ -541,9 +703,9 @@ namespace Inscription
     partial void OnConferencierChanged();
     #endregion
 		
-		public DonneesAtelier()
+		public DonneesAteliers()
 		{
-			this._Etudiant_Ateliers = new EntitySet<Etudiant_Atelier>(new Action<Etudiant_Atelier>(this.attach_Etudiant_Ateliers), new Action<Etudiant_Atelier>(this.detach_Etudiant_Ateliers));
+			this._Etudiant_Atelier = new EntitySet<Etudiant_Atelier>(new Action<Etudiant_Atelier>(this.attach_Etudiant_Atelier), new Action<Etudiant_Atelier>(this.detach_Etudiant_Atelier));
 			OnCreated();
 		}
 		
@@ -567,7 +729,7 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contentTitle", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contentTitle", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
 		public string contentTitle
 		{
 			get
@@ -587,7 +749,7 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_campus", DbType="VarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_campus", DbType="VarChar(50)")]
 		public string campus
 		{
 			get
@@ -607,7 +769,7 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Salle", DbType="VarChar(40)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Salle", DbType="VarChar(70)")]
 		public string Salle
 		{
 			get
@@ -807,337 +969,7 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DonneesAtelier_Etudiant_Atelier", Storage="_Etudiant_Ateliers", ThisKey="NumAtelier", OtherKey="NumAtelier")]
-		public EntitySet<Etudiant_Atelier> Etudiant_Ateliers
-		{
-			get
-			{
-				return this._Etudiant_Ateliers;
-			}
-			set
-			{
-				this._Etudiant_Ateliers.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Etudiant_Ateliers(Etudiant_Atelier entity)
-		{
-			this.SendPropertyChanging();
-			entity.DonneesAtelier = this;
-		}
-		
-		private void detach_Etudiant_Ateliers(Etudiant_Atelier entity)
-		{
-			this.SendPropertyChanging();
-			entity.DonneesAtelier = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Etudiant_Atelier")]
-	public partial class Etudiant_Atelier : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<int> _Numero_Etudiant;
-		
-		private System.Nullable<int> _NumAtelier;
-		
-		private EntityRef<DonneesAtelier> _DonneesAtelier;
-		
-		private EntityRef<Etudiant> _Etudiant;
-		
-    #region Définitions de méthodes d'extensibilité
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNumero_EtudiantChanging(System.Nullable<int> value);
-    partial void OnNumero_EtudiantChanged();
-    partial void OnNumAtelierChanging(System.Nullable<int> value);
-    partial void OnNumAtelierChanged();
-    #endregion
-		
-		public Etudiant_Atelier()
-		{
-			this._DonneesAtelier = default(EntityRef<DonneesAtelier>);
-			this._Etudiant = default(EntityRef<Etudiant>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numero_Etudiant", DbType="Int", IsPrimaryKey=true)]
-		public System.Nullable<int> Numero_Etudiant
-		{
-			get
-			{
-				return this._Numero_Etudiant;
-			}
-			set
-			{
-				if ((this._Numero_Etudiant != value))
-				{
-					if (this._Etudiant.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNumero_EtudiantChanging(value);
-					this.SendPropertyChanging();
-					this._Numero_Etudiant = value;
-					this.SendPropertyChanged("Numero_Etudiant");
-					this.OnNumero_EtudiantChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumAtelier", DbType="Int", IsPrimaryKey=true)]
-		public System.Nullable<int> NumAtelier
-		{
-			get
-			{
-				return this._NumAtelier;
-			}
-			set
-			{
-				if ((this._NumAtelier != value))
-				{
-					if (this._DonneesAtelier.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNumAtelierChanging(value);
-					this.SendPropertyChanging();
-					this._NumAtelier = value;
-					this.SendPropertyChanged("NumAtelier");
-					this.OnNumAtelierChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DonneesAtelier_Etudiant_Atelier", Storage="_DonneesAtelier", ThisKey="NumAtelier", OtherKey="NumAtelier", IsForeignKey=true)]
-		public DonneesAtelier DonneesAtelier
-		{
-			get
-			{
-				return this._DonneesAtelier.Entity;
-			}
-			set
-			{
-				DonneesAtelier previousValue = this._DonneesAtelier.Entity;
-				if (((previousValue != value) 
-							|| (this._DonneesAtelier.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DonneesAtelier.Entity = null;
-						previousValue.Etudiant_Ateliers.Remove(this);
-					}
-					this._DonneesAtelier.Entity = value;
-					if ((value != null))
-					{
-						value.Etudiant_Ateliers.Add(this);
-						this._NumAtelier = value.NumAtelier;
-					}
-					else
-					{
-						this._NumAtelier = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("DonneesAtelier");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Etudiant_Etudiant_Atelier", Storage="_Etudiant", ThisKey="Numero_Etudiant", OtherKey="Numero_Etudiant", IsForeignKey=true)]
-		public Etudiant Etudiant
-		{
-			get
-			{
-				return this._Etudiant.Entity;
-			}
-			set
-			{
-				Etudiant previousValue = this._Etudiant.Entity;
-				if (((previousValue != value) 
-							|| (this._Etudiant.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Etudiant.Entity = null;
-						previousValue.Etudiant_Atelier.Remove(this);
-					}
-					this._Etudiant.Entity = value;
-					if ((value != null))
-					{
-						value.Etudiant_Atelier.Add(this);
-						this._Numero_Etudiant = value.Numero_Etudiant;
-					}
-					else
-					{
-						this._Numero_Etudiant = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Etudiant");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Etudiant")]
-	public partial class Etudiant : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Numero_Etudiant;
-		
-		private System.Data.Linq.Binary _m_Password;
-		
-		private string _email;
-		
-		private string _username;
-		
-		private EntitySet<Etudiant_Atelier> _Etudiant_Atelier;
-		
-    #region Définitions de méthodes d'extensibilité
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNumero_EtudiantChanging(int value);
-    partial void OnNumero_EtudiantChanged();
-    partial void Onm_PasswordChanging(System.Data.Linq.Binary value);
-    partial void Onm_PasswordChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
-    #endregion
-		
-		public Etudiant()
-		{
-			this._Etudiant_Atelier = new EntitySet<Etudiant_Atelier>(new Action<Etudiant_Atelier>(this.attach_Etudiant_Atelier), new Action<Etudiant_Atelier>(this.detach_Etudiant_Atelier));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numero_Etudiant", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Numero_Etudiant
-		{
-			get
-			{
-				return this._Numero_Etudiant;
-			}
-			set
-			{
-				if ((this._Numero_Etudiant != value))
-				{
-					this.OnNumero_EtudiantChanging(value);
-					this.SendPropertyChanging();
-					this._Numero_Etudiant = value;
-					this.SendPropertyChanged("Numero_Etudiant");
-					this.OnNumero_EtudiantChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_m_Password", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary m_Password
-		{
-			get
-			{
-				return this._m_Password;
-			}
-			set
-			{
-				if ((this._m_Password != value))
-				{
-					this.Onm_PasswordChanging(value);
-					this.SendPropertyChanging();
-					this._m_Password = value;
-					this.SendPropertyChanged("m_Password");
-					this.Onm_PasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50)")]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this.OnemailChanging(value);
-					this.SendPropertyChanging();
-					this._email = value;
-					this.SendPropertyChanged("email");
-					this.OnemailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this.OnusernameChanging(value);
-					this.SendPropertyChanging();
-					this._username = value;
-					this.SendPropertyChanged("username");
-					this.OnusernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Etudiant_Etudiant_Atelier", Storage="_Etudiant_Atelier", ThisKey="Numero_Etudiant", OtherKey="Numero_Etudiant")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DonneesAteliers_Etudiant_Atelier", Storage="_Etudiant_Atelier", ThisKey="NumAtelier", OtherKey="NumAtelier")]
 		public EntitySet<Etudiant_Atelier> Etudiant_Atelier
 		{
 			get
@@ -1173,13 +1005,181 @@ namespace Inscription
 		private void attach_Etudiant_Atelier(Etudiant_Atelier entity)
 		{
 			this.SendPropertyChanging();
-			entity.Etudiant = this;
+			entity.DonneesAteliers = this;
 		}
 		
 		private void detach_Etudiant_Atelier(Etudiant_Atelier entity)
 		{
 			this.SendPropertyChanging();
-			entity.Etudiant = null;
+			entity.DonneesAteliers = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Etudiant_Atelier")]
+	public partial class Etudiant_Atelier : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Numero_Etudiant;
+		
+		private int _NumAtelier;
+		
+		private EntityRef<DonneesAteliers> _DonneesAteliers;
+		
+		private EntityRef<Etudiant> _Etudiant;
+		
+    #region Définitions de méthodes d'extensibilité
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNumero_EtudiantChanging(string value);
+    partial void OnNumero_EtudiantChanged();
+    partial void OnNumAtelierChanging(int value);
+    partial void OnNumAtelierChanged();
+    #endregion
+		
+		public Etudiant_Atelier()
+		{
+			this._DonneesAteliers = default(EntityRef<DonneesAteliers>);
+			this._Etudiant = default(EntityRef<Etudiant>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numero_Etudiant", DbType="VarChar(25) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Numero_Etudiant
+		{
+			get
+			{
+				return this._Numero_Etudiant;
+			}
+			set
+			{
+				if ((this._Numero_Etudiant != value))
+				{
+					if (this._Etudiant.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNumero_EtudiantChanging(value);
+					this.SendPropertyChanging();
+					this._Numero_Etudiant = value;
+					this.SendPropertyChanged("Numero_Etudiant");
+					this.OnNumero_EtudiantChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumAtelier", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int NumAtelier
+		{
+			get
+			{
+				return this._NumAtelier;
+			}
+			set
+			{
+				if ((this._NumAtelier != value))
+				{
+					if (this._DonneesAteliers.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNumAtelierChanging(value);
+					this.SendPropertyChanging();
+					this._NumAtelier = value;
+					this.SendPropertyChanged("NumAtelier");
+					this.OnNumAtelierChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DonneesAteliers_Etudiant_Atelier", Storage="_DonneesAteliers", ThisKey="NumAtelier", OtherKey="NumAtelier", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public DonneesAteliers DonneesAteliers
+		{
+			get
+			{
+				return this._DonneesAteliers.Entity;
+			}
+			set
+			{
+				DonneesAteliers previousValue = this._DonneesAteliers.Entity;
+				if (((previousValue != value) 
+							|| (this._DonneesAteliers.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DonneesAteliers.Entity = null;
+						previousValue.Etudiant_Atelier.Remove(this);
+					}
+					this._DonneesAteliers.Entity = value;
+					if ((value != null))
+					{
+						value.Etudiant_Atelier.Add(this);
+						this._NumAtelier = value.NumAtelier;
+					}
+					else
+					{
+						this._NumAtelier = default(int);
+					}
+					this.SendPropertyChanged("DonneesAteliers");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Etudiant_Etudiant_Atelier", Storage="_Etudiant", ThisKey="Numero_Etudiant", OtherKey="username", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Etudiant Etudiant
+		{
+			get
+			{
+				return this._Etudiant.Entity;
+			}
+			set
+			{
+				Etudiant previousValue = this._Etudiant.Entity;
+				if (((previousValue != value) 
+							|| (this._Etudiant.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Etudiant.Entity = null;
+						previousValue.Etudiant_Atelier.Remove(this);
+					}
+					this._Etudiant.Entity = value;
+					if ((value != null))
+					{
+						value.Etudiant_Atelier.Add(this);
+						this._Numero_Etudiant = value.username;
+					}
+					else
+					{
+						this._Numero_Etudiant = default(string);
+					}
+					this.SendPropertyChanged("Etudiant");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -1212,7 +1212,7 @@ namespace Inscription
 	public partial class GetAllAteliersByStudentResult
 	{
 		
-		private System.Nullable<int> _NumAtelier;
+		private int _NumAtelier;
 		
 		private string _contentTitle;
 		
@@ -1236,12 +1236,14 @@ namespace Inscription
 		
 		private System.Nullable<System.TimeSpan> _HeureFin;
 		
+		private string _Conferencier;
+		
 		public GetAllAteliersByStudentResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumAtelier", DbType="Int")]
-		public System.Nullable<int> NumAtelier
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumAtelier", DbType="Int NOT NULL")]
+		public int NumAtelier
 		{
 			get
 			{
@@ -1256,7 +1258,7 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contentTitle", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contentTitle", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
 		public string contentTitle
 		{
 			get
@@ -1272,7 +1274,7 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_campus", DbType="VarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_campus", DbType="VarChar(50)")]
 		public string campus
 		{
 			get
@@ -1288,7 +1290,7 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Salle", DbType="VarChar(40)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Salle", DbType="VarChar(70)")]
 		public string Salle
 		{
 			get
@@ -1428,6 +1430,22 @@ namespace Inscription
 				if ((this._HeureFin != value))
 				{
 					this._HeureFin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Conferencier", DbType="NVarChar(50)")]
+		public string Conferencier
+		{
+			get
+			{
+				return this._Conferencier;
+			}
+			set
+			{
+				if ((this._Conferencier != value))
+				{
+					this._Conferencier = value;
 				}
 			}
 		}

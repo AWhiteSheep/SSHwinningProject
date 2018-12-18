@@ -30,8 +30,6 @@
                     <asp:Panel ID="pnButtons" runat="server"></asp:Panel>
                 </ContentTemplate>
             </asp:UpdatePanel>
-
-
         </div>
         <div class="container align-content-md-center justify-content-md-center info-display">
             <asp:UpdatePanel ID="upSlotForServerHead" ClientIDMode="Static" runat="server">

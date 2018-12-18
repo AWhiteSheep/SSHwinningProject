@@ -23,15 +23,24 @@
       <Column Name="NumAtelier" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
       <Association Name="Tags_Ateliers_Tags" Member="Tags" ThisKey="Description" OtherKey="Description" Type="Tags" IsForeignKey="true" />
-      <Association Name="DonneesAtelier_Ateliers_Tags" Member="DonneesAtelier" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAtelier" IsForeignKey="true" />
+      <Association Name="DonneesAteliers_Ateliers_Tags" Member="DonneesAteliers" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAteliers" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Etudiant" Member="Etudiant">
+    <Type Name="Etudiant">
+      <Column Name="Numero_Etudiant" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="m_Password" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="Etudiant_Etudiant_Atelier" Member="Etudiant_Atelier" ThisKey="username" OtherKey="Numero_Etudiant" Type="Etudiant_Atelier" />
     </Type>
   </Table>
   <Table Name="dbo.DonneesAteliers" Member="DonneesAteliers">
-    <Type Name="DonneesAtelier">
+    <Type Name="DonneesAteliers">
       <Column Name="NumAtelier" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="contentTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="campus" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Salle" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="contentTitle" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="campus" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Salle" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
       <Column Name="contentInfo" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="contentMain" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="sommaire" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
@@ -41,25 +50,16 @@
       <Column Name="HeureDebut" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Column Name="HeureFin" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Column Name="Conferencier" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="DonneesAtelier_Ateliers_Tags" Member="Ateliers_Tags" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Ateliers_Tags" />
-      <Association Name="DonneesAtelier_Etudiant_Atelier" Member="Etudiant_Ateliers" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Etudiant_Atelier" />
+      <Association Name="DonneesAteliers_Ateliers_Tags" Member="Ateliers_Tags" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Ateliers_Tags" />
+      <Association Name="DonneesAteliers_Etudiant_Atelier" Member="Etudiant_Atelier" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="Etudiant_Atelier" />
     </Type>
   </Table>
-  <Table Name="dbo.Etudiant_Atelier" Member="Etudiant_Ateliers">
+  <Table Name="dbo.Etudiant_Atelier" Member="Etudiant_Atelier">
     <Type Name="Etudiant_Atelier">
-      <Column Name="Numero_Etudiant" Type="System.Int32" DbType="Int" IsPrimaryKey="true" CanBeNull="true" />
-      <Column Name="NumAtelier" Type="System.Int32" DbType="Int" IsPrimaryKey="true" CanBeNull="true" />
-      <Association Name="DonneesAtelier_Etudiant_Atelier" Member="DonneesAtelier" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAtelier" IsForeignKey="true" />
-      <Association Name="Etudiant_Etudiant_Atelier" Member="Etudiant" ThisKey="Numero_Etudiant" OtherKey="Numero_Etudiant" Type="Etudiant" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Etudiant" Member="Etudiant">
-    <Type Name="Etudiant">
-      <Column Name="Numero_Etudiant" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="m_Password" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="username" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Association Name="Etudiant_Etudiant_Atelier" Member="Etudiant_Atelier" ThisKey="Numero_Etudiant" OtherKey="Numero_Etudiant" Type="Etudiant_Atelier" />
+      <Column Name="Numero_Etudiant" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NumAtelier" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="DonneesAteliers_Etudiant_Atelier" Member="DonneesAteliers" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAteliers" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Etudiant_Etudiant_Atelier" Member="Etudiant" ThisKey="Numero_Etudiant" OtherKey="username" Type="Etudiant" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.GetAllAteliersByTag" Method="GetAllAteliersByTag" IsComposable="true">
@@ -69,12 +69,12 @@
     </ElementType>
   </Function>
   <Function Name="dbo.GetAllAteliersByStudent" Method="GetAllAteliersByStudent" IsComposable="true">
-    <Parameter Name="Etudiant" Parameter="etudiant" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Etudiant" Parameter="etudiant" Type="System.String" DbType="VarChar(25)" />
     <ElementType Name="GetAllAteliersByStudentResult">
-      <Column Name="NumAtelier" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="contentTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="campus" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Salle" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="NumAtelier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="contentTitle" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="campus" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Salle" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
       <Column Name="contentInfo" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="contentMain" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="sommaire" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
@@ -83,6 +83,7 @@
       <Column Name="posterPath" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="HeureDebut" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Column Name="HeureFin" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Conferencier" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

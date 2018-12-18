@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -38,7 +39,7 @@ namespace Inscription
                 {
                     string sysFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
                     //Cération d'un nouvel atelier
-                    var Atelier = new DonneesAtelier();
+                    var Atelier = new DonneesAteliers();
                     Atelier.contentTitle = txttitre.Text;
                     Atelier.campus = txt_Campus.Text;
                     Atelier.Salle = txt_salle.Text;
@@ -48,6 +49,20 @@ namespace Inscription
                     Atelier.HeureFin = TimeSpan.Parse(txt_heure_fin.Text);
                     Atelier.Max_Eleves = int.Parse(txt_elevemax.Text);
                     Atelier.Conferencier = txt_conferencier.Text;
+                    try
+                    {
+                        if(ImageUpload.FileName != "")
+                        {
+                            string folderPath = Server.MapPath("~/Images/");
+                            ImageUpload.SaveAs(folderPath + Path.GetFileName(ImageUpload.FileName));
+
+                            Atelier.posterPath = "Images/"+ImageUpload.FileName;
+                        }
+                    }
+                    catch
+                    {
+                        throw;
+                    }
                     AtelierDataContext.DonneesAteliers.InsertOnSubmit(Atelier); // un submit un pending
                     AtelierDataContext.SubmitChanges(); // de dataContext
 
@@ -61,6 +76,7 @@ namespace Inscription
                 if (reussi)
                 {
                     hiddenMessage.Attributes.Remove("class");
+                    gvbind();
                 }
                 //lblSuccess.Text = $"L'ajout de l'atelier {txttitre.Text} à réussi!";
                 else
@@ -72,11 +88,11 @@ namespace Inscription
             }
         }
 
-        public List<DonneesAtelier> GetAtelierRecord()
+        public List<DonneesAteliers> GetAtelierRecord()
         {
             var AllAtelier = (from a in AtelierDataContext.DonneesAteliers
                               select a).ToList();
-            
+
             return AllAtelier;
         }
 
@@ -103,7 +119,6 @@ namespace Inscription
                 FormulaireAtelier.Attributes.Add("class", "container tab-pane fade in");
                 AtelierList.Attributes.Remove("class");
                 AtelierList.Attributes.Add("class", "container  tab-pane fade in active show");
-
                 TheFormulaire.Attributes.Remove("class");
                 ListAteler.Attributes.Add("class", "active show");
             }
@@ -118,6 +133,11 @@ namespace Inscription
         protected void gridViewAtelier_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void UploadFile(object sender, EventArgs e)
+        {
+           
         }
     }
 }
