@@ -118,3 +118,17 @@ K:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe.co
 C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe
 C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\testingDS.pdb
 C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe.config
+E:\SSHwinningProject\Inscription\Inscription\bin\Inscription.dll.config
+E:\SSHwinningProject\Inscription\Inscription\bin\Inscription.dll
+E:\SSHwinningProject\Inscription\Inscription\bin\Inscription.pdb
+E:\SSHwinningProject\Inscription\Inscription\bin\AjaxControlToolkit.dll
+E:\SSHwinningProject\Inscription\Inscription\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe
+E:\SSHwinningProject\Inscription\Inscription\bin\testingDS.pdb
+E:\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe.config
+E:\SSHwinningProject\Inscription\Inscription\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csprojAssemblyReference.cache
+E:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CoreCompileInputs.cache
+E:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
+E:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
+E:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb

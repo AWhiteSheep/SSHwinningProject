@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,8 +23,9 @@ namespace Inscription
                 gridViewAtelier.DataSource = GetAtelierRecord();
                 gridViewAtelier.DataBind();
             }
+            hiddenMessage.Attributes.Add("class", "hiddenMessage");
 
-            sumbit.ServerClick += AtelierCreation_Click;
+            //sumbit.ServerClick += AtelierCreation_Click;
         }
 
         protected void AtelierCreation_Click(object sender, EventArgs e)
@@ -34,13 +36,14 @@ namespace Inscription
                 bool reussi = true;
                 try
                 {
+                    string sysFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
                     //Cération d'un nouvel atelier
                     var Atelier = new DonneesAtelier();
                     Atelier.contentTitle = txttitre.Text;
                     Atelier.campus = txt_Campus.Text;
                     Atelier.Salle = txt_salle.Text;
                     var adsf = DateTime.Now.ToString();
-                    Atelier.dateDebut = DateTime.Parse(txt_date.Text);
+                    Atelier.dateDebut = DateTime.ParseExact(txt_date.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                     Atelier.HeureDebut = TimeSpan.Parse(txt_heure.Text);
                     Atelier.HeureFin = TimeSpan.Parse(txt_heure_fin.Text);
                     Atelier.Max_Eleves = int.Parse(txt_elevemax.Text);
@@ -56,16 +59,65 @@ namespace Inscription
                 }
 
                 if (reussi)
-                    lblSuccess.Text = $"L'ajout de l'atelier {txttitre.Text} à réussi!";
+                {
+                    hiddenMessage.Attributes.Remove("class");
+                }
+                //lblSuccess.Text = $"L'ajout de l'atelier {txttitre.Text} à réussi!";
                 else
-                    lblSuccess.Text = $"L'ajout de l'atelier {txttitre.Text} n'a pas réussi...";                
+                {
+                    //lblSuccess.Text = $"L'ajout de l'atelier {txttitre.Text} n'a pas réussi...";
+                    hiddenMessage.Attributes.Add("class", "hiddenMessage");
+
+                }
             }
         }
 
         public List<DonneesAtelier> GetAtelierRecord()
         {
-            var AllAtelier = (from x in AtelierDataContext.DonneesAteliers select x).ToList();
+            var AllAtelier = (from a in AtelierDataContext.DonneesAteliers
+                              select a).ToList();
+            
             return AllAtelier;
+        }
+
+        protected void RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                GridViewRow row = (GridViewRow)gridViewAtelier.Rows[e.RowIndex];
+                var lbldeleteid = row.Cells[0].Text;
+
+                var Atelier = AtelierDataContext.DonneesAteliers.Single(a => a.NumAtelier == int.Parse(lbldeleteid));
+
+                AtelierDataContext.DonneesAteliers.DeleteOnSubmit(Atelier);
+                AtelierDataContext.SubmitChanges();
+                gvbind();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                FormulaireAtelier.Attributes.Remove("class");
+                FormulaireAtelier.Attributes.Add("class", "container tab-pane fade in");
+                AtelierList.Attributes.Remove("class");
+                AtelierList.Attributes.Add("class", "container  tab-pane fade in active show");
+
+                TheFormulaire.Attributes.Remove("class");
+                ListAteler.Attributes.Add("class", "active show");
+            }
+        }
+
+        void gvbind()
+        {
+            gridViewAtelier.DataSource = GetAtelierRecord();
+            gridViewAtelier.DataBind();
+        }
+
+        protected void gridViewAtelier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

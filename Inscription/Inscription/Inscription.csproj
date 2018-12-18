@@ -80,6 +80,7 @@
     <Content Include="App_Data\SSHdataBase_log.ldf">
       <DependentUpon>SSHdataBase.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\AjoutAtelier.css" />
     <Content Include="Images\Banners\53.jpg" />
     <Content Include="Images\Banners\BlueBubble.jpg" />
     <Content Include="Images\Banners\BlueBubble.png" />
