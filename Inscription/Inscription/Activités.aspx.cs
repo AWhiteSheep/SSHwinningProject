@@ -30,6 +30,7 @@ namespace Inscription
             foreach (var tag in AtelierDataContext.Tags)
             {
                 HtmlInputButton newButton = CreateTagButton(tag);
+
                 pnButtons.Controls.Add(newButton);
 
             }
@@ -100,5 +101,7 @@ namespace Inscription
 
             PopulateList();
         }
+
+
     }
 }
