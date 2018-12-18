@@ -39,6 +39,9 @@ namespace Inscription
     partial void InsertDonneesAtelier(DonneesAtelier instance);
     partial void UpdateDonneesAtelier(DonneesAtelier instance);
     partial void DeleteDonneesAtelier(DonneesAtelier instance);
+    partial void InsertEtudiant_Atelier(Etudiant_Atelier instance);
+    partial void UpdateEtudiant_Atelier(Etudiant_Atelier instance);
+    partial void DeleteEtudiant_Atelier(Etudiant_Atelier instance);
     partial void InsertEtudiant(Etudiant instance);
     partial void UpdateEtudiant(Etudiant instance);
     partial void DeleteEtudiant(Etudiant instance);
@@ -106,19 +109,19 @@ namespace Inscription
 			}
 		}
 		
-		public System.Data.Linq.Table<Etudiant> Etudiants
-		{
-			get
-			{
-				return this.GetTable<Etudiant>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Etudiant_Atelier> Etudiant_Ateliers
 		{
 			get
 			{
 				return this.GetTable<Etudiant_Atelier>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Etudiant> Etudiant
+		{
+			get
+			{
+				return this.GetTable<Etudiant>();
 			}
 		}
 		
@@ -504,6 +507,8 @@ namespace Inscription
 		
 		private string _Conferencier;
 		
+		private EntitySet<Etudiant_Atelier> _Etudiant_Ateliers;
+		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -538,6 +543,7 @@ namespace Inscription
 		
 		public DonneesAtelier()
 		{
+			this._Etudiant_Ateliers = new EntitySet<Etudiant_Atelier>(new Action<Etudiant_Atelier>(this.attach_Etudiant_Ateliers), new Action<Etudiant_Atelier>(this.detach_Etudiant_Ateliers));
 			OnCreated();
 		}
 		
@@ -801,6 +807,199 @@ namespace Inscription
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DonneesAtelier_Etudiant_Atelier", Storage="_Etudiant_Ateliers", ThisKey="NumAtelier", OtherKey="NumAtelier")]
+		public EntitySet<Etudiant_Atelier> Etudiant_Ateliers
+		{
+			get
+			{
+				return this._Etudiant_Ateliers;
+			}
+			set
+			{
+				this._Etudiant_Ateliers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Etudiant_Ateliers(Etudiant_Atelier entity)
+		{
+			this.SendPropertyChanging();
+			entity.DonneesAtelier = this;
+		}
+		
+		private void detach_Etudiant_Ateliers(Etudiant_Atelier entity)
+		{
+			this.SendPropertyChanging();
+			entity.DonneesAtelier = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Etudiant_Atelier")]
+	public partial class Etudiant_Atelier : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<int> _Numero_Etudiant;
+		
+		private System.Nullable<int> _NumAtelier;
+		
+		private EntityRef<DonneesAtelier> _DonneesAtelier;
+		
+		private EntityRef<Etudiant> _Etudiant;
+		
+    #region Définitions de méthodes d'extensibilité
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNumero_EtudiantChanging(System.Nullable<int> value);
+    partial void OnNumero_EtudiantChanged();
+    partial void OnNumAtelierChanging(System.Nullable<int> value);
+    partial void OnNumAtelierChanged();
+    #endregion
+		
+		public Etudiant_Atelier()
+		{
+			this._DonneesAtelier = default(EntityRef<DonneesAtelier>);
+			this._Etudiant = default(EntityRef<Etudiant>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numero_Etudiant", DbType="Int", IsPrimaryKey=true)]
+		public System.Nullable<int> Numero_Etudiant
+		{
+			get
+			{
+				return this._Numero_Etudiant;
+			}
+			set
+			{
+				if ((this._Numero_Etudiant != value))
+				{
+					if (this._Etudiant.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNumero_EtudiantChanging(value);
+					this.SendPropertyChanging();
+					this._Numero_Etudiant = value;
+					this.SendPropertyChanged("Numero_Etudiant");
+					this.OnNumero_EtudiantChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumAtelier", DbType="Int", IsPrimaryKey=true)]
+		public System.Nullable<int> NumAtelier
+		{
+			get
+			{
+				return this._NumAtelier;
+			}
+			set
+			{
+				if ((this._NumAtelier != value))
+				{
+					if (this._DonneesAtelier.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNumAtelierChanging(value);
+					this.SendPropertyChanging();
+					this._NumAtelier = value;
+					this.SendPropertyChanged("NumAtelier");
+					this.OnNumAtelierChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DonneesAtelier_Etudiant_Atelier", Storage="_DonneesAtelier", ThisKey="NumAtelier", OtherKey="NumAtelier", IsForeignKey=true)]
+		public DonneesAtelier DonneesAtelier
+		{
+			get
+			{
+				return this._DonneesAtelier.Entity;
+			}
+			set
+			{
+				DonneesAtelier previousValue = this._DonneesAtelier.Entity;
+				if (((previousValue != value) 
+							|| (this._DonneesAtelier.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DonneesAtelier.Entity = null;
+						previousValue.Etudiant_Ateliers.Remove(this);
+					}
+					this._DonneesAtelier.Entity = value;
+					if ((value != null))
+					{
+						value.Etudiant_Ateliers.Add(this);
+						this._NumAtelier = value.NumAtelier;
+					}
+					else
+					{
+						this._NumAtelier = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("DonneesAtelier");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Etudiant_Etudiant_Atelier", Storage="_Etudiant", ThisKey="Numero_Etudiant", OtherKey="Numero_Etudiant", IsForeignKey=true)]
+		public Etudiant Etudiant
+		{
+			get
+			{
+				return this._Etudiant.Entity;
+			}
+			set
+			{
+				Etudiant previousValue = this._Etudiant.Entity;
+				if (((previousValue != value) 
+							|| (this._Etudiant.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Etudiant.Entity = null;
+						previousValue.Etudiant_Atelier.Remove(this);
+					}
+					this._Etudiant.Entity = value;
+					if ((value != null))
+					{
+						value.Etudiant_Atelier.Add(this);
+						this._Numero_Etudiant = value.Numero_Etudiant;
+					}
+					else
+					{
+						this._Numero_Etudiant = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Etudiant");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -836,6 +1035,8 @@ namespace Inscription
 		
 		private string _username;
 		
+		private EntitySet<Etudiant_Atelier> _Etudiant_Atelier;
+		
     #region Définitions de méthodes d'extensibilité
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -852,6 +1053,7 @@ namespace Inscription
 		
 		public Etudiant()
 		{
+			this._Etudiant_Atelier = new EntitySet<Etudiant_Atelier>(new Action<Etudiant_Atelier>(this.attach_Etudiant_Atelier), new Action<Etudiant_Atelier>(this.detach_Etudiant_Atelier));
 			OnCreated();
 		}
 		
@@ -875,7 +1077,7 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_m_Password", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_m_Password", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary m_Password
 		{
 			get
@@ -895,7 +1097,7 @@ namespace Inscription
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50)")]
 		public string email
 		{
 			get
@@ -935,6 +1137,19 @@ namespace Inscription
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Etudiant_Etudiant_Atelier", Storage="_Etudiant_Atelier", ThisKey="Numero_Etudiant", OtherKey="Numero_Etudiant")]
+		public EntitySet<Etudiant_Atelier> Etudiant_Atelier
+		{
+			get
+			{
+				return this._Etudiant_Atelier;
+			}
+			set
+			{
+				this._Etudiant_Atelier.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -954,50 +1169,17 @@ namespace Inscription
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Etudiant_Atelier")]
-	public partial class Etudiant_Atelier
-	{
 		
-		private System.Nullable<int> _Numero_Etudiant;
-		
-		private System.Nullable<int> _NumAtelier;
-		
-		public Etudiant_Atelier()
+		private void attach_Etudiant_Atelier(Etudiant_Atelier entity)
 		{
+			this.SendPropertyChanging();
+			entity.Etudiant = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Numero_Etudiant", DbType="Int")]
-		public System.Nullable<int> Numero_Etudiant
+		private void detach_Etudiant_Atelier(Etudiant_Atelier entity)
 		{
-			get
-			{
-				return this._Numero_Etudiant;
-			}
-			set
-			{
-				if ((this._Numero_Etudiant != value))
-				{
-					this._Numero_Etudiant = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumAtelier", DbType="Int")]
-		public System.Nullable<int> NumAtelier
-		{
-			get
-			{
-				return this._NumAtelier;
-			}
-			set
-			{
-				if ((this._NumAtelier != value))
-				{
-					this._NumAtelier = value;
-				}
-			}
+			this.SendPropertyChanging();
+			entity.Etudiant = null;
 		}
 	}
 	

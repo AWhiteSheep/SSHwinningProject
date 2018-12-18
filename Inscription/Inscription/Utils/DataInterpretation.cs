@@ -20,6 +20,8 @@ namespace Inscription.Utils
     /// </summary>
     public static class DataInterpretation
     {
+        public static AtelierDataDataContext context = new AtelierDataDataContext();
+
         /// <summary>
         /// Crée un élément HTML qui sert de représentation brève d'un atelier.
         /// </summary>
@@ -61,6 +63,37 @@ namespace Inscription.Utils
                 + row.dateDebut?.ToShortTimeString()
             };
 
+            string username = HttpContext.Current.User.Identity.Name;
+            int numUser = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == username)
+                                          .Numero_Etudiant;
+
+            HtmlInputButton btnInscription;
+
+            //Si l'usager est déjà inscrit à cet atelier...
+            if (context.Etudiant_Ateliers.SingleOrDefault(entry => entry.Numero_Etudiant == numUser && entry.NumAtelier == row.NumAtelier) != null)
+            {
+                btnInscription = new HtmlInputButton()
+                {
+                    Value = "Désinscription",
+                    ID = row.NumAtelier.ToString()
+                };
+                btnInscription.ServerClick += Unsubscribe;
+                btnInscription.Attributes.Add("class", "btn btn-danger");
+            }
+
+            else
+            {
+                btnInscription = new HtmlInputButton()
+                {
+                    Value = "S'inscrire",
+                    ID = row.NumAtelier.ToString()
+                };
+
+                btnInscription.ServerClick += Subscribe;
+                btnInscription.Attributes.Add("class", "btn btn-success");
+            }
+
+
             data.Attributes.Add("class", "mb-0");
 
             data.InnerText = data.InnerText.ToUpper();
@@ -70,6 +103,7 @@ namespace Inscription.Utils
             body.Controls.Add(title);
             body.Controls.Add(summary);
             body.Controls.Add(data);
+            body.Controls.Add(btnInscription);
 
             panel.Controls.Add(body);
             return panel;
@@ -128,7 +162,7 @@ namespace Inscription.Utils
         {
             AtelierDataDataContext context = new AtelierDataDataContext();
 
-            return context.Etudiants.SingleOrDefault(e => e.username == userName);
+            return context.Etudiant.SingleOrDefault(e => e.username == userName);
         }
 
         public static byte[] ComputeHash(string input)
@@ -136,6 +170,47 @@ namespace Inscription.Utils
             SHA256 hasher = SHA256.Create();
 
             return (hasher.ComputeHash(Encoding.UTF8.GetBytes(input)));
+        }
+
+        public static void Subscribe(object sender, EventArgs e)
+        {
+            HtmlInputButton button = (HtmlInputButton)sender;
+            string user = HttpContext.Current.User.Identity.Name;
+
+            int numEtudiant = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == user)
+                                                            .Numero_Etudiant;
+
+            if (int.TryParse(button.ID, out int numAtelier))
+            {
+                Etudiant_Atelier newEntry = new Etudiant_Atelier()
+                {
+                    Numero_Etudiant = numEtudiant,
+                    NumAtelier = numAtelier
+                };
+
+                context.Etudiant_Ateliers.InsertOnSubmit(newEntry);
+
+                context.SubmitChanges();
+            }
+        }
+
+        public static void Unsubscribe(object sender, EventArgs e)
+        {
+            HtmlInputButton button = (HtmlInputButton)sender;
+            string user = HttpContext.Current.User.Identity.Name;
+
+            int numEtudiant = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == user)
+                                                            .Numero_Etudiant;
+
+            if (int.TryParse(button.ID, out int numAtelier))
+            {
+                Etudiant_Atelier toDelete = context.Etudiant_Ateliers.SingleOrDefault(ea => ea.Numero_Etudiant == numEtudiant
+                                                                                                            && ea.NumAtelier == numAtelier);
+
+                context.Etudiant_Ateliers.DeleteOnSubmit(toDelete);
+
+                context.SubmitChanges();
+            }
         }
     }
 }

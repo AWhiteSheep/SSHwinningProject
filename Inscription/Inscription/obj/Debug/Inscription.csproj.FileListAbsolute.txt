@@ -112,3 +112,6 @@ E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.cs
 E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
 E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
 E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb
+K:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe
+K:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.pdb
+K:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe.config
