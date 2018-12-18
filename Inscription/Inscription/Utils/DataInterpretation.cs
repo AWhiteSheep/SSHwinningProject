@@ -207,12 +207,10 @@ namespace Inscription.Utils
             HtmlInputButton button = (HtmlInputButton)sender;
             string user = HttpContext.Current.User.Identity.Name;
 
-            int numEtudiant = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == user)
-                                                            .Numero_Etudiant;
 
             if (int.TryParse(button.ID, out int numAtelier))
             {
-                Etudiant_Atelier toDelete = context.Etudiant_Atelier.SingleOrDefault(ea => ea.Numero_Etudiant == numEtudiant.ToString()
+                Etudiant_Atelier toDelete = context.Etudiant_Atelier.SingleOrDefault(ea => ea.Numero_Etudiant == user
                                                                                                             && ea.NumAtelier == numAtelier);
 
                 context.Etudiant_Atelier.DeleteOnSubmit(toDelete);

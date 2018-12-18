@@ -26,3 +26,10 @@ K:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csprojA
 K:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
 K:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.exe
 K:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.pdb
+I:\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe.config
+I:\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe
+I:\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.pdb
+I:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csprojResolveAssemblyReference.cache
+I:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
+I:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.exe
+I:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.pdb
