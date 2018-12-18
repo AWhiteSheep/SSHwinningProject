@@ -77,6 +77,12 @@
             text-transform: uppercase;
             letter-spacing: 0.03em;
         }
+
+        table{
+            width:80%;
+            border: none;
+            margin: auto;
+        }
     </style>
     <title>Ajouter Atelier</title>
 </asp:Content>
@@ -118,19 +124,19 @@
                                 </div>
                                 <%-- Required field validator --%>
                                 <asp:RequiredFieldValidator Display="Dynamic" ControlToValidate="txt_date" ID="RequiredFieldValidator3" runat="server" ErrorMessage="S'il vous plait entrer la date" ForeColor="Red"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ControlToValidate="txt_date" ID="RegularExpressionValidator1" runat="server" ErrorMessage="Le format n'est pas le bon --> 12/30/2002" ForeColor="Red" ValidationExpression="^([0]\d|[1][0-2])\/([0-2]\d|[3][0-1])\/([2][01]|[1][6-9])\d{2}(\s([0-1]\d|[2][0-3])(\:[0-5]\d){1,2})?$" Display="Dynamic"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ControlToValidate="txt_date" ID="RegularExpressionValidator1" runat="server" ErrorMessage="Le format n'est pas le bon --> dd/mm/yyyy" ForeColor="Red" Display="Dynamic" ValidationExpression="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"></asp:RegularExpressionValidator>
                                 <div class="wrap-input100 validate-input" data-validate="S'il vous plait entrer la date">
                                     <asp:TextBox ID="txt_date" runat="server" class="input100" type="text" name="date" placeholder="Date" />
                                     <span class="focus-input100"></span>
                                 </div>
                                 <%-- Required field validator --%>
                                 <asp:RequiredFieldValidator Display="Dynamic" ControlToValidate="txt_heure" ID="RequiredFieldValidator4" runat="server" ErrorMessage="S'il vous plait entrer l'heure" ForeColor="Red"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txt_heure" ID="RegularExpressionValidator2" runat="server" ErrorMessage="Le format n'est pas le bon --> 10:12:34" ForeColor="Red" ValidationExpression="^\s*-?(\d*\.)?([0-2])?[0-9]:([0-5])?[0-9]:([0-5])?[0-9](\.[0-9]{1,7})?\s*$"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="txt_heure" ID="RegularExpressionValidator2" runat="server" ErrorMessage="Le format n'est pas le bon --> 10:12" ForeColor="Red" ValidationExpression="^\d{1,2}:\d{2}$"></asp:RegularExpressionValidator>
                                 <div class="wrap-input100 validate-input" data-validate="S'il vous plait entrer l'heure">
                                     <asp:TextBox ID="txt_heure" runat="server" class="input100" type="text" name="heure" placeholder="Heure début" />
                                     <span class="focus-input100"></span>
                                 </div>
-                                <asp:RegularExpressionValidator ControlToValidate="txt_heure_fin" ID="RegularExpressionValidator3" runat="server" ErrorMessage="Le format n'est pas le bon --> 10:12:34" ForeColor="Red" ValidationExpression="^\s*-?(\d*\.)?([0-2])?[0-9]:([0-5])?[0-9]:([0-5])?[0-9](\.[0-9]{1,7})?\s*$"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ControlToValidate="txt_heure_fin" ID="RegularExpressionValidator3" runat="server" ErrorMessage="Le format n'est pas le bon --> 10:12" ForeColor="Red" ValidationExpression="^\d{1,2}:\d{2}$"></asp:RegularExpressionValidator>
                                 <%-- Required field validator --%>
                                 <asp:RequiredFieldValidator Display="Dynamic" ControlToValidate="txt_heure_fin" ID="RequiredFieldValidator10" runat="server" ErrorMessage="S'il vous plait entrer l'heure de fin" ForeColor="Red"></asp:RequiredFieldValidator>
                                 <div class="wrap-input100 validate-input" data-validate="S'il vous plait entrer l'heure de fin">
@@ -169,10 +175,10 @@
                 </div>
 
                 <%-- l'endroit avec la liste de tout les ateliers --%>
-                <div id="AtelierList" class="container  tab-pane fade">
-                    <div class="display-4" style="text-align:center">Les ateliers</div>
+                <div id="AtelierList" class="container  tab-pane fade" style="background-color: rgba(242, 242, 242, .5);min-height: 81vh;">
+                    <div id="PageTitle" class="display-4" style="text-align:center;padding: 26px;">Les ateliers</div>
                     <asp:GridView ID="gridViewAtelier" runat="server" AutoGenerateColumns="false" >  
-                        <Columns>  
+                        <Columns>
                             <asp:BoundField DataField="contentTitle" HeaderText="Titre" ItemStyle-Width="150"/>  
                             <asp:BoundField DataField="campus" HeaderText="Campus" ItemStyle-Width="60" />  
                             <asp:BoundField DataField="Salle" HeaderText="Salle" ItemStyle-Width="60" />  
@@ -222,7 +228,6 @@
 
         $(document).ready(function () {
             $("tbody").children().first().addClass("row-header");
-
         });
     </script>
 </asp:Content>

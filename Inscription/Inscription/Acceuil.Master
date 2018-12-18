@@ -85,6 +85,9 @@
 
         .btnLogOut {
         }
+        body{
+            min-height:70vh;
+        }
     </style>
 
 </head>
@@ -231,7 +234,7 @@
             </div>
         </nav>
         <%-- End of nav bar --%>
-
+        <div style="min-height:85vh;">
         <%-- ----------------------------------------------------------------------------------------- --%>
         <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
         <%-- ----------------------------------------------------------------------------------------- --%>
@@ -240,7 +243,7 @@
         <%-- ----------------------------------------------------------------------------------------- --%>
         <%-- Les informations des autres pages seront mis dans le contentPlaceholder ID contentBody --%>
         <%-- ----------------------------------------------------------------------------------------- --%>
-
+        </div>
         <%-- si n'est pas connecté afficher le boutton pour que l'usager se connnecte --%>
         <div id="btnConnection" class="connectez-vous" runat="server">
             <small style="font-size: 12px;">Vous n'êtes pas connecté</small><br />

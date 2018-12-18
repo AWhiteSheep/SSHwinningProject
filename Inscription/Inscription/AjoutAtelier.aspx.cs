@@ -39,7 +39,8 @@ namespace Inscription
                     Atelier.contentTitle = txttitre.Text;
                     Atelier.campus = txt_Campus.Text;
                     Atelier.Salle = txt_salle.Text;
-                    Atelier.dateDebut = Convert.ToDateTime(txt_date.Text);
+                    var adsf = DateTime.Now.ToString();
+                    Atelier.dateDebut = DateTime.Parse(txt_date.Text);
                     Atelier.HeureDebut = TimeSpan.Parse(txt_heure.Text);
                     Atelier.HeureFin = TimeSpan.Parse(txt_heure_fin.Text);
                     Atelier.Max_Eleves = int.Parse(txt_elevemax.Text);
@@ -51,15 +52,13 @@ namespace Inscription
                 catch (Exception)
                 {
                     reussi = false;
+                    throw;
                 }
 
                 if (reussi)
                     lblSuccess.Text = $"L'ajout de l'atelier {txttitre.Text} à réussi!";
                 else
-                    lblSuccess.Text = $"L'ajout de l'atelier {txttitre.Text} n'a pas réussi...";
-
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "ShowAjoutAdded();");
-
+                    lblSuccess.Text = $"L'ajout de l'atelier {txttitre.Text} n'a pas réussi...";                
             }
         }
 

@@ -12,3 +12,10 @@ K:\A18\Prog3\proj\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\te
 K:\A18\Prog3\proj\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
 K:\A18\Prog3\proj\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.exe
 K:\A18\Prog3\proj\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.pdb
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe.config
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.pdb
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csprojAssemblyReference.cache
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.exe
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.pdb

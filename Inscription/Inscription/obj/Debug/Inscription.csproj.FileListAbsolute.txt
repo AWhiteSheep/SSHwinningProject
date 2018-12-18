@@ -115,3 +115,6 @@ E:\Cégep\Git\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pd
 K:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe
 K:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.pdb
 K:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe.config
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\testingDS.pdb
+C:\Users\info1\Documents\GitHub\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe.config
