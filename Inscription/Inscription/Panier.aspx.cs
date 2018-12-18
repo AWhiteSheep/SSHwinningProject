@@ -110,9 +110,9 @@ namespace Inscription
 
             if (idStudent != 0)
             {
-                var Atelier = AtelierDataContext.Etudiant_Atelier.Single(ea => ea.NumAtelier == int.Parse(value) && ea.Numero_Etudiant == idStudent);
+                var Atelier = AtelierDataContext.Etudiant_Ateliers.Single(ea => ea.NumAtelier == int.Parse(value) && ea.Numero_Etudiant == idStudent);
 
-                AtelierDataContext.Etudiant_Atelier.DeleteOnSubmit(Atelier);
+                AtelierDataContext.Etudiant_Ateliers.DeleteOnSubmit(Atelier);
                 AtelierDataContext.SubmitChanges();
 
                 _BindAtelierAndStudent();
