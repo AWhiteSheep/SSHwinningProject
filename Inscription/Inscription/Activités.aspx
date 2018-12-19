@@ -104,7 +104,9 @@
                     <br />--%>
                 <button class="btn effacer-tag" id="tag_enlever" runat="server" onserverclick="btnEnleverChoix_Click" clientidmode="static"><i class="fa fa-times-circle"></i></button>
                 <%--<asp:Button class="btn choix-tag" ID="tag_science" runat="server" ClientIDMode="static" onclick="btnChoixTags_Click">science</asp:Button>--%>
-                <asp:Panel ID="pnButtons" runat="server"></asp:Panel>
+                <asp:Panel ID="pnTags" runat="server"></asp:Panel>
+                <hr style="width:50%" />
+                <asp:Panel ID="pnCampusTags" runat="server"></asp:Panel>
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
