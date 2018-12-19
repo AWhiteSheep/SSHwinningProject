@@ -173,3 +173,6 @@ G:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CoreCo
 G:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CopyComplete
 G:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
 G:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb
+W:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe
+W:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.pdb
+W:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe.config

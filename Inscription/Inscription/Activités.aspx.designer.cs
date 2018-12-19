@@ -40,13 +40,22 @@ namespace Inscription {
         protected global::System.Web.UI.HtmlControls.HtmlButton tag_enlever;
         
         /// <summary>
-        /// pnButtons control.
+        /// pnTags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnButtons;
+        protected global::System.Web.UI.WebControls.Panel pnTags;
+        
+        /// <summary>
+        /// pnCampusTags control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnCampusTags;
         
         /// <summary>
         /// upSlotForServerHead control.

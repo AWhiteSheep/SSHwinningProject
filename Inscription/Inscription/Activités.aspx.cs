@@ -31,7 +31,12 @@ namespace Inscription
             {
                 HtmlInputButton newButton = CreateTagButton(tag);
 
-                pnButtons.Controls.Add(newButton);
+                if (newButton.Value == "Gabrielle-Roy" || newButton.Value == "Félix-Leclerc")
+                {
+                    pnCampusTags.Controls.Add(newButton);
+                }
+
+                else { pnTags.Controls.Add(newButton); }
 
             }
 
@@ -49,7 +54,7 @@ namespace Inscription
         {
             activeTags.Clear();
 
-            foreach (var button in pnButtons.Controls.OfType<HtmlInputButton>())
+            foreach (var button in pnTags.Controls.OfType<HtmlInputButton>())
             {
                 button.Attributes["class"] = "btn choix-tag";
             }
