@@ -65,7 +65,7 @@ namespace Inscription.Utils
 
             
 
-            data.Attributes.Add("class", "mb-0");
+            data.Attributes.Add("class", "mb-0 smallInfo");
             data.Attributes.Add("style", "clear:both");
 
             data.InnerText = data.InnerText.ToUpper();

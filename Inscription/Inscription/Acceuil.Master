@@ -88,6 +88,31 @@
         body{
             min-height:70vh;
         }
+
+         #ModalForImage, #LoginModal{
+            transform: translate(0, 20%);
+        }
+                 /*badge yay*/
+        .badge-atelier {
+            position: relative;
+        }
+
+            .badge-atelier[data-badge]:after {
+                content: attr(data-badge);
+                position: absolute;
+                top: -2px;
+                right: 1px;
+                font-size: .7em;
+                background: green;
+                color: white;
+                width: 18px;
+                height: 18px;
+                text-align: center;
+                line-height: 18px;
+                border-radius: 50%;
+                box-shadow: 0 0 1px #333;
+            }
+
     </style>
 
 </head>
@@ -111,7 +136,7 @@
                 <i class="fab fa-facebook"></i>
             </a>
             <%-- Lien vers mon panier mon panier si n'est pas connecté redirigé vers la connection --%>
-            <a href="Panier.aspx">
+            <a href="Panier.aspx" id="linkToPanier" runat="server">
                 <i class="fas fa-shopping-cart"></i>
             </a>
             <%-- Sera modifié lorsque l'usager va se connecter --%>
@@ -227,6 +252,7 @@
                 <span class="form-inline mt-2 mt-md-0" style="margin: .5rem">
                     
                  <%-- Entré pour le boutton d'insription a un atelier --%>
+                 <a href="Activités.aspx" class="btn btn-success" style="border-radius:50px">S'incrire à un atelier</a>
 
                 </span>
             </div>

@@ -23,11 +23,16 @@ namespace Inscription
             {
                 btnShowLogin.InnerText = HttpContext.Current.User.Identity.Name;
                 //btnShowLogin.
+
             }
             else
             {
                 btnShowLogin.InnerText = "Login"; 
             }
+
+            UpdateBadgeAtelier();
+            Page.SaveStateComplete += RefreshButtons;
+
         }
 
         protected void ValidateUser(object sender, EventArgs e)
@@ -102,6 +107,33 @@ namespace Inscription
             {
                 FormsAuthentication.SignOut();
                 Page.Response.Redirect("PageAcceuil.aspx");
+            }
+        }
+
+        private void RefreshButtons(object sender, EventArgs e)
+        {
+            UpdateBadgeAtelier();
+        }
+
+        protected void UpdateBadgeAtelier()
+        {
+            //sil'usager est loger
+            if (this.Page.User.Identity.IsAuthenticated)
+            {
+                //Ajouter l'attribut class avec badge + data-badge afin d'uppdater le nombre d'atelier que l'usager participe maintenant
+                linkToPanier.Attributes.Add("class", "badge-atelier");
+
+                //calcule le nombre total d'atelier qu'il est inscrit par uyne fonction SQL
+                int nData = (int)context.GetNombreAtelierInscritByStudent(HttpContext.Current.User.Identity.Name);
+
+                //Ajoute l'attribut data
+                linkToPanier.Attributes.Add("data-badge", nData.ToString());
+            }
+            else
+            {
+                //Faire certain de clear la class et le data
+                linkToPanier.Attributes.Remove("class");
+                linkToPanier.Attributes.Remove("data-badge");
             }
         }
 

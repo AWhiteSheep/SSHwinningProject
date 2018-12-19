@@ -136,6 +136,12 @@ namespace Inscription
 		{
 			return this.CreateMethodCallQuery<GetAllAteliersByStudentResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), etudiant);
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetNombreAtelierInscritByStudent", IsComposable=true)]
+		public System.Nullable<int> GetNombreAtelierInscritByStudent([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Etudiant", DbType="VarChar(25)")] string etudiant)
+		{
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), etudiant).ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DonneesActivites")]

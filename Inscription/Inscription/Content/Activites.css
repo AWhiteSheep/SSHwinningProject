@@ -47,6 +47,7 @@
 .search-activity .choix-tag {
     border-radius: 500px;
     margin: 10px 5px;
+    padding: 5px;
 }
 .search-activity .effacer-tag {
     border-radius: 500px;
@@ -77,13 +78,14 @@ div.info-panel {
     padding: 1% 4%;
     border-top: 1px solid rgb(50, 0, 100);
     font-family: 'Adamina';
+
 }
 
-div.info-panel img{
-    max-width: 100%;
-    float: left;
-    max-height: 64px;
-}
+    div.info-panel img {
+        max-width: 100%;
+        float: left;
+        max-height: 85px;
+    }
 
 div.info-panel p{
     text-align:right;
