@@ -49,13 +49,12 @@
         tr {
             border-radius: 7px;
             padding: 25px 30px;
-            display: flex;
             justify-content: space-between;
             box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
         }
 
             tr:hover {
-                background-color: rgba(255, 255, 255, 0.59);
+                background-color: rgba(251, 88, 88, 0.78);
             }
 
         th {
@@ -65,9 +64,8 @@
         }
 
         td {
-            padding: 0 20px;
-            display: flex;
-            padding: 10px 0;
+
+                padding: 10px 5px;
             border: none;
         }
 
@@ -75,6 +73,9 @@
                 color: #6C7A89;
             }
 
+        td>a{
+            color:navy;
+        }
         .row-header {
             background-color: #094569ad;
             font-size: 14px;
@@ -83,9 +84,9 @@
         }
 
         table {
-            width: 80%;
             border: none;
             margin: auto;
+                background-color: aliceblue;
         }
 
         #contentBody_hiddenMessage {
@@ -228,10 +229,10 @@
                             <asp:BoundField DataField="contentTitle" HeaderText="Titre" />
                             <asp:BoundField DataField="campus" HeaderText="Campus" />
                             <asp:BoundField DataField="Salle" HeaderText="Salle" />
-                            <asp:BoundField DataField="dateDebut" HeaderText="Date" />
-                            <asp:BoundField DataField="HeureDebut" HeaderText="Heure" />
-                            <asp:BoundField DataField="HeureFin" HeaderText="Heure fin" />
-                            <asp:BoundField DataField="Max_Eleves" HeaderText="Élève maximal" />
+                            <asp:BoundField DataField="dateDebut" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"/>
+                            <asp:BoundField DataField="HeureDebut" HeaderText="Heure" DataFormatString="{0:hh\:mm}"/>
+                            <asp:BoundField DataField="HeureFin" HeaderText="Heure_fin" DataFormatString="{0:hh\:mm}"/>
+                            <asp:BoundField DataField="Max_Eleves" HeaderText="Max" />
                             <asp:BoundField DataField="Conferencier" HeaderText="Conférencier" />
                             <asp:CommandField ShowDeleteButton="true" />
                         </Columns>
@@ -362,7 +363,7 @@
                 });
 
                 $(document).ready(function () {
-                    $("tbody").children().first().addClass("row-header");
+                    //$("tbody").children().first().addClass("row-header");
                     $("td>a").click(function (e) {
                         e.stopPropagation();
                     });
