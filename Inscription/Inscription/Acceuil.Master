@@ -325,6 +325,18 @@
                 $('#btnConnection').fadeOut("slow");
             }
         }).scroll;
+
+        //Dans la page Ateliers, le serveur crée des boutons spéciaux ayant la classe btn-login. Puisque l'affichage
+        //du modal de connexion se fait client-side, on laisse le client se charger de leur donner une fonction click qui
+        //l'affichera.
+        $(document).ready(function () {
+            $(".btn-login").click(function () {
+
+                    $('#LoginModal').modal('show');
+                    $('#txtUsername').prop('required', true);
+                    $('#txtPassword').prop('required', true);
+            })
+        })
     </script>
 </body>
 </html>

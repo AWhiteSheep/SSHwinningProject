@@ -76,42 +76,75 @@ namespace Inscription.Utils
             body.Controls.Add(summary);
             body.Controls.Add(data);
 
+            HtmlGenericControl subscriptionLine = new HtmlGenericControl("div");
+
+            int numSubs = context.Etudiant_Atelier.Count(sub => sub.NumAtelier == row.NumAtelier);
+            int maxSubs = row.Max_Eleves.HasValue? row.Max_Eleves.Value : 0;
+
             HtmlInputButton btnInscription;
 
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 string username = HttpContext.Current.User.Identity.Name;
 
-                            string numUser = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == username)
-                                                          .username;
+                string numUser = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == username)
+                                                .username;
 
-                            //Si l'usager est déjà inscrit à cet atelier...
-                            if (context.Etudiant_Atelier.SingleOrDefault(entry => entry.Numero_Etudiant == numUser.ToString() && entry.NumAtelier == row.NumAtelier) != null)
-                            {
-                                btnInscription = new HtmlInputButton()
-                                {
-                                    Value = "Désinscription",
-                                    ID = row.NumAtelier.ToString()
-                                };
-                                btnInscription.ServerClick += Unsubscribe;
-                                btnInscription.Attributes.Add("class", "btn btn-danger");
-                            }
+                //Si aucune place restante...
+                if (numSubs >= maxSubs)
+                {
+                    btnInscription = new HtmlInputButton()
+                    {
+                        Value = "Complet"
+                    };
 
-                            else
-                            {
-                                btnInscription = new HtmlInputButton()
-                                {
-                                    Value = "S'inscrire",
-                                    ID = row.NumAtelier.ToString()
-                                };
+                    btnInscription.Attributes.Add("class", "btn btn-secondary");
+                }            
 
-                                btnInscription.ServerClick += Subscribe;
-                                btnInscription.Attributes.Add("class", "btn btn-success");
-                            }
-                            body.Controls.Add(btnInscription);
+                //Si l'usager est déjà inscrit à cet atelier...
+                else if (context.Etudiant_Atelier.SingleOrDefault(entry => entry.Numero_Etudiant == numUser.ToString() && entry.NumAtelier == row.NumAtelier) != null)
+                {
+                    btnInscription = new HtmlInputButton()
+                    {
+                        Value = "Désinscription",
+                        ID = row.NumAtelier.ToString()
+                    };
+                    btnInscription.ServerClick += Unsubscribe;
+                    btnInscription.Attributes.Add("class", "btn btn-danger float-md-left");
+                }
+
+                else
+                {
+                    btnInscription = new HtmlInputButton()
+                    {
+                        Value = "S'inscrire",
+                        ID = row.NumAtelier.ToString()
+                    };
+
+                    btnInscription.ServerClick += Subscribe;
+                    btnInscription.Attributes.Add("class", "btn btn-success float-md-left");
+                }
+                body.Controls.Add(btnInscription);
             }
+            else
+            {
+                btnInscription = new HtmlInputButton()
+                {
+                    Value = "Connexion"
+                };
 
+                btnInscription.Attributes.Add("class", "btn btn-secondary btn-login");
+            }            
 
+            HtmlGenericControl subsDisplay = new HtmlGenericControl("span")
+            {
+                InnerText = $"\t  {maxSubs - numSubs} / {maxSubs} places disponibles"
+            };
+
+            subscriptionLine.Controls.Add(btnInscription);
+            subscriptionLine.Controls.Add(subsDisplay);
+
+            body.Controls.Add(subscriptionLine);
             panel.Controls.Add(body);
             return panel;
         }

@@ -159,3 +159,6 @@ I:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csprojResolve
 I:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.csproj.CoreCompileInputs.cache
 I:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.dll
 I:\SSHwinningProject\Inscription\Inscription\obj\Debug\Inscription.pdb
+W:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe
+W:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.pdb
+W:\A18\Prog3\proj\SSHwinningProject\Inscription\Inscription\bin\testingDS.exe.config
