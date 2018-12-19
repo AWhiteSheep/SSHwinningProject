@@ -90,8 +90,14 @@ namespace Inscription.Utils
                 string numUser = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == username)
                                                 .username;
 
-                //Si aucune place restante...
-                if (numSubs >= maxSubs)
+                //Si SingleOrDefault ne ramène pas Null, l'étudiant est inscrit
+                bool userAlreadySubscribed = context.Etudiant_Atelier.SingleOrDefault(entry => entry.Numero_Etudiant == numUser.ToString() 
+                                                                                            && entry.NumAtelier == row.NumAtelier) 
+                                                                                            != null;
+                
+
+                //Si aucune place restante, et l'utilisateur n'est pas deja inscrit...
+                if (numSubs >= maxSubs && !userAlreadySubscribed)
                 {
                     btnInscription = new HtmlInputButton()
                     {
@@ -101,8 +107,8 @@ namespace Inscription.Utils
                     btnInscription.Attributes.Add("class", "btn btn-secondary");
                 }            
 
-                //Si l'usager est déjà inscrit à cet atelier...
-                else if (context.Etudiant_Atelier.SingleOrDefault(entry => entry.Numero_Etudiant == numUser.ToString() && entry.NumAtelier == row.NumAtelier) != null)
+                //Si l'utilisateur est déjà inscrit à cet atelier...
+                else if (userAlreadySubscribed)
                 {
                     btnInscription = new HtmlInputButton()
                     {
