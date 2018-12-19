@@ -163,7 +163,6 @@ namespace Inscription.Utils
         public static List<DonneesAteliers> LookupTags(List<string> tags)
         {
             List<DonneesAteliers> output = new List<DonneesAteliers>();
-            AtelierDataDataContext context = new AtelierDataDataContext();
 
             if (tags.Count == 0)
             {
@@ -193,7 +192,6 @@ namespace Inscription.Utils
         public static List<DonneesAteliers> LookupStudent(int studentNum)
         {
             List<DonneesAteliers> output = new List<DonneesAteliers>();
-            AtelierDataDataContext context = new AtelierDataDataContext();
 
             List<int> nums = context.Etudiant_Atelier.Where(ea => ea.Numero_Etudiant == studentNum.ToString())
                                                      .Select(ea => ea.NumAtelier)
@@ -206,8 +204,6 @@ namespace Inscription.Utils
 
         public static Etudiant GetStudent(string userName)
         {
-            AtelierDataDataContext context = new AtelierDataDataContext();
-
             return context.Etudiant.SingleOrDefault(e => e.username == userName);
         }
 
