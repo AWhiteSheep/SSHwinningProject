@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Web.Security;
 using Inscription.Utils;
 using testingDS;
+using System.Collections.Specialized;
 
 namespace Inscription
 {
@@ -27,7 +28,7 @@ namespace Inscription
             }
             else
             {
-                btnShowLogin.InnerText = "Login"; 
+                btnShowLogin.InnerText = "Se connecter"; 
             }
 
             UpdateBadgeAtelier();
@@ -41,6 +42,11 @@ namespace Inscription
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
             int userId = 0;
+
+            //string pour la chaine de page current
+            string CurrentPage = HttpContext.Current.Request.Url.AbsoluteUri;
+
+            string Connection = "";
 
             if (DirectoryEnvironment.ValidateUser(username, password))
             {
@@ -58,11 +64,22 @@ namespace Inscription
 
                 FormsAuthentication.SetAuthCookie(username, true);
                 btnShowLogin.InnerText = username;
+                UpdateBadgeAtelier();
+
+                Connection = "Validated";
+
+                //lblAfterLogin.Text = "Vous êtes maintenant connecté!";
+                //lblAfterLogin.Attributes.Add("style", "background-color:green;border-color:green;padding:10px;"); 
             }
             else
             {
-                lblMessage.Text = "Crédentiels invalides";
+                Connection = "Failed";
+                lblMessage.Text = "Les entrés sont invalides!";
+                //lblAfterLogin.Text = "Certaines entrées sont invalides!";
+                //lblAfterLogin.Attributes.Add("style", "background-color:red;border-color:red;padding:10px;");
             }
+
+            Response.Redirect(CurrentPage + "?Connection=" + Connection);
 
             //string constr = ConfigurationManager.ConnectionStrings["ConnectionStringToDonneesActivite"].ConnectionString;
             //Connection à la base de données

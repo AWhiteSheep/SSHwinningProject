@@ -28,6 +28,17 @@
                 .bot-indicator a:hover {
                     text-decoration: none;
                 }
+        /*Controle la grandeur que le container prendra et set l'image de background qui pourra être remplacé*/
+        .acceuilBanner {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('../Images/choice 5.jpg');
+            background-position-x: center;
+            min-height: 80vh;
+            background-color: black;
+            background-position-y: 70%;
+        }
+
 
     </style>
 </asp:Content>
@@ -77,7 +88,11 @@
     <div class="acceuilBanner" style="margin: auto; position: relative;">
         <%-- Emplacement du titre si utilisé  --%>
         <%--<div class="acceuilTitle">SEMAINE DES SCIENCES HUMAINES</div>--%>
-        <div class="col-md-3" style="max-width: 400px; position: absolute;">
+        <div class="col-md-3" style="max-width: 400px;
+                                position: absolute;
+                                bottom: 0;
+                                right: 0;
+                                margin-bottom: 20px;">
             <div class="container-box" style="background-color: #ffffffbf; padding: 20px 30px;">
                 <%-- Liens utiles qui mènera à des sites intéressant pour les élèves --%>
                 <blockquote class="blockquote">
@@ -87,7 +102,12 @@
             </div>
         </div>
 
-        <div class="display-3" style="padding: 30px 30px; background-color: rgba(128, 128, 128, .8); position: absolute; bottom: 0px; width: -webkit-fill-available;">La science humaine</div>
+        <div class="display-3" style="padding: 30px 30px;
+                    background-color: #ffffffc7;
+                    position: absolute;
+                    top: 0px;
+                    width: -webkit-fill-available;
+                    text-align: center;">La science humaine</div>
     </div>
 
     <%--    <div class="container">

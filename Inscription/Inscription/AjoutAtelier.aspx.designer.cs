@@ -58,6 +58,15 @@ namespace Inscription {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl FormulaireAtelier;
         
         /// <summary>
+        /// Contrôle hiddenMessage.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hiddenMessage;
+        
+        /// <summary>
         /// Contrôle ref_titre.
         /// </summary>
         /// <remarks>
@@ -263,15 +272,6 @@ namespace Inscription {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
-        
-        /// <summary>
-        /// Contrôle hiddenMessage.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hiddenMessage;
         
         /// <summary>
         /// Contrôle AtelierList.

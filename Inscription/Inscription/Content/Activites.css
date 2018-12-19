@@ -82,9 +82,9 @@ div.info-panel {
 }
 
     div.info-panel img {
-        max-width: 100%;
+        width: 100%;
         float: left;
-        max-height: 85px;
+        height: 85px;
     }
 
 div.info-panel p{

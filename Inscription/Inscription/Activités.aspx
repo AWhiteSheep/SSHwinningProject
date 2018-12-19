@@ -72,6 +72,7 @@
             min-height: 111px;
             position: relative;
         }
+
     </style>
     <%-- Ajout du css pour la page Activité --%>
     <link rel="stylesheet" href="Content/Activites.css" />
@@ -84,7 +85,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
     <div class="container search-activity">
-        <div class="display-1" style="text-align: center;">Ateliers</div>
+        <div class="display-1" style="text-align: center;font-family: 'Time New Roman';">Ateliers</div>
         <asp:UpdatePanel ID="doCommand" runat="server">
             <%-- Le boutton est clické celui-ci enlêve  --%>
             <ContentTemplate>

@@ -136,6 +136,7 @@
                         <div class="wrap-contact100">
                             <div class="contact100-form validate-form">
                                 <span class="contact100-form-title">Ajout Atelier</span>
+                                <div id="hiddenMessage" class="hiddenMessage" runat="server">Vous avez bien entré un nouveau atelier!</div>
                                 <%-- Required field validator --%>
                                 <asp:RequiredFieldValidator ControlToValidate="txttitre" ID="ref_titre" runat="server" ErrorMessage="Le titre doit être entré" ForeColor="Red"></asp:RequiredFieldValidator>
                                 <div class="wrap-input100 validate-input" data-validate="S'il vous plait entrer un nom d'atelier">
@@ -210,8 +211,7 @@
                                         <span>clear
                                         </span>
                                     </button>
-                                </div>
-                                <div id="hiddenMessage" class="hiddenMessage" runat="server">Vous avez bien entré un nouveau atelier!</div>
+                                </div>                                
                             </div>
                         </div>
                     </div>

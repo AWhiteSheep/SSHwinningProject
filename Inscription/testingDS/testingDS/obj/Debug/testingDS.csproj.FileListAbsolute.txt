@@ -33,3 +33,10 @@ I:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csprojR
 I:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
 I:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.exe
 I:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.pdb
+G:\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe.config
+G:\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe
+G:\SSHwinningProject\Inscription\testingDS\testingDS\bin\Debug\testingDS.pdb
+G:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csprojAssemblyReference.cache
+G:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
+G:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.exe
+G:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.pdb

@@ -1,14 +1,4 @@
-﻿ /*Controle la grandeur que le container prendra et set l'image de background qui pourra être remplacé*/
-.acceuilBanner {
-    background-repeat: no-repeat;
-    background-image: url('../Images/Poster.JPG');
-    background-position-x: center;
-    height: 70vh;
-    background-color: black;
-    background-position-y: center;
-}
-
-
+﻿
 .acceuilTitle {
     /*Pour la création du shadow box autour du titre SEMAINE SCIENCES HUMAINES*/
     /*Pour choisir le type de positionnement pour l'élément

@@ -60,7 +60,7 @@ namespace Inscription.Utils
             HtmlGenericControl data = new HtmlGenericControl("p")
             {
                 InnerText = row.Conferencier + " | " + row.campus + " | " + row.Salle + " | " + row.dateDebut?.ToShortDateString() + " | "
-                + row.dateDebut?.ToShortTimeString()
+                + row.HeureDebut?.ToString(@"hh\:mm")
             };
 
             

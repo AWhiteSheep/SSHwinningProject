@@ -9,13 +9,16 @@
     height: 30px;
 }
 
-.top-indicator a:hover{
-    text-decoration:none;
-}
+    .top-indicator a:hover {
+        text-decoration: none;
+        color: #ffc107 !important;
+    }
 
 .top-indicator .lbLogin {color:black;}
 .top-indicator i {margin-right: 10px;}
-.top-indicator i:hover{color: navy;}
+    .top-indicator i:hover {
+        color: #ffc107 !important;
+    }
 .top-indicator .lbLogin:hover{color:navy; cursor:pointer;}
 
 .banner-image {
