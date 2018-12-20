@@ -12,7 +12,7 @@ namespace Inscription
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            SendMessage();
         }
 
         void SendMessage()

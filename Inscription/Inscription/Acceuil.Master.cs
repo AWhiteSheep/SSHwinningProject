@@ -61,7 +61,7 @@ namespace Inscription
                     context.Etudiant.InsertOnSubmit(newStudent);
                     context.SubmitChanges();
                 }
-
+                
                 FormsAuthentication.SetAuthCookie(username, true);
                 btnShowLogin.InnerText = username;
                 UpdateBadgeAtelier();

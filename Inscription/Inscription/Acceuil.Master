@@ -135,7 +135,7 @@
 </head>
 <body style="overflow-x: hidden;" id="body">
     <%-- Le form qui doit englober tout afin que tout puisse bien communiquer avec le serveur --%>
-    <form runat="server">
+    <form runat="server" defaultbutton="">
         <%-- Pour la connection sql nous avons besoin de mettre la ligne de connection dans le content holder dans la page crée de l'atelier --%>
         <asp:ContentPlaceHolder ID="SQLconnection" runat="server"></asp:ContentPlaceHolder>
         <%-- Rectangle en haut gauche pour le design --%>
@@ -361,7 +361,7 @@
         });
 
         $(window).scroll(function () {
-            if ($(document).scrollTop() > 100) {
+            if ($(document).scrollTop() > 100 && $("#btnShowLogin").innerText == "Se connecter") {
                 $('#btnConnection').fadeIn("slow");
             }
             else {
@@ -381,7 +381,7 @@
                     $('#txtUsername').prop('required', true);
                     $('#txtPassword').prop('required', true);
             })
-            if (window.location.href.indexOf('=') != -1) {
+            if (window.location.href.indexOf("Connection=") != -1) {
                 var URL = window.location.href.split('=');
                 var URlvalidate = URL[1];
 
@@ -395,6 +395,13 @@
                 }
                 $("#AfterLogin").modal("show");
             }
+
+            $(window).keydown(function(event){
+                if(event.keyCode == 13) {
+                  event.preventDefault();
+                  return false;
+                }
+              });
         })
 
     </script>
