@@ -111,6 +111,13 @@
         .modal-br {
             padding-bottom: 2px;
         }
+        #contentBody_DateEvent{
+            position: absolute;
+            border-collapse: collapse;
+            right: 28px;
+            top: 36px;
+            z-index: 41;
+        }
     </style>
     <title>Ajouter Atelier</title>
 </asp:Content>
@@ -159,8 +166,9 @@
                                 <%-- Required field validator --%>
                                 <asp:RequiredFieldValidator Display="Dynamic" ControlToValidate="txt_date" ID="RequiredFieldValidator3" runat="server" ErrorMessage="S'il vous plait entrer la date" ForeColor="Red"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ControlToValidate="txt_date" ID="RegularExpressionValidator1" runat="server" ErrorMessage="Le format n'est pas le bon --> dd/mm/yyyy" ForeColor="Red" Display="Dynamic" ValidationExpression="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"></asp:RegularExpressionValidator>
-                                <div class="wrap-input100 validate-input" data-validate="S'il vous plait entrer la date">
-                                    <asp:TextBox ID="txt_date" ClientIDMode="Static" ToValidate runat="server" class="input100" type="text" name="date" placeholder="Date" />
+                                <div class="wrap-input100 validate-input" style="position:relative;    display: inline-flex;z-index: 2;" data-validate="S'il vous plait entrer la date">
+                                    <asp:TextBox ID="txt_date" ClientIDMode="Static" ToValidate runat="server" class="input100" type="text" name="date" placeholder="Date" style="display:unset !important"/><asp:ImageButton ID="ibtnDate" ClientIDMode="Static" runat="server" ImageUrl="~/Images/calendaricon.png" Height="32px" OnClick="ibtnDepart_Click" CausesValidation="False" style="float:right;"/>
+                                    <asp:Calendar ID="DateEvent" runat="server" Visible="False" OnSelectionChanged="DateEvent_SelectionChanged" ></asp:Calendar>
                                     <span class="focus-input100"></span>
                                 </div>
                                 <%-- Required field validator --%>
@@ -245,7 +253,7 @@
                 $("#ajouter").click(function (e) {
                     if (Page_ClientValidate("")) {
                         $("#AtelierModal").modal('show');
-                    }
+                    } else { alert("Pas valide"); }
                     e.preventDefault();
                 });
                 $("#contentBody_hiddenMessage").click(function () {
@@ -334,8 +342,8 @@
 
                 //donner une option s'il veut ajouter un autre ou afficher tout les ateliers
 
-                $("tr").click(function () {
-                    if (this.getAttribute("class") == null) {
+        $("tr").click(function () {
+            if (this.getAttribute("class") == null && !$("#TheFormulaire").hasClass("active show")) {
                         //insertion de toute les informations qui sont modifiable
                         document.getElementById("txtAtelierTitle").value = $(this).children().eq(1).text();
                         document.getElementById("txtCampus").value = $(this).children().eq(2).text();

@@ -172,5 +172,20 @@ namespace Inscription
             TheFormulaire.Attributes.Remove("class");
             ListAteler.Attributes.Add("class", "active show");
         }
+
+        protected void ibtnDepart_Click(object sender, ImageClickEventArgs e)
+        {
+            if (DateEvent.Visible)
+            {
+                DateEvent.Visible = false;
+            }
+            else DateEvent.Visible = true;
+        }
+
+        protected void DateEvent_SelectionChanged(object sender, EventArgs e)
+        {
+            txt_date.Text = DateEvent.SelectedDate.ToShortDateString();
+            DateEvent.Visible = false;
+        }
     }
 }

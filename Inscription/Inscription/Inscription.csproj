@@ -89,8 +89,10 @@
     <Content Include="Images\Banners\YellowBubble.jpg" />
     <Content Include="Images\Banners\YellowBubble.png" />
     <Content Include="Images\bg-clouds.png" />
+    <Content Include="Images\calendaricon.png" />
     <Content Include="Images\choice 5.jpg" />
     <Content Include="Images\default-thumb.png" />
+    <Content Include="Images\header-logo-omnivox.svg" />
     <Content Include="Images\Poster.JPG" />
     <Content Include="Login.aspx" />
     <Content Include="Content\Acceuil.Master.css" />

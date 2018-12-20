@@ -134,6 +134,7 @@
 
             //Événement click des boutons avec la class de choix-tag
             $(".choix-tag").click(function () {
+                //toggleClass sert a mettre le tag ou de l'enlever
                 $(this).toggleClass("tag-active");
             });
 
@@ -144,6 +145,7 @@
         });
 
         function ResetTags() {
+            //enlève tout les tag de la class tag-active
             $(".tag-active").removeClass("tag-active");
         }
     </script>

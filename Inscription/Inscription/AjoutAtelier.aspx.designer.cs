@@ -148,6 +148,24 @@ namespace Inscription {
         protected global::System.Web.UI.WebControls.TextBox txt_date;
         
         /// <summary>
+        /// Contrôle ibtnDate.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibtnDate;
+        
+        /// <summary>
+        /// Contrôle DateEvent.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar DateEvent;
+        
+        /// <summary>
         /// Contrôle RequiredFieldValidator4.
         /// </summary>
         /// <remarks>
