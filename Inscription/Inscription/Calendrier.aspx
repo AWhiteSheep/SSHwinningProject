@@ -16,7 +16,7 @@
                 <li data-target="#slider_content" data-slide-to="1"></li>
                 <li data-target="#slider_content" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner">
+            <div class="carousel-inner" style="display:none;">
                 <div class="carousel-item active">
                     <%-- ------------------------------------------------------------------ --%>
                                 <%-- Calendrier de Gabrielle-Roy --%>
@@ -518,6 +518,8 @@
                     </div>
                 </div>
         </div>
+
+            <div id="pageContainer" runat="server" class="row justify-content-center" style="flex-wrap:unset;"></div>
             <%-- Boutton afin de selectionner quelle campus on devrait afficher --%>
         <div class="bouton-control-slider">
             <a class="slider_precedent" href="#slider_content" role="button" data-slide="prev" 

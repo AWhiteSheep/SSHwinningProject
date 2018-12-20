@@ -18,6 +18,9 @@ namespace Inscription
             //le ID de l'activité une variable est global à la solution qui déterminera se qui sera affiché sur la page --TODO
             string ActID = Request.QueryString["id"];
 
+            if (ActID != "")
+                Response.Redirect("PageAcceuil.aspx");
+
             //string pour la connection à la base de données
             string connStr = ConfigurationManager.ConnectionStrings["ConnectionStringToDonneesActivite"].ConnectionString;
 
@@ -43,10 +46,12 @@ namespace Inscription
             //    {
             //        while (reader.Read())
             //        {
-                        lbTitle.Text = Atelier.contentTitle;
-                        lbCampus.Text = Atelier.campus;
-                        lbSalle.Text = Atelier.Salle;
-                        lbContentMain.Text = Atelier.contentMain;
+            lbTitle.Text = Atelier.contentTitle;
+            h3When.InnerText = Atelier.dateDebut?.ToString("dd MMMM yyyy");
+            h0Heure.InnerText = Atelier.HeureDebut?.ToString(@"hh\:mm");
+            h3Campus.InnerText = Atelier.campus.ToString();
+            lbSalle.Text = Atelier.Salle;
+            lbContentMain.Text = Atelier.contentMain;
                 //    }
                 //}
                 //else

@@ -34,7 +34,7 @@
                 box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
             }
 
-        #btnRecherche {
+        #contentBody_ServerRecherche {
             vertical-align: unset !important;
             margin: 0px;
             margin-left: -5px;
@@ -72,7 +72,13 @@
             min-height: 111px;
             position: relative;
         }
-
+        div.subscriptionLine{
+            position:absolute;
+            right:0;
+        }
+        div.subscriptionLine>span{
+            margin-right:5px;
+        }
     </style>
     <%-- Ajout du css pour la page Activité --%>
     <link rel="stylesheet" href="Content/Activites.css" />
@@ -90,11 +96,10 @@
             <%-- Le boutton est clické celui-ci enlêve  --%>
             <ContentTemplate>
                 <div class="search-container">
-                    <input class="my-form-control search-txtBox" type="text"
-                        placeholder="Rechercher" aria-label="Search" />
-                    <button id="btnRecherche" class="btn btn-success my-2 my-sm-0" type="submit" style="border-color: black">
-                        <i class="fas fa-search" style="padding: 0px 5px;"></i>
-                    </button>
+                    <asp:TextBox ID="txtSearch" class="my-form-control search-txtBox" runat="server"
+                         placeholder="Rechercher" aria-label="Search"></asp:TextBox>
+<%--                        <i class="fas fa-search" style="padding: 0px 5px;"></i>--%>
+                    <asp:Button ID="ServerRecherche" class="btn btn-success my-2 my-sm-0" style="border-color: black" runat="server" Text="Rechercher" OnClick="ServerRecherche_Click" />
                 </div>
                 <%--                    <button class="btn choix-jour" id="J1" value="16" runat="server" ClientIDMode="static" onclick="btnChoix-jour_Click">Journée 1</button> 
                     <button class="btn choix-jour" id="J2" value="17" runat="server" ClientIDMode="static">Journée 2</button>

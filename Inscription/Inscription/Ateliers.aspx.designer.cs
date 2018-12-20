@@ -31,31 +31,31 @@ namespace Inscription {
         protected global::System.Web.UI.WebControls.Label lbTitle;
         
         /// <summary>
-        /// Contrôle lbTitleCoupOeil.
+        /// Contrôle h3When.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTitleCoupOeil;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl h3When;
         
         /// <summary>
-        /// Contrôle lbSmallInfo.
+        /// Contrôle h0Heure.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbSmallInfo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl h0Heure;
         
         /// <summary>
-        /// Contrôle lbCampus.
+        /// Contrôle h3Campus.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbCampus;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl h3Campus;
         
         /// <summary>
         /// Contrôle lbSalle.
@@ -65,6 +65,15 @@ namespace Inscription {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbSalle;
+        
+        /// <summary>
+        /// Contrôle btnCommand.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl btnCommand;
         
         /// <summary>
         /// Contrôle lbContentMain.

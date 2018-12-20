@@ -24,6 +24,8 @@ namespace Inscription
 
         private static List<string> activeTags = new List<string>();
 
+        private bool SearchInRun = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Crée un bouton pour chaque entrée dans la table Tags de notre database, et l'ajoute à la page.
@@ -66,9 +68,27 @@ namespace Inscription
         private void PopulateList()
         {
             upSlotForServerHead.ContentTemplateContainer.Controls.Clear();
-            List<DonneesAteliers> results = DataInterpretation.LookupTags(activeTags);
 
-            var orderedResults = results.OrderBy(atelier => atelier.contentTitle);
+            List<DonneesAteliers> results = new List<DonneesAteliers>();
+
+            if (txtSearch.Text != "")
+            {
+                List<DonneesAteliers> TitleReturn = DataInterpretation.CheckForInTitle(txtSearch.Text);
+
+                foreach (var item in TitleReturn)
+                {
+                    //add all with query in title
+                    results.Add(item);
+                }
+            }
+            else
+            {
+                SearchInRun = false;
+            }
+
+            results.AddRange(DataInterpretation.LookupTags(activeTags, SearchInRun));
+
+            var orderedResults = results.OrderBy(atelier => atelier.dateDebut);
 
             foreach (DonneesAteliers atelier in orderedResults)
             {
@@ -96,6 +116,8 @@ namespace Inscription
 
         private void tagbtn_Click(object sender, EventArgs e)
         {
+            SearchInRun = false;
+
             var button = (HtmlInputButton)sender;
 
             if (activeTags.Contains(button.Value))
@@ -113,6 +135,17 @@ namespace Inscription
             PopulateList();
         }
 
-
+        protected void ServerRecherche_Click(object sender, EventArgs e)
+        {
+            if(txtSearch.Text != "")
+            {
+                SearchInRun = true;
+                PopulateList();
+            }
+            else
+            {
+                SearchInRun = false;
+            }
+        }
     }
 }

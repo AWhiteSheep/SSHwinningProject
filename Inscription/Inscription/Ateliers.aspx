@@ -27,24 +27,15 @@
                     </div>
                 </div>
                 <div class="col-md-5 top-right">
-                     <div class="h3">
-                         <asp:Label ID="lbTitleCoupOeil" runat="server" Text="Label"></asp:Label></div>
-                    <p>
-                        <%-- Petite description de ce que c'est --%>
-                        <asp:Label ID="lbSmallInfo" runat="server" Text="Label"></asp:Label>
-                    </p>
-                    <hr />
-                        <div class="h3">Quand?</div>
+                        <div id="h3When" class="h1" runat="server">Quand?</div><br />
+                        <div id="h0Heure" class="h4" runat="server">Heure</div>
                         <hr />
                         <%-- Content Holder pour le titre de la session --%>
-                        <div class="h3">Où?</div>
-                            <span style="color:aquamarine !important">    <a href="#">
-                                <asp:Label ID="lbCampus" runat="server" Text="Label"></asp:Label></a>
-                                </span> -     <asp:Label ID="lbSalle" runat="server" Text="Label"></asp:Label>
-                        <hr />
-                        <div class="box-btn-inscription">
+                        <div id="h3Campus" runat="server" class="h3">Où?</div>
+                         
+                        <asp:Label ID="lbSalle" runat="server" Text="Label"></asp:Label>                        <hr />
+                        <div class="box-btn-inscription" id="btnCommand" runat="server"><%--btnSincrire--%>
                             <%-- Boutton d'inscription --%>
-                            <button class="btn btn-success btnSincrire">S'inscrire</button>
                         </div>                
 
                 </div>

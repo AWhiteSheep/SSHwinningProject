@@ -12,6 +12,7 @@ using static Inscription.AtelierDataDataContext;
 using System.Web.UI.HtmlControls;
 using System.Security.Cryptography;
 using System.Text;
+using System.Data.Linq.SqlClient;
 
 namespace Inscription.Utils
 {
@@ -77,7 +78,7 @@ namespace Inscription.Utils
             body.Controls.Add(data);
 
             HtmlGenericControl subscriptionLine = new HtmlGenericControl("div");
-
+            subscriptionLine.Attributes.Add("class", "subscriptionLine");
             int numSubs = context.Etudiant_Atelier.Count(sub => sub.NumAtelier == row.NumAtelier);
             int maxSubs = row.Max_Eleves.HasValue? row.Max_Eleves.Value : 0;
 
@@ -128,7 +129,7 @@ namespace Inscription.Utils
                     };
 
                     btnInscription.ServerClick += Subscribe;
-                    btnInscription.Attributes.Add("class", "btn btn-success float-md-left");
+                    btnInscription.Attributes.Add("class", "btn btn-success");
                 }
                 body.Controls.Add(btnInscription);
             }
@@ -147,8 +148,8 @@ namespace Inscription.Utils
                 InnerText = $"\t  {maxSubs - numSubs} / {maxSubs} places disponibles"
             };
 
-            subscriptionLine.Controls.Add(btnInscription);
             subscriptionLine.Controls.Add(subsDisplay);
+            subscriptionLine.Controls.Add(btnInscription);            
 
             body.Controls.Add(subscriptionLine);
             panel.Controls.Add(body);
@@ -160,11 +161,11 @@ namespace Inscription.Utils
         /// </summary>
         /// <param name="tags">Les tags à rechercher</param>
         /// <returns>Une liste d'objets DonneesAtelier</returns>
-        public static List<DonneesAteliers> LookupTags(List<string> tags)
+        public static List<DonneesAteliers> LookupTags(List<string> tags, bool SearchInRun)
         {
             List<DonneesAteliers> output = new List<DonneesAteliers>();
 
-            if (tags.Count == 0)
+            if (tags.Count == 0 && !SearchInRun)
             {
                 output = context.DonneesAteliers.ToList();
             } 
@@ -255,6 +256,15 @@ namespace Inscription.Utils
                 context.SubmitChanges();
                 button.Value = "Succès";
             }
+        }
+
+        //Retourne toute les DonneeAtleliers qui contienne ce qui est dans la query
+        public static List<DonneesAteliers> CheckForInTitle(string query)
+        {
+            //demande la query à la database
+            var toDisplay = context.DonneesAteliers.Where(t => SqlMethods.Like(t.contentTitle, $"%{query}%")).ToList();
+
+            return toDisplay;
         }
     }
 }

@@ -58,15 +58,14 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentBody" runat="server">
     <div class="container" style="padding-top: 25px; padding-bottom: 20px;">
-        <div class="h1">Récapitulatif</div>
-        <div style="border: 1.2px solid black;">
+        <div class="h1" style="font-family:'Time New Roman';padding-left: 15px;">Récapitulatif</div>
+        <div>
             <%-- script manager --%>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <%-- UpdatePanel --%>
             <asp:UpdatePanel ID="UpdatePanelAtelierInscrit" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <div class="row" style="background-color: black; color: white; margin: 0 !important">
-                        <div class="col-12">Vos ateliers</div>
+                    <div class="row" style="margin: 0 !important">
                         <br />
 
                         <%-- Table artificiel --%>
