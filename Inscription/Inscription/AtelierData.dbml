@@ -20,8 +20,8 @@
   </Table>
   <Table Name="dbo.Ateliers_Tags" Member="Ateliers_Tags">
     <Type Name="Ateliers_Tags">
-      <Column Name="NumAtelier" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="NumAtelier" Type="System.Int32" DbType="Int" IsPrimaryKey="true" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(25)" IsPrimaryKey="true" CanBeNull="true" />
       <Association Name="Tags_Ateliers_Tags" Member="Tags" ThisKey="Description" OtherKey="Description" Type="Tags" IsForeignKey="true" />
       <Association Name="DonneesAteliers_Ateliers_Tags" Member="DonneesAteliers" ThisKey="NumAtelier" OtherKey="NumAtelier" Type="DonneesAteliers" IsForeignKey="true" />
     </Type>

@@ -226,10 +226,11 @@
 
                                 <%-- Submit et si du côté serveur la page est valide de faire l'insertion dans la base de donnée --%>
                                 <div class="container-contact100-form-btn">
-                                    <button id="ajouter" onclick="ShowModal();" class="contact100-form-btn">
+<%--                                    <button id="ajouter" runat="server" class="contact100-form-btn">
                                         <span>Ajouter
                                         </span>
-                                    </button>
+                                    </button>--%>
+                                    <asp:Button ID="btnAjouter" runat="server" Text="Ajouter" />
                                     <button id="clear" class="contact100-form-btn-clear" causesvalidation="false">
                                         <span>clear
                                         </span>

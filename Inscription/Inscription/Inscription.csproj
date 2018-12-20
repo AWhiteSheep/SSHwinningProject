@@ -166,6 +166,7 @@
       <DependentUpon>AtelierData.dbml</DependentUpon>
     </None>
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram3.cd" />
     <None Include="packages.config" />
     <Content Include="Scripts\JavaAll.js" />
     <Content Include="Scripts\formValidation.js" />

@@ -35,13 +35,7 @@ namespace Inscription
             }
 
             hiddenMessage.Attributes.Add("class", "hiddenMessage");
-
-            Page.SaveStateComplete += AddClick;
-        }
-
-        private void AddClick(object sender, EventArgs e)
-        {
-            btnSubmit.Click += AtelierCreation_Click;
+            btnAjouter.Click += AtelierCreation_Click;
         }
 
         protected void AtelierCreation_Click(object sender, EventArgs e)
@@ -82,14 +76,16 @@ namespace Inscription
                     {
                         throw;
                     }
+
+                    if (AtelierDataContext.DonneesAteliers.Where(a => a.contentTitle == Atelier.contentTitle).Count() > 0) { return; }
+
                     AtelierDataContext.DonneesAteliers.InsertOnSubmit(Atelier); // un submit un pending
                     AtelierDataContext.SubmitChanges(); // de dataContext
 
 
-                    int newAtelierNum = AtelierDataContext.DonneesAteliers.SingleOrDefault(a => a.contentTitle == Atelier.contentTitle)
-                                                                          .NumAtelier;
+                    int newAtelierNum = Atelier.NumAtelier;
 
-                    List<Ateliers_Tags> tagAssociations = new List<Ateliers_Tags>();
+
 
                     foreach (string tag in activeTags)
                     {
@@ -99,11 +95,9 @@ namespace Inscription
                             NumAtelier = newAtelierNum
                         };
 
-                        tagAssociations.Add(newEntry);
+                        AtelierDataContext.Ateliers_Tags.InsertOnSubmit(newEntry);
+                        AtelierDataContext.SubmitChanges();
                     }
-
-                    AtelierDataContext.Ateliers_Tags.InsertAllOnSubmit(tagAssociations);
-                    AtelierDataContext.SubmitChanges();
 
                 }
                 catch (Exception)
@@ -163,7 +157,7 @@ namespace Inscription
             }
         }
 
-        void gvbind()
+        void gvbind(object sender = null, EventArgs e = null)
         {
             gridViewAtelier.DataSource = GetAtelierRecord();
             gridViewAtelier.DataBind();
