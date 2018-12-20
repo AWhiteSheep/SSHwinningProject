@@ -134,6 +134,7 @@
 
 
                     $(".choix-filter-annee").click(function (e) {
+                        //au click on met le tags active ou on enlève le toggle
                         $(this).toggleClass("active");
                         $(".btn").not(this).removeClass("active");
                         e.preventDefault();
@@ -262,8 +263,11 @@
         </div>
     </div>
     <script>
-            $(document).ready(function () {
-                $("div").filter(".all").show("fast");
+        $(document).ready(function () {
+                //courte animation
+            $("div").filter(".all").show("fast");
+            //lorsque le document est près mettre sur toute les block div avec la class ALL 
+            //un évéenement click si celuici est clické on met l'image dans la modal et on l'ouvre
                 $(document).on("click", "div .all", function () {
                     var ImageSrc = $(this).children().children().attr("src");
                     $("#pushImageForModal").attr("src", ImageSrc);

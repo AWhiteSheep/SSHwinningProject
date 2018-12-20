@@ -14,32 +14,40 @@ namespace Inscription
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            UploadFromServer();
+            //Au load updater le calendrier
+            if(!IsPostBack)
+                UploadFromServer();
         }
 
         void UploadFromServer()
         {
-            //StartDate
+            //StartDate un date qui sera donné par la collaboratrice
             DateTime date = new DateTime(2019, 04, 20);
 
+            //définition de la date de début
             int startDate = date.Date.DayOfYear;
-
+            //boucle pour afficher 5 nouveaux calendrier
             for (int i = 0; i < 5; i++)
             {
+                //Définni la date qui doit être process dans la base de donné
                 DateTime dateToProcess = new DateTime(date.Date.Year, 1, 1).AddDays(startDate - 1);
 
+                //Crée le container pour chaque jour de la semaine
                 HtmlGenericControl calendar_fix = create_calendar_fix();
+                //liste toute lesAtelier pour la journée 
+                var listAtelierJourne1 = context.DonneesAteliers.Where(e => e.dateDebut == dateToProcess).ToList().OrderBy(e => e.dateDebut);
 
-                var listAtelierJourne1 = context.DonneesAteliers.Where(e => e.dateDebut == dateToProcess).ToList();
-
+                //cré uncontainer pour les activités de la journé donné
                 var divCalendar_Envent = CreateCalendar_Events();
                 divCalendar_Envent.Controls.Add(new LiteralControl("<p class='ce_title'>Événement pour la journée</p>"));
 
+                //pour chaque atelier dans la liste retourné pusher un nouveau event item avec l'atelier en question en paramètre
                 foreach (var _atelier in listAtelierJourne1)
                 {
                     divCalendar_Envent.Controls.Add(Create_Event_Item(_atelier));
                 }
 
+                //crée le plan de journé en haut 
                 var Calendar_Plan = CreateCalendar_Plan(dateToProcess);
 
                 var calendar_light = create_calendar_light();
@@ -56,7 +64,7 @@ namespace Inscription
             }
 
         }
-
+        //cré la box qui fix la grandeur du calendrier dans page
         HtmlGenericControl create_calendar_fix()
         {
             HtmlGenericControl calendar_fix = new HtmlGenericControl("div");
@@ -75,7 +83,7 @@ namespace Inscription
 
             return calendar_light;
         }
-
+        //création d'un événement selon l'atelier donné
         HtmlGenericControl Create_Event_Item(DonneesAteliers _atelier)
         {
             HtmlGenericControl event_item = new HtmlGenericControl("div");
@@ -92,7 +100,7 @@ namespace Inscription
 
             return event_item;
         }
-
+        //Crée la balise d'évéenemt pour recevoir les event_item
         HtmlGenericControl CreateCalendar_Events()
         {
             HtmlGenericControl calendar_events = new HtmlGenericControl("div");
@@ -101,7 +109,7 @@ namespace Inscription
 
             return calendar_events;
         }
-
+        //crée le message en haut de chaque jour 
         HtmlGenericControl CreateCalendar_Plan(DateTime date)
         {
             HtmlGenericControl calendar_plan = new HtmlGenericControl("div");

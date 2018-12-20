@@ -40,3 +40,10 @@ G:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csprojA
 G:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
 G:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.exe
 G:\SSHwinningProject\Inscription\testingDS\testingDS\obj\Debug\testingDS.pdb
+C:\Users\Yan Ha\Desktop\git\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe.config
+C:\Users\Yan Ha\Desktop\git\Inscription\testingDS\testingDS\bin\Debug\testingDS.exe
+C:\Users\Yan Ha\Desktop\git\Inscription\testingDS\testingDS\bin\Debug\testingDS.pdb
+C:\Users\Yan Ha\Desktop\git\Inscription\testingDS\testingDS\obj\Debug\testingDS.csprojAssemblyReference.cache
+C:\Users\Yan Ha\Desktop\git\Inscription\testingDS\testingDS\obj\Debug\testingDS.csproj.CoreCompileInputs.cache
+C:\Users\Yan Ha\Desktop\git\Inscription\testingDS\testingDS\obj\Debug\testingDS.exe
+C:\Users\Yan Ha\Desktop\git\Inscription\testingDS\testingDS\obj\Debug\testingDS.pdb

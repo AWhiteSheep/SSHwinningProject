@@ -173,8 +173,10 @@
                 if (document.getElementById('btnShowLogin').innerText == "Se connecter") {
                     //Ouvre en modal
                     $('#LoginModal').modal('show');
+                    //met la valeur checked par default
                     $("#chkRememberMe").attr("checked", "");
-                    $("#chkRememberMe").attr("vertical-align","middle");
+                    $("#chkRememberMe").attr("vertical-align", "middle");
+                    //arrangement du csss pou le radio button
                     $("label[for='chkRememberMe']").attr("style", "padding-left:5px");
                     //prop les textbox avec l'attribut required
                     $('#txtUsername').prop('required', true);
@@ -215,7 +217,8 @@
                     <div class="modal-header modal-login-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                             &times;</button>
-                        <h4 class="modal-title" id="ModalTitle">S'identifier</h4>
+                        <h4 class="modal-title" id="ModalTitle"><img style="vertical-align: top;
+                            padding-right: 10px;" src="Images/header-logo-omnivox.svg"/>S'identifier </h4>
                     </div>
                     <div class="modal-body">
                         <label for="txtUsername">
@@ -323,7 +326,7 @@
         <%-- si n'est pas connecté afficher le boutton pour que l'usager se connnecte --%>
         <div id="btnConnection" class="connectez-vous" runat="server">
             <small style="font-size: 12px;">Vous n'êtes pas connecté</small><br />
-            <a class="btn btn-connectez-vous" href="Login.aspx">Connectez-vous</a>
+            <a class="btn btn-connectez-vous">Connectez-vous</a>
         </div>
     </form>
     <footer>
@@ -369,6 +372,7 @@
             $(this).find('.dropdown-menu').stop(true, true).delay(150).fadeOut(150);
         });
 
+        //Spy scroller afin de demander à l'usager de se connecter
         $(window).scroll(function () {
             if ($(document).scrollTop() > 100 && $("#btnShowLogin").innerText == "Se connecter") {
                 $('#btnConnection').fadeIn("slow");
@@ -384,33 +388,46 @@
         //du modal de connexion se fait client-side, on laisse le client se charger de leur donner une fonction click qui
         //l'affichera.
         $(document).ready(function () {
-            $(".btn-login").click(function () {
 
-                    $('#LoginModal').modal('show');
+            $(".btn-login").click(function () {
+                //show la modal au boutton click
+                $('#LoginModal').modal('show');
+                //prop les required attributes
                     $('#txtUsername').prop('required', true);
                     $('#txtPassword').prop('required', true);
             })
             if (window.location.href.indexOf("Connection=") != -1) {
+                //si le url détient la query Connection= retirer ce qui est après le = et vérifier ce que le serveeur a a nous dire
                 var URL = window.location.href.split('=');
                 var URlvalidate = URL[1];
-
+                //le label pour la connection pour afficher le message à l'usager
                 var elementlabelConnection = document.getElementById("lblAfterLogin");
                 if (URlvalidate == "Validated") {
+                    //le serveur dit comme quoi il est bien connecté a ça session
                     elementlabelConnection.innerText = "La connection a réussi!";
                     elementlabelConnection.setAttribute("style", "border-color:green;background-color:rgba(0,128,0,.65);padding:10px;");                    
                 } else {
+                    //Le serveur dit que la connection a échoué
                     elementlabelConnection.innerText = "La connection a échoué!";
                     elementlabelConnection.setAttribute("style", "border-color:red;background-color:rgba(255,0,0,.54);padding:10px;");
                 }
+                //ouverture de la modal
                 $("#AfterLogin").modal("show");
             }
 
-            $(window).keydown(function(event){
+            $(window).keydown(function (event) {
+                //prevent le key press Enter dans la page pour ne pas submit la page
                 if(event.keyCode == 13) {
                   event.preventDefault();
                   return false;
                 }
-              });
+            });
+
+            $('.btn-connectez-vous').click(function () {
+                if ($("#btnShowLogin").innerText == "Se connecter") {
+                    $('#LoginModal').modal('show');
+                }
+            });
         })
 
     </script>
