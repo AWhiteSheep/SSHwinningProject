@@ -17,7 +17,7 @@ using System.Data.Linq.SqlClient;
 namespace Inscription.Utils
 {
     /// <summary>
-    /// Classe utilitaire qui prend en charge les requêtes à la BD et la transformation des résultats en éléments HTML.
+    /// Classe utilitaire qui prend en charge les requêtes à la BD et la transformation des résultats en éléments affichables.
     /// </summary>
     public static class DataInterpretation
     {
@@ -34,6 +34,8 @@ namespace Inscription.Utils
         /// </returns>
         public static HtmlGenericControl CreateInfoPanel(DonneesAteliers row)
         {
+            //Création des éléments HTML qui affichent des données simples.
+
             HtmlGenericControl panel = new HtmlGenericControl("div");
 
             panel.Attributes.Add("class", "info-panel");
@@ -77,13 +79,17 @@ namespace Inscription.Utils
             body.Controls.Add(summary);
             body.Controls.Add(data);
 
+
             HtmlGenericControl subscriptionLine = new HtmlGenericControl("div");
             subscriptionLine.Attributes.Add("class", "subscriptionLine");
             int numSubs = context.Etudiant_Atelier.Count(sub => sub.NumAtelier == row.NumAtelier);
             int maxSubs = row.Max_Eleves.HasValue? row.Max_Eleves.Value : 0;
 
+
+            //Création du bouton qui prend en charge la souscription.
             HtmlInputButton btnInscription;
 
+            //Détermine si l'usager est connecté.
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 string username = HttpContext.Current.User.Identity.Name;
@@ -97,7 +103,8 @@ namespace Inscription.Utils
                                                                                             != null;
                 
 
-                //Si aucune place restante, et l'utilisateur n'est pas deja inscrit...
+                //Si aucune place restante, et l'utilisateur n'est pas deja inscrit, on crée un bouton
+                //"Complet"
                 if (numSubs >= maxSubs && !userAlreadySubscribed)
                 {
                     btnInscription = new HtmlInputButton()
@@ -108,7 +115,8 @@ namespace Inscription.Utils
                     btnInscription.Attributes.Add("class", "btn btn-secondary");
                 }            
 
-                //Si l'utilisateur est déjà inscrit à cet atelier...
+                //Si l'utilisateur est déjà inscrit à cet atelier, on crée un bouton désinscription.
+                //La méthode Unsubscribe est attachée à son événement ServerClick.
                 else if (userAlreadySubscribed)
                 {
                     btnInscription = new HtmlInputButton()
@@ -120,6 +128,7 @@ namespace Inscription.Utils
                     btnInscription.Attributes.Add("class", "btn btn-danger float-md-left");
                 }
 
+                //Sinon, un bouton pour l'inscription est créé. La méthode Subscribe prend en charge son evénement ServerClick.
                 else
                 {
                     btnInscription = new HtmlInputButton()
@@ -133,6 +142,9 @@ namespace Inscription.Utils
                 }
                 body.Controls.Add(btnInscription);
             }
+
+            //Si l'usager n'est pas connecté, un bouton connexion est créé. Ce bouton reçoit par l'entremise de JQuery
+            //une méthode qui affiche le Modal de connexion.
             else
             {
                 btnInscription = new HtmlInputButton()
@@ -143,6 +155,7 @@ namespace Inscription.Utils
                 btnInscription.Attributes.Add("class", "btn btn-secondary btn-login");
             }            
 
+            //Affiche le nombre de places restantes et le nombre de places maximum.
             HtmlGenericControl subsDisplay = new HtmlGenericControl("span")
             {
                 InnerText = $"\t  {maxSubs - numSubs} / {maxSubs} places disponibles"
@@ -161,15 +174,18 @@ namespace Inscription.Utils
         /// </summary>
         /// <param name="tags">Les tags à rechercher</param>
         /// <returns>Une liste d'objets DonneesAtelier</returns>
-        public static List<DonneesAteliers> LookupTags(List<string> tags, bool SearchInRun)
+        public static List<DonneesAteliers> LookupTags(List<string> tags)
         {
             List<DonneesAteliers> output = new List<DonneesAteliers>();
 
-            if (tags.Count == 0 && !SearchInRun)
+            //Si aucune tag choisie, retourne tout.
+            if (tags.Count == 0)
             {
                 output = context.DonneesAteliers.ToList();
             } 
 
+
+            //Sinon, ajoute tous les ateliers possédant cette tag dans output.
             foreach(string tag in tags)
             {
                 var queryResults = context.GetAllAteliersByTag(tag);
@@ -179,6 +195,8 @@ namespace Inscription.Utils
                     output.Add(context.DonneesAteliers.Single(a => a.NumAtelier == result.NumAtelier));
                 }
             }
+
+            //Puisque les ateliers peuvent avoir plusieurs tag, on fait un Distinct() pour éviter les doublons.
 
             output = output.Distinct().ToList();
 
@@ -194,6 +212,7 @@ namespace Inscription.Utils
         {
             List<DonneesAteliers> output = new List<DonneesAteliers>();
 
+            //Les numéros d'ateliers auxquels l'étudiant est inscrit.
             List<int> nums = context.Etudiant_Atelier.Where(ea => ea.Numero_Etudiant == studentNum.ToString())
                                                      .Select(ea => ea.NumAtelier)
                                                      .ToList();
@@ -208,6 +227,8 @@ namespace Inscription.Utils
             return context.Etudiant.SingleOrDefault(e => e.username == userName);
         }
 
+        //Méthode de hash qui serait utilisée pour cacher les mots de passe si on doit
+        //en fin de compte créer notre propre système de comptes utilisateurs.
         public static byte[] ComputeHash(string input)
         {
             SHA256 hasher = SHA256.Create();
@@ -215,16 +236,23 @@ namespace Inscription.Utils
             return (hasher.ComputeHash(Encoding.UTF8.GetBytes(input)));
         }
 
+        /// <summary>
+        /// Assigne l'utilisateur courant à l'atelier représenté par l'ID du bouton cliqué.
+        /// La souscription est réflétée dans la BD.
+        /// </summary>
+        /// <param name="sender">Bouton cliqué. Son ID correspond au numéro de l'atelier choisi dans la BD.</param>
         public static void Subscribe(object sender, EventArgs e)
         {
             HtmlInputButton button = (HtmlInputButton)sender;
+
+            //Recherche d'un numéro étudiant à partir de l'utilisateur authentifié.
             string user = HttpContext.Current.User.Identity.Name;
-
-            time
-
             string numEtudiant = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == user)
                                                             .username;
 
+            //Ce if sert principalement à la détection d'erreurs. Le ID du bouton est assigné
+            //programmatiquement, alors il devrait toujours parser. Si le programme assigne le ID faussement et celui-ci ne parse pas,
+            //nous saurons immédiatement d'où vient l'erreur.
             if (int.TryParse(button.ID, out int numAtelier))
             {
                 Etudiant_Atelier newEntry = new Etudiant_Atelier()
@@ -236,10 +264,22 @@ namespace Inscription.Utils
                 context.Etudiant_Atelier.InsertOnSubmit(newEntry);
 
                 context.SubmitChanges();
-                button.Value = "Succès";
+            }
+            else
+            {
+                throw new System.ArgumentException($"int.Parse() Could not parse {button.ID} on {button.ToString()}.")
+                {
+                    Source = button.ID
+                };
             }
         }
 
+        /// <summary>
+        /// Prend en charge la désinscription d'un atelier. L'identité de l'étudiant provient du contexte HTTP,
+        /// et l'identité de l'atelier provient de l'ID du bouton cliqué.
+        /// </summary>
+        /// <param name="sender">Bouton cliqué. Son ID correspond au numéro de l'atelier choisi dans la BD.</param>
+        /// <param name="e"></param>
         public static void Unsubscribe(object sender, EventArgs e)
         {
             HtmlInputButton button = (HtmlInputButton)sender;
@@ -258,11 +298,19 @@ namespace Inscription.Utils
             }
         }
 
-        //Retourne toute les DonneeAtleliers qui contienne ce qui est dans la query
-        public static List<DonneesAteliers> CheckForInTitle(string query)
+        /// <summary>
+        /// Méthode d'extension qui permet de filtrer une liste d'ateliers selon une chaîne de recherche entrée par l'utilisateur.
+        /// La recherche est faite dans le titre de l'atelier et le nom du/de la conférencier/ère.
+        /// </summary>
+        /// <param name="ateliers">La liste d'ateliers à filtrer.</param>
+        /// <param name="query">La chaîne de recherche.</param>
+        /// <returns>La liste d'ateliers filtrée selon la recherche</returns>
+        public static List<DonneesAteliers> SearchFor(this List<DonneesAteliers> ateliers, string query)
         {
-            //demande la query à la database
-            var toDisplay = context.DonneesAteliers.Where(t => SqlMethods.Like(t.contentTitle, $"%{query}%")).ToList();
+            //Filtre ateliers en utilisant la méthode String.Contains()
+            var toDisplay = ateliers.Where(t => t.contentTitle.ToLower().Contains($"{query.ToLower()}")).ToList();
+
+            toDisplay.AddRange(ateliers.Where(t => t.Conferencier.ToLower().Contains($"{query.ToLower()}")));
 
             return toDisplay;
         }

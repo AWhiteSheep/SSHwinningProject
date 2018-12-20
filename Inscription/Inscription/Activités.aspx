@@ -97,7 +97,7 @@
             <ContentTemplate>
                 <div class="search-container">
                     <asp:TextBox ID="txtSearch" class="my-form-control search-txtBox" runat="server"
-                         placeholder="Rechercher" aria-label="Search"></asp:TextBox>
+                         placeholder="Entrez un mot clé ou un nom de conférencier" aria-label="Search"></asp:TextBox>
 <%--                        <i class="fas fa-search" style="padding: 0px 5px;"></i>--%>
                     <asp:Button ID="ServerRecherche" class="btn btn-success my-2 my-sm-0" style="border-color: black" runat="server" Text="Rechercher" OnClick="ServerRecherche_Click" />
                 </div>

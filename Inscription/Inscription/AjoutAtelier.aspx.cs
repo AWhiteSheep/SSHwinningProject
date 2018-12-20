@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Inscription
@@ -15,7 +16,7 @@ namespace Inscription
         //Connection à la base de données
         static string connStr = ConfigurationManager.ConnectionStrings["ConnectionStringToDonneesActivite"].ConnectionString;
         public static AtelierDataDataContext AtelierDataContext = new AtelierDataDataContext(connStr);
-
+        static List<string> activeTags = new List<String>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,9 +25,23 @@ namespace Inscription
                 gridViewAtelier.DataSource = GetAtelierRecord();
                 gridViewAtelier.DataBind();
             }
+
+            foreach (var tag in AtelierDataContext.Tags)
+            {
+                HtmlInputButton newButton = CreateTagButton(tag);
+
+                pnTags.Controls.Add(newButton);
+
+            }
+
             hiddenMessage.Attributes.Add("class", "hiddenMessage");
 
-            //sumbit.ServerClick += AtelierCreation_Click;
+            Page.SaveStateComplete += AddClick;
+        }
+
+        private void AddClick(object sender, EventArgs e)
+        {
+            btnSubmit.Click += AtelierCreation_Click;
         }
 
         protected void AtelierCreation_Click(object sender, EventArgs e)
@@ -58,6 +73,10 @@ namespace Inscription
 
                             Atelier.posterPath = "Images/"+ImageUpload.FileName;
                         }
+                        else
+                        {
+                            Atelier.posterPath = "Images/default-thumb.png";
+                        }
                     }
                     catch
                     {
@@ -65,6 +84,26 @@ namespace Inscription
                     }
                     AtelierDataContext.DonneesAteliers.InsertOnSubmit(Atelier); // un submit un pending
                     AtelierDataContext.SubmitChanges(); // de dataContext
+
+
+                    int newAtelierNum = AtelierDataContext.DonneesAteliers.SingleOrDefault(a => a.contentTitle == Atelier.contentTitle)
+                                                                          .NumAtelier;
+
+                    List<Ateliers_Tags> tagAssociations = new List<Ateliers_Tags>();
+
+                    foreach (string tag in activeTags)
+                    {
+                        Ateliers_Tags newEntry = new Ateliers_Tags()
+                        {
+                            Description = tag,
+                            NumAtelier = newAtelierNum
+                        };
+
+                        tagAssociations.Add(newEntry);
+                    }
+
+                    AtelierDataContext.Ateliers_Tags.InsertAllOnSubmit(tagAssociations);
+                    AtelierDataContext.SubmitChanges();
 
                 }
                 catch (Exception)
@@ -172,5 +211,44 @@ namespace Inscription
             TheFormulaire.Attributes.Remove("class");
             ListAteler.Attributes.Add("class", "active show");
         }
+
+        private HtmlInputButton CreateTagButton(Tags tag)
+        {
+            HtmlInputButton button = new HtmlInputButton()
+            {
+                Value = tag.Description,
+                CausesValidation = false
+                
+            };
+
+            button.Name = "btn";
+
+            button.Attributes.Add("class", "btn choix-tag");
+
+            button.ServerClick += tagbtn_Click;
+
+
+
+            return button;
+        }
+
+        private void tagbtn_Click(object sender, EventArgs e)
+        {
+
+            var button = (HtmlInputButton)sender;
+
+            if (activeTags.Contains(button.Value))
+            {
+                activeTags.Remove(button.Value);
+                button.Attributes["class"] = "btn choix-tag";
+            }
+            else
+            {
+                activeTags.Add(button.Value);
+
+                button.Attributes["class"] = "btn choix-tag tag-active";
+            }
+        }
     }
+
 }

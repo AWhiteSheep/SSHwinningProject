@@ -41,7 +41,6 @@ namespace Inscription
             //Valider la connection de l'usager
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
-            int userId = 0;
 
             //string pour la chaine de page current
             string CurrentPage = HttpContext.Current.Request.Url.AbsoluteUri;

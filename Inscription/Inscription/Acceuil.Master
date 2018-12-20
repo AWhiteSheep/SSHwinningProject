@@ -197,7 +197,16 @@
                 $('#txtPassword').prop('required', false);
             });
         </script>
-        <%-- La modal de bootstrap --%>
+
+
+
+        <%--------------------------------------------------------------------------------------------------------
+                                                        La modal de bootstrap 
+          --------------------------------------------------------------------------------------------------------%>
+
+
+
+
         <div class="modal fade ModalLoginPage" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
             aria-hidden="true">
             <div class="modal-dialog">
@@ -215,7 +224,7 @@
                         <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Votre numéro étudiant" />
                         <br />
                         <label for="txtPassword">
-                            Mot de passe</label>
+                            Mot de passe Omnivox</label>
                         <%-- Le txtPassword va être aussi lu par le serveur et va être comparé avec la connection de génie au serveur du cégep --%>
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control"
                             placeholder="Votre mot de passe étudiant" />

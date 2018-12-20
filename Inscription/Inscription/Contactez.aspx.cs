@@ -44,7 +44,7 @@ namespace Inscription
             {
                 client.Send(msg);
             }
-            catch (Exception ex)
+            catch
             {
 
             }

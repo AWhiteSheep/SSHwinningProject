@@ -24,8 +24,6 @@ namespace Inscription
 
         private static List<string> activeTags = new List<string>();
 
-        private bool SearchInRun = false;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //Crée un bouton pour chaque entrée dans la table Tags de notre database, et l'ajoute à la page.
@@ -69,24 +67,12 @@ namespace Inscription
         {
             upSlotForServerHead.ContentTemplateContainer.Controls.Clear();
 
-            List<DonneesAteliers> results = new List<DonneesAteliers>();
+            List<DonneesAteliers> results = DataInterpretation.LookupTags(activeTags);
 
             if (txtSearch.Text != "")
             {
-                List<DonneesAteliers> TitleReturn = DataInterpretation.CheckForInTitle(txtSearch.Text);
-
-                foreach (var item in TitleReturn)
-                {
-                    //add all with query in title
-                    results.Add(item);
-                }
+                results = results.SearchFor(txtSearch.Text.Trim());
             }
-            else
-            {
-                SearchInRun = false;
-            }
-
-            results.AddRange(DataInterpretation.LookupTags(activeTags, SearchInRun));
 
             var orderedResults = results.OrderBy(atelier => atelier.dateDebut);
 
@@ -116,7 +102,6 @@ namespace Inscription
 
         private void tagbtn_Click(object sender, EventArgs e)
         {
-            SearchInRun = false;
 
             var button = (HtmlInputButton)sender;
 
@@ -137,14 +122,9 @@ namespace Inscription
 
         protected void ServerRecherche_Click(object sender, EventArgs e)
         {
-            if(txtSearch.Text != "")
+            if (txtSearch.Text != "")
             {
-                SearchInRun = true;
                 PopulateList();
-            }
-            else
-            {
-                SearchInRun = false;
             }
         }
     }

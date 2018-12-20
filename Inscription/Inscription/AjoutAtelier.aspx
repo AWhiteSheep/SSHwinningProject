@@ -111,6 +111,16 @@
         .modal-br {
             padding-bottom: 2px;
         }
+
+        .btn.choix-tag{
+            border-radius: 50px;
+            margin: 10px 5px;
+            padding: 5px;
+        }
+
+        .btn.tag-active{
+             background-color:darkorange;
+        }
     </style>
     <title>Ajouter Atelier</title>
 </asp:Content>
@@ -196,6 +206,10 @@
                                     <textarea id="txt_Sommaire" clientidmode="Static" tovalidate runat="server" class="input100" name="sommaire" placeholder="Sommaire"></textarea>
                                     <span class="focus-input100"></span>
                                 </div>
+                                <div class="text-center">
+                                    Choisir les mots clé pertinents à cet atelier
+                                </div>
+                                <asp:Panel ID="pnTags" runat="server"></asp:Panel>
 
 
 
@@ -204,7 +218,7 @@
 
                                 <%-- Submit et si du côté serveur la page est valide de faire l'insertion dans la base de donnée --%>
                                 <div class="container-contact100-form-btn">
-                                    <button id="ajouter" class="contact100-form-btn">
+                                    <button id="ajouter" onclick="ShowModal();" class="contact100-form-btn">
                                         <span>Ajouter
                                         </span>
                                     </button>
@@ -242,12 +256,15 @@
                 </div>
             </div>
             <script>
-                $("#ajouter").click(function (e) {
+                function ShowModal(e) {
                     if (Page_ClientValidate("")) {
                         $("#AtelierModal").modal('show');
                     }
-                    e.preventDefault();
-                });
+                    else { alert("Invalide");}
+                    return false;
+                }
+
+
                 $("#contentBody_hiddenMessage").click(function () {
                     $(this).attr("class", "hiddenMessage");
                 });
@@ -270,7 +287,7 @@
                         <div class="modal-footer">
                             <%-- Au boutton click demande au serveur pour ajouter l'atelier!!!!!!!! :))))))) yayayyyayay --%>
                             <%-- Débute un postBackTrigger pour un file upload --%>
-                            <asp:Button ID="btnSubmit" ClientIDMode="Static" Text="Ajouter" runat="server" OnClick="AtelierCreation_Click" Class="btn btn-primary" CausesValidation="true" />
+                            <asp:Button ID="btnSubmit" ClientIDMode="Static" Text="Ajouter" runat="server" Class="btn btn-primary" CausesValidation="false" OnClick="AtelierCreation_Click" />
                             <button type="button" class="btn btn-default" data-dismiss="modal">
                                 Changer</button>
                         </div>
