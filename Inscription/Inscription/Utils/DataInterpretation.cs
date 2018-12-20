@@ -219,6 +219,8 @@ namespace Inscription.Utils
             HtmlInputButton button = (HtmlInputButton)sender;
             string user = HttpContext.Current.User.Identity.Name;
 
+            time
+
             string numEtudiant = context.Etudiant.SingleOrDefault(etudiant => etudiant.username == user)
                                                             .username;
 
